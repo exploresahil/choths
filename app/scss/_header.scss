@@ -1,0 +1,274 @@
+@use "./veriables" as v;
+
+header {
+  width: 100vw;
+  height: 160px;
+  padding: 0 6vw;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 999;
+
+  .logo-container {
+    position: relative;
+    height: 120px;
+    width: 200px;
+  }
+
+  .user-menu {
+    display: flex;
+    gap: 4em;
+
+    .user-menu-ecommercs {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: v.$dark;
+      border-radius: 100px;
+      overflow: hidden;
+
+      button {
+        padding: 15px 25px !important;
+
+        svg {
+          fill: v.$bg;
+        }
+
+        &:hover {
+          background-color: v.$textTeal;
+        }
+      }
+
+      .line {
+        width: 1px;
+        height: 60%;
+        background-color: v.$bg;
+      }
+    }
+
+    .menu {
+      padding: 12px 12px;
+      background-color: v.$dark;
+      border-radius: 100px;
+
+      svg {
+        stroke: v.$bg;
+        stroke-miterlimit: 10;
+        stroke-width: 2px;
+        width: 30px;
+        height: 30px;
+      }
+
+      &:hover {
+        background-color: v.$textTeal;
+      }
+    }
+  }
+
+  .open {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  .menu-open {
+    transform: translateX(0);
+    transition: transform 200ms ease;
+  }
+
+  nav {
+    position: fixed;
+    inset: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    background-color: rgba(0, 0, 0, 0);
+    transition: background-color 400ms ease;
+
+    .menu-close {
+      position: absolute;
+      top: -17%;
+      right: 6vw;
+      padding: 18px 18px;
+      background-color: v.$textTeal;
+      border-radius: 100px;
+
+      svg {
+        fill: v.$bg;
+      }
+    }
+
+    .menu {
+      position: absolute;
+      border-radius: 40px 0 0 40px;
+      width: 60%;
+      height: 65%;
+
+      display: flex;
+      justify-content: space-around;
+
+      right: 0;
+      top: 50%;
+
+      background-color: v.$bg;
+
+      transform: translateX(100vw);
+      transition: transform 400ms ease;
+
+      .section {
+        height: 100%;
+        width: calc(100% / 3);
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 16% 0;
+
+        ul {
+          display: flex;
+          flex-direction: column;
+          gap: 1.4em;
+
+          a {
+            font-size: 1.3rem;
+            font-weight: 500;
+            letter-spacing: 0.2px;
+          }
+        }
+      }
+
+      .left {
+        border-right: 1px solid v.$dark;
+      }
+
+      .center {
+        border-right: 1px solid v.$dark;
+
+        ul {
+          justify-self: flex-start;
+        }
+      }
+
+      .right {
+        height: 100%;
+        width: calc(100% / 3);
+        padding: 0 3%;
+        justify-content: center;
+        align-items: center;
+        gap: 1em;
+
+        .text {
+          display: flex;
+          align-items: flex-start;
+          gap: 0.6em;
+
+          .dot {
+            width: 15px;
+            height: 15px;
+
+            background-color: v.$red;
+            border-radius: 15px;
+
+            position: relative;
+            top: 6px;
+          }
+          .title {
+            display: flex;
+            flex-direction: column;
+            width: fit-content;
+
+            gap: 0.8em;
+
+            h2 {
+              font-size: 1.3rem;
+              text-transform: uppercase;
+              font-weight: 500;
+              letter-spacing: 0.5px;
+            }
+
+            p {
+              font-family: v.$fontRELI;
+              font-size: 0.6rem;
+              font-weight: 600;
+              letter-spacing: 0.5px;
+            }
+          }
+        }
+
+        form {
+          margin-top: 12px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 0.8em;
+
+          h2 {
+            font-family: v.$fontRM;
+            text-transform: uppercase;
+            font-size: 0.8em;
+            font-weight: 500;
+          }
+
+          input {
+            width: 110px;
+            height: 35px;
+            border: 1px solid v.$dark;
+            background: none;
+            padding: 0 12px;
+
+            &::placeholder {
+              opacity: 0.14;
+            }
+          }
+
+          input[type="email"] {
+            width: 232px;
+          }
+
+          .name {
+            display: flex;
+            gap: 0.8em;
+          }
+        }
+
+        button[type="submit"] {
+          margin-top: 10px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          border: 1px solid v.$bordercolor;
+          border-radius: 12px;
+
+          h3 {
+            font-family: v.$fontRL;
+            font-size: 0.7rem;
+            font-weight: 400;
+            margin: 0 16px;
+            letter-spacing: 0.5px;
+          }
+
+          svg {
+            margin: 2px 2px;
+            width: 25px;
+            height: 25px;
+          }
+        }
+      }
+
+      .socials {
+        margin-top: 120px;
+        display: flex;
+        gap: 1.8em;
+
+        a {
+          svg {
+            fill: v.$textTeal;
+            width: 25px;
+            height: 25px;
+          }
+        }
+      }
+    }
+  }
+}

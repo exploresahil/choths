@@ -1,3 +1,5 @@
+/* eslint-disable react/display-name */
+/* eslint-disable import/no-anonymous-default-export */
 export default () => {
   return (
     <svg viewBox="0 0 29.23 29.23">

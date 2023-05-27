@@ -1,0 +1,172 @@
+@use "../scss/veriables" as v;
+
+.main-process-section {
+  width: 100vw;
+  height: auto;
+  text-align: center;
+  color: v.$textTeal;
+
+  .main-process-heading {
+    display: flex;
+    flex-direction: column;
+    font-family: v.$fontAR;
+
+    h1 {
+      font-size: 6em;
+
+      span {
+        color: v.$textBrown;
+      }
+    }
+
+    h2 {
+      font-size: 4em;
+      margin-top: -1%;
+
+      span {
+        color: v.$textBrown;
+        font-style: italic;
+      }
+    }
+  }
+
+  .circular-text-container {
+    position: absolute;
+    width: 100vw;
+    overflow: hidden;
+    z-index: 0;
+
+    svg {
+      width: 118vw;
+      height: auto;
+      padding: 0;
+      margin-left: -9.6%;
+      z-index: 0;
+    }
+  }
+
+  .mission-section {
+    position: relative;
+    display: flex;
+    margin: 36% 20%;
+    gap: 5em;
+
+    .mission-text {
+      font-family: RALEWAY-MEDIUM;
+      color: #414042;
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      gap: 4em;
+
+      p {
+        font-size: 1.2em;
+      }
+
+      span {
+        font-weight: 900;
+      }
+
+      button {
+        display: flex;
+        text-align: left;
+        background-color: v.$textTeal;
+        width: fit-content;
+        padding: 10px 10px 10px 30px;
+        gap: 1em;
+        border-radius: 2em;
+
+        h3 {
+          font-family: RALEWAY-LIGHT;
+          font-size: 1.2em;
+          font-weight: 300;
+          color: white;
+        }
+
+        svg {
+          width: 1.8em;
+          padding-right: 5px;
+        }
+      }
+    }
+
+    .mission-container {
+      width: 100vw;
+      overflow: hidden;
+
+      svg {
+        width: 12.5vw;
+        height: auto;
+        margin-top: 12%;
+      }
+    }
+  }
+
+  .process-section {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    margin-top: -20%;
+    padding: 1px;
+    gap: 3px;
+    z-index: 999;
+
+    h1 {
+      font-family: v.$fontAR;
+      color: white;
+      font-size: 5.2em;
+      margin-top: -10%;
+    }
+
+    span {
+      font-family: v.$fontRL;
+      font-size: 0.2em;
+      padding: 0 1.2em 0 0;
+      margin: -1em 0 0 -2em;
+    }
+
+    p {
+      font-family: v.$fontRL;
+      text-align: left;
+      color: white;
+      font-size: 0.85em;
+      padding: 0 5em;
+    }
+
+    .sourcing-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15em;
+      align-items: center;
+      justify-content: space-around;
+      width: auto;
+      height: 90vh;
+      background-image: url(../../public/assets/images/Sourcing.png);
+      background-size: cover;
+    }
+
+    .production-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15em;
+      align-items: center;
+      justify-content: space-around;
+      width: auto;
+      height: 90vh;
+      background-image: url(../../public/assets/images/Production.png);
+      background-size: cover;
+    }
+
+    .packaging-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15em;
+      justify-content: space-around;
+      width: auto;
+      height: 90vh;
+      background-image: url(../../public/assets/images/Packaging.png);
+      background-size: cover;
+    }
+  }
+}

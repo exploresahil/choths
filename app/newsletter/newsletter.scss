@@ -1,4 +1,4 @@
-@use "../scss/veriables" as v;
+@use "@/app/scss/veriables" as v;
 
 .newsletter-form {
   display: flex;
@@ -7,6 +7,7 @@
   text-align: center;
   gap: 2em;
   font-family: RALEWAY-MEDIUM;
+  margin-top: 8em;
 
   h2 {
     font-size: 1.5em;
@@ -22,6 +23,7 @@
     input {
       width: 12.5em;
       font-size: 1.5em;
+      color: #1a1a1a;
       padding: 1em 1em;
       border-width: 2px;
       border-style: solid;
@@ -30,8 +32,9 @@
   }
 
   input {
-    width: 26.3em;
+    width: 26.35em;
     font-size: 1.5em;
+    color:#1a1a1a;
     padding: 1em 1em;
     border-width: 2px;
     border-style: solid;
@@ -42,7 +45,7 @@
   button {
     align-items: center;
     display: flex;
-    gap: 1em;
+    gap: 1.8em;
     padding: .3em .3em .3em 2.7em;
     border-radius: 1.6em;
     border-style: solid;

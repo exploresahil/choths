@@ -1,0 +1,52 @@
+@use "./veriables" as v;
+
+footer {
+  width: 100vw;
+  height: auto;
+  position: absolute;
+  margin-top: 5em;
+  z-index: 999;
+
+  .footer-bg-container {
+    position: absolute;
+
+    img {
+      object-fit: contain;
+      position: absolute;
+      width: 100.4vw;
+      height: auto;
+    }
+  }
+
+  .footer-components {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin: 4.5em 2em 0 2em;
+
+
+    .footer-logo-container {
+      position: relative;
+      height: 13em;
+      width: 10em;
+    }
+
+    .footer-text {
+      font-family: v.$fontRL;
+      font-size: .85em;
+    }
+
+    .footer-socials {
+      display: flex;
+      align-items: center;
+      gap: 2em;
+
+      svg {
+        fill: #ffffff;
+        width: 1.7em;
+        height: auto;
+      }
+    }
+  }
+}

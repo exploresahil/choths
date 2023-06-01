@@ -1,4 +1,4 @@
-import Arrow from "@/components/icons/Arrow";
+import Footer from "@/components/Footer";
 import NewsletterArrow from "@/components/icons/NewsletterArrow"
 import "./newsletter.scss";
 
@@ -17,6 +17,7 @@ export default function Newsletter() {
           <NewsletterArrow />
         </button>
       </form>
+      <Footer />
     </>
   );
 }

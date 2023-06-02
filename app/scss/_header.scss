@@ -1,6 +1,8 @@
 @use "./veriables" as v;
 
 header {
+  position: relative;
+  z-index: 99999;
   width: 100vw;
   height: 160px;
   padding: 0 6vw;
@@ -19,9 +21,9 @@ header {
 
   .user-menu {
     display: flex;
-    gap: 4em;
-    // right: 4em;
-    // position: fixed;
+    gap: 2em;
+    right: 6vw;
+    position: fixed;
 
     .user-menu-ecommercs {
       display: flex;

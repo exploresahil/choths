@@ -1,10 +1,8 @@
-import Footer from "@/components/Footer";
-import NewsletterArrow from "@/components/icons/NewsletterArrow"
-import "./newsletter.scss";
+import NewsletterArrow from "@/components/icons/NewsletterArrow";
 
 export default function Newsletter() {
   return (
-    <>
+    <div className="newsletter-form-container">
       <form className="newsletter-form">
         <h2>SIGN UP FOR OUR NEWSLETTER</h2>
         <div className="name">
@@ -17,7 +15,6 @@ export default function Newsletter() {
           <NewsletterArrow />
         </button>
       </form>
-      <Footer />
-    </>
+    </div>
   );
 }

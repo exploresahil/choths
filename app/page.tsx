@@ -1,8 +1,6 @@
-import Image from "next/image";
-
 import Arches from "@/components/icons/Arches";
-import Process from "@/app/process/page";
-import Newsletter from "@/app/newsletter/page";
+import Process from "@/components/Home/Process";
+import Newsletter from "@/components/Home/NewsLetter";
 
 export default function Home() {
   return (

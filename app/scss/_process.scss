@@ -109,11 +109,10 @@
     margin-top: -20%;
     padding: 1px;
     gap: 3px;
-    z-index: 999;
 
     h1 {
       font-family: v.$fontAR;
-      color: white;
+      color: v.$light;
       font-size: 5.2em;
       margin-top: -10%;
     }
@@ -128,7 +127,7 @@
     p {
       font-family: v.$fontRL;
       text-align: left;
-      color: white;
+      color: v.$light;
       font-size: 0.85em;
       padding: 0 5em;
     }

@@ -1,10 +1,7 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable react/display-name */
-/* eslint-disable import/no-anonymous-default-export */
 "use client";
 
 import Image from "next/image";
-import NavLinks from "@/components/NavLinks";
+import NavLinks from "@/components/Home/NavLinks";
 import Link from "next/link";
 
 import logo from "@/public/assets/logos/header-logo.svg";
@@ -19,7 +16,7 @@ import Menu from "@/components/icons/Menu";
 import MenuClose from "@/components/icons/MenuClose";
 import { useState, useRef, useEffect } from "react";
 
-export default () => {
+const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLElement | any>(null);
   const menuOutSide = menuRef.current;
@@ -37,7 +34,7 @@ export default () => {
   const handleMenuClose = () => {
     setMenuOpen(false);
   };
-
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     document.body.addEventListener("click", handleClickOutsideMenu);
     return () => {
@@ -154,3 +151,5 @@ export default () => {
     </header>
   );
 };
+
+export default Header;

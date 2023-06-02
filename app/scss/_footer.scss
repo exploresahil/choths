@@ -2,50 +2,50 @@
 
 footer {
   width: 100vw;
-  height: auto;
-  position: absolute;
-  margin-top: 5em;
-  z-index: 999;
+  height: 280px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  .footer-bg-container {
-    position: absolute;
+  z-index: 1;
 
-    img {
-      object-fit: contain;
-      position: absolute;
-      width: 100.4vw;
-      height: auto;
-    }
+  .foother-bg-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
   }
 
   .footer-components {
+    width: 100%;
     position: relative;
     display: flex;
     justify-content: space-between;
-    align-items: end;
-    margin: 4.5em 2em 0 2em;
-
+    align-items: flex-end;
+    padding: 0 6vw;
 
     .footer-logo-container {
       position: relative;
-      height: 13em;
-      width: 10em;
+      width: 150px;
+      height: 200px;
     }
 
     .footer-text {
       font-family: v.$fontRL;
-      font-size: .85em;
+      font-size: 0.8rem;
     }
 
     .footer-socials {
+      margin-top: 120px;
       display: flex;
-      align-items: center;
-      gap: 2em;
+      gap: 1.8em;
 
-      svg {
-        fill: #ffffff;
-        width: 1.7em;
-        height: auto;
+      a {
+        svg {
+          fill: v.$light;
+          width: 25px;
+          height: 25px;
+        }
       }
     }
   }

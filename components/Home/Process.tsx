@@ -1,7 +1,6 @@
 import CircularText from "@/components/icons/CircularText";
 import StitchingImpact from "@/components/icons/StitchingImpact";
 import MissionArrow from "@/components/icons/MissionArrow";
-import "./process.scss";
 
 export default function Process() {
   return (

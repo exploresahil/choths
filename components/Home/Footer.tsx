@@ -15,7 +15,9 @@ export default function Footer() {
     <footer>
       <div className="footer-bg-container">
         <Image
+          fill
           src={FooterBackground}
+          style={{ objectFit: "cover", objectPosition: "top" }}
           alt="footer-background"
         />
       </div>

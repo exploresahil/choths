@@ -1,0 +1,111 @@
+@use "./veriables" as v;
+
+.hero-section {
+  width: 100vw;
+  height: calc(330vh - 180px);
+
+  .arches-container {
+    position: absolute;
+    width: 100%;
+    height: calc(100vh - 160px);
+    opacity: 0.5;
+
+    //overflow: hidden;
+
+    svg {
+      width: 100vw;
+      height: auto;
+    }
+  }
+
+  .category-watermark-container {
+    position: fixed;
+    z-index: 4;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 6vw;
+    bottom: 6vh;
+    fill: v.$textBrown;
+
+    svg {
+      width: 100px;
+      height: 100px;
+
+      &:nth-of-type(1) {
+        width: 40px;
+        height: 40px;
+      }
+
+      &:nth-of-type(2) {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        animation: rotate 40s linear infinite forwards;
+
+        @keyframes rotate {
+          0% {
+            transform: rotate(0);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+      }
+    }
+  }
+
+  .category_shirt_container {
+    position: absolute;
+    width: 33.4vw;
+    height: 100vh;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+
+    border-radius: 1000px 1000px 0 0;
+
+    overflow: hidden;
+  }
+
+  .category_accessories_container {
+    position: absolute;
+    width: 33.4vw;
+    height: 100vh;
+    top: 140vh;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+
+    border-radius: 1000px 1000px 0 0;
+
+    overflow: hidden;
+  }
+
+  h3 {
+    position: absolute;
+    z-index: 1;
+    top: 200px;
+    left: 18vw;
+    font-family: v.$fontAMI;
+    font-size: 6rem;
+    font-weight: 100;
+    text-transform: uppercase;
+    width: min-content;
+    line-height: 1;
+    color: v.$textTeal;
+
+    &:nth-of-type(2) {
+      top: 450px;
+      left: auto;
+      right: 16vw;
+
+      span {
+        color: v.$textBrown;
+      }
+    }
+  }
+}

@@ -1,16 +1,17 @@
 @use "./veriables" as v;
 
 header {
-  position: relative;
+  position: fixed;
   z-index: 99999;
   width: 100vw;
-  height: 160px;
+  height: 180px;
   padding: 0 6vw;
+  top: 0;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
+
   z-index: 999;
 
   .logo-container {
@@ -35,6 +36,7 @@ header {
 
       button {
         padding: 15px 25px !important;
+        height: 100%;
 
         svg {
           fill: v.$bg;
@@ -91,7 +93,7 @@ header {
 
     .menu-close {
       position: absolute;
-      top: -17%;
+      top: -14.5%;
       right: 6vw;
       padding: 18px 18px;
       background-color: v.$textTeal;

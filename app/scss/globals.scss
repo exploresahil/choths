@@ -1,6 +1,10 @@
 @use "./defaults";
 @use "./header";
-@use "./home";
+@use "./hero";
 @use "./footer";
 @use "./process";
 @use "./newsletter";
+
+main {
+  margin-top: 180px;
+}

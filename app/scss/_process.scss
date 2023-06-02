@@ -33,8 +33,19 @@
   .circular-text-container {
     position: absolute;
     width: 100vw;
-    overflow: hidden;
+    //overflow: hidden;
     z-index: 0;
+
+    animation: rotate 40s linear infinite forwards;
+
+    @keyframes rotate {
+      0% {
+        transform: rotate(0);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
 
     svg {
       width: 118vw;

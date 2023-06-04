@@ -1,5 +1,3 @@
-import React from "react";
-
 function Arches() {
   return (
     <svg viewBox="0 0 1921 1025.64">

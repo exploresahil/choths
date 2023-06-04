@@ -1,4 +1,4 @@
-export default () => {
+const Bag = () => {
   return (
     <svg viewBox="0 0 26.22 31.66">
       <g>
@@ -7,3 +7,5 @@ export default () => {
     </svg>
   );
 };
+
+export default Bag;

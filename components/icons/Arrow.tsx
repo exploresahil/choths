@@ -1,6 +1,6 @@
 /* eslint-disable react/display-name */
 /* eslint-disable import/no-anonymous-default-export */
-export default () => {
+const Arrow = () => {
   return (
     <svg viewBox="0 0 29.23 29.23">
       <defs>
@@ -44,3 +44,5 @@ export default () => {
     </svg>
   );
 };
+
+export default Arrow;

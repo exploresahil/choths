@@ -18,6 +18,29 @@
     }
   }
 
+  .scroll-promoter-container {
+    position: absolute;
+    right: 6vw;
+    bottom: 40px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+
+    p {
+      font-family: v.$fontRL;
+      text-transform: uppercase;
+      font-size: 1.2rem;
+    }
+
+    svg {
+      width: 60px;
+      height: 60px;
+    }
+  }
+
   .category-watermark-container {
     position: fixed;
     z-index: 4;
@@ -58,7 +81,7 @@
     }
   }
 
-  .category_shirt_container {
+  .category_co-ords_container {
     position: absolute;
     width: 33.4vw;
     height: 100vh;
@@ -69,6 +92,38 @@
     border-radius: 1000px 1000px 0 0;
 
     overflow: hidden;
+
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5em;
+
+      position: absolute;
+      right: 6vw;
+      top: 30%;
+
+      p {
+        color: v.$light;
+        font-size: 1.5rem;
+        text-decoration: underline;
+      }
+
+      svg {
+        fill: v.$light;
+        width: 40px;
+      }
+
+      &:hover {
+        p {
+          color: v.$textBrown;
+        }
+
+        svg {
+          fill: v.$textBrown;
+        }
+      }
+    }
   }
 
   .category_accessories_container {
@@ -83,6 +138,38 @@
     border-radius: 1000px 1000px 0 0;
 
     overflow: hidden;
+
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5em;
+
+      position: absolute;
+      right: 6vw;
+      top: 50%;
+
+      p {
+        color: v.$light;
+        font-size: 1.5rem;
+        text-decoration: underline;
+      }
+
+      svg {
+        fill: v.$light;
+        width: 40px;
+      }
+
+      &:hover {
+        p {
+          color: v.$textBrown;
+        }
+
+        svg {
+          fill: v.$textBrown;
+        }
+      }
+    }
   }
 
   h3 {

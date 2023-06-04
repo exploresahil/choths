@@ -7,24 +7,30 @@ import accessories from "@/public/assets/images/category/category_img_Accessorie
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
-import CategoriesWatermarkCenter from "@/components/icons/CategoriesWatermarkCenter";
-import CategoriesWatermarkOuter from "@/components/icons/CategoriesWatermarkOuter";
+import {
+  CategoriesWatermarkCenter,
+  CategoriesWatermarkOuter,
+  ScrollArrow,
+  CategoryArrowRight,
+} from "@/components/icons/Icons";
+
+import Link from "next/link";
 
 const Hero = () => {
   const heroRef = useRef<HTMLElement>(null);
-  const categoryShirtRef = useRef<HTMLDivElement>(null);
+  const categoryCoOrdsRef = useRef<HTMLDivElement>(null);
   const categoryAccessoriesRef = useRef<HTMLDivElement>(null);
   const shirtRef = useRef<HTMLImageElement>(null);
   const accessoriesRef = useRef<HTMLImageElement>(null);
   const watermarkRef = useRef<HTMLDivElement>(null);
-
-  console.log(categoryShirtRef.current);
+  const accessoriesArrowRef = useRef<HTMLAnchorElement>(null);
+  const coOrdsArrowRef = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
     gsap.fromTo(
-      categoryShirtRef.current,
+      categoryCoOrdsRef.current,
       {
         width: "33.4vw",
         height: "100vh",
@@ -35,6 +41,24 @@ const Hero = () => {
         height: "250vh",
         borderRadius: "0",
 
+        scrollTrigger: {
+          trigger: heroRef.current,
+          //markers: true,
+          start: "top 160px",
+          end: "380px center",
+          scrub: 0.1,
+        },
+      }
+    );
+
+    gsap.fromTo(
+      coOrdsArrowRef.current,
+      {
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+        ease: "power2.in",
         scrollTrigger: {
           trigger: heroRef.current,
           //markers: true,
@@ -63,7 +87,7 @@ const Hero = () => {
     );
 
     gsap.fromTo(
-      categoryShirtRef.current,
+      categoryCoOrdsRef.current,
       {},
       {
         borderRadius: "0 0 1000px 1000px ",
@@ -90,6 +114,24 @@ const Hero = () => {
         height: "180vh",
         borderRadius: "0",
 
+        scrollTrigger: {
+          trigger: heroRef.current,
+          //markers: true,
+          start: "1100px center",
+          end: "1500px center",
+          scrub: 0.1,
+        },
+      }
+    );
+
+    gsap.fromTo(
+      accessoriesArrowRef.current,
+      {
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+        ease: "power2.in",
         scrollTrigger: {
           trigger: heroRef.current,
           //markers: true,
@@ -180,8 +222,12 @@ const Hero = () => {
         <CategoriesWatermarkCenter />
         <CategoriesWatermarkOuter />
       </div>
+      <div className="scroll-promoter-container">
+        <p>scroll</p>
+        <ScrollArrow />
+      </div>
 
-      <div className="category_shirt_container" ref={categoryShirtRef}>
+      <div className="category_co-ords_container" ref={categoryCoOrdsRef}>
         <Image
           fill
           src={shirt}
@@ -189,6 +235,10 @@ const Hero = () => {
           alt="footer-logo"
           ref={shirtRef}
         />
+        <Link href="#" ref={coOrdsArrowRef}>
+          <p>co-ords</p>
+          <CategoryArrowRight />
+        </Link>
       </div>
       <div
         className="category_accessories_container"
@@ -201,6 +251,10 @@ const Hero = () => {
           alt="footer-logo"
           ref={accessoriesRef}
         />
+        <Link href="#" ref={accessoriesArrowRef}>
+          <p>accessories</p>
+          <CategoryArrowRight />
+        </Link>
       </div>
 
       <h3>stitching impact</h3>

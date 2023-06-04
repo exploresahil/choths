@@ -1,4 +1,4 @@
-export default () => {
+const User = () => {
   return (
     <svg viewBox="0 0 26.4 29.5">
       <g>
@@ -15,3 +15,5 @@ export default () => {
     </svg>
   );
 };
+
+export default User;

@@ -1,4 +1,4 @@
-export default () => {
+const MenuClose = () => {
   return (
     <svg viewBox="0 0 32.37 32.37">
       <g id="Layer_1-2" data-name="Layer 1">
@@ -22,3 +22,5 @@ export default () => {
     </svg>
   );
 };
+
+export default MenuClose;

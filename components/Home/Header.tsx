@@ -3,6 +3,7 @@
 import Image from "next/image";
 import NavLinks from "@/components/Home/NavLinks";
 import Link from "next/link";
+import { Link as ScrollLink } from "react-scroll";
 
 import logo from "@/public/assets/logos/header-logo.svg";
 
@@ -14,39 +15,49 @@ import Call from "@/components/icons/Call";
 import Insta from "@/components/icons/Insta";
 import Menu from "@/components/icons/Menu";
 import MenuClose from "@/components/icons/MenuClose";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLElement | any>(null);
-  const menuOutSide = menuRef.current;
-
-  const handleClickOutsideMenu = (e: any) => {
-    if (menuOutSide && !menuRef?.current?.contains(e.target)) {
-      handleMenuClose();
-    }
-  };
 
   const handleMenuOpen = () => {
     setMenuOpen(true);
   };
 
-  const handleMenuClose = () => {
+  const handleMenuClose = useCallback(() => {
     setMenuOpen(false);
-  };
+  }, []);
+
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
+    const menuOutSide = menuRef.current;
+
+    const handleClickOutsideMenu = (e: any) => {
+      if (menuOutSide && !menuOutSide.contains(e.target)) {
+        handleMenuClose();
+      }
+    };
+
     document.body.addEventListener("click", handleClickOutsideMenu);
+
     return () => {
       document.removeEventListener("click", handleClickOutsideMenu);
     };
   }, [handleMenuClose]);
 
   return (
-    <header>
-      <div className="logo-container">
+    <header id="header">
+      <ScrollLink
+        to="bodyTop"
+        offset={-180}
+        className="logo-container"
+        smooth={true}
+        duration={1000}
+        spy={true}
+      >
         <Image fill src={logo} style={{ objectFit: "contain" }} alt="logo" />
-      </div>
+      </ScrollLink>
       <div className="user-menu">
         <div className="user-menu-ecommercs">
           <button>

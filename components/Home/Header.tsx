@@ -47,7 +47,7 @@ const Header = () => {
   }, [handleMenuClose]);
 
   return (
-    <header id="header">
+    <header>
       <ScrollLink
         to="bodyTop"
         offset={-180}

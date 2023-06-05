@@ -1,8 +1,13 @@
 import CircularText from "@/components/icons/CircularText";
 import StitchingImpact from "@/components/icons/StitchingImpact";
 import MissionArrow from "@/components/icons/MissionArrow";
+import Image from "next/image";
 
-export default function Process() {
+import { getProcesses } from "@/sanity/sanity-utils";
+
+export default async function Process() {
+  const processes = await getProcesses();
+
   return (
     <>
       <section className="main-process-section">
@@ -46,42 +51,23 @@ export default function Process() {
         </div>
 
         <div className="process-section">
-          <div className="sourcing-container">
-            <h1>
-              <span>01</span>SOURCING
-            </h1>
-            <p>
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-              nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
-              erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
-              tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo
-              consequat.
-            </p>
-          </div>
-          <div className="production-container">
-            <h1>
-              <span>02</span>PRODUCTION
-            </h1>
-            <p>
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-              nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
-              erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
-              tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo
-              consequat.
-            </p>
-          </div>
-          <div className="packaging-container">
-            <h1>
-              <span>03</span>PACKAGING
-            </h1>
-            <p>
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-              nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
-              erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
-              tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo
-              consequat.
-            </p>
-          </div>
+          {processes.map((process) => (
+            <div key={process._id} className="process-container">
+              {process.image && (
+                <Image
+                  fill
+                  src={process.image.url}
+                  style={{ objectFit: "cover" }}
+                  alt="Process Image"
+                />
+              )}
+              <h1>
+                <span>{process.number}</span>
+                {process.processName}
+              </h1>
+              <p>{process.description}</p>
+            </div>
+          ))}
         </div>
       </section>
     </>

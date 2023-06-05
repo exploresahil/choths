@@ -143,40 +143,31 @@
       padding: 0 5em;
     }
 
-    .sourcing-container {
+    .process-container {
+      position: relative;
       display: flex;
       flex-direction: column;
-      gap: 15em;
+      padding: 5em 0 4em 0;
       align-items: center;
-      justify-content: space-around;
+      justify-content: space-between;
       width: auto;
       height: 90vh;
-      background-image: url(../../../public/assets/images/Sourcing.png);
-      background-size: cover;
-    }
+      z-index: 2;
 
-    .production-container {
-      display: flex;
-      flex-direction: column;
-      gap: 15em;
-      align-items: center;
-      justify-content: space-around;
-      width: auto;
-      height: 90vh;
-      background-image: url(../../../public/assets/images/Production.png);
-      background-size: cover;
-    }
+      img {
+        z-index: 1;
+      }
 
-    .packaging-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 15em;
-      justify-content: space-around;
-      width: auto;
-      height: 90vh;
-      background-image: url(../../../public/assets/images/Packaging.png);
-      background-size: cover;
+      h1 {
+        position: relative;
+        z-index: 2;
+        text-transform: uppercase;
+      }
+
+      p {
+        position: relative;
+        z-index: 2;
+      }
     }
   }
 }

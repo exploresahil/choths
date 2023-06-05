@@ -1,41 +1,19 @@
-import { Category } from "@/types/Category";
-import { Product } from "@/types/Product";
+import { process } from "@/sanity/types/Process";
 import { createClient, groq } from "next-sanity";
+import clientConfig from "./config/client-config";
 
-const client = createClient({
-  projectId: "8oozh43c",
-  dataset: "production",
-  apiVersion: "2023-05-26",
-});
-
-export async function getProducts(): Promise<Product[]> {
-  return client.fetch(
-    groq`*[_type == "product"] | order(_createdAt asc) {
+export async function getProcesses(): Promise<process[]> {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "process"] | order(_createdAt desc){
       _id,
       _createdAt,
-      name,
-      "slug": slug.current,
+      number,
+      processName,
       "image": {
         "url": image.asset->url,
         "alt": image.asset->alt,
       },
-      url,
-      content,
-    }`
-  );
-}
-
-export async function getCategories(): Promise<Category[]> {
-  return client.fetch(
-    groq`*[_type == "category"] | order(_createdAt asc) {
-      _id,
-      _createdAt,
-      name,
-      "image": {
-        "url": image.asset->url,
-        "alt": image.asset->alt,
-      },
-      url,
+      description,
     }`
   );
 }

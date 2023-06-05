@@ -1,6 +1,5 @@
+import process from "./process-schema";
 
-import product from "./product-schema";
-
-const schemas = [product];
+const schemas = [process];
 
 export default schemas;

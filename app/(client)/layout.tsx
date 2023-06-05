@@ -1,6 +1,6 @@
-import Header from "@/components/Home/Header";
-import "./scss/globals.scss";
-import Footer from "@/components/Home/Footer";
+import Header from "@/components/client/Header";
+import "@/app/scss/client/globals.scss";
+import Footer from "@/components/client/Footer";
 
 export const metadata = {
   title: "Create Next App",

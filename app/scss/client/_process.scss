@@ -1,4 +1,4 @@
-@use "@/app/scss/veriables" as v;
+@use "./veriables" as v;
 
 .main-process-section {
   width: 100vw;
@@ -151,7 +151,7 @@
       justify-content: space-around;
       width: auto;
       height: 90vh;
-      background-image: url(../../public/assets/images/Sourcing.png);
+      background-image: url(../../../public/assets/images/Sourcing.png);
       background-size: cover;
     }
 
@@ -163,7 +163,7 @@
       justify-content: space-around;
       width: auto;
       height: 90vh;
-      background-image: url(../../public/assets/images/Production.png);
+      background-image: url(../../../public/assets/images/Production.png);
       background-size: cover;
     }
 
@@ -175,7 +175,7 @@
       justify-content: space-around;
       width: auto;
       height: 90vh;
-      background-image: url(../../public/assets/images/Packaging.png);
+      background-image: url(../../../public/assets/images/Packaging.png);
       background-size: cover;
     }
   }

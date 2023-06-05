@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import NavLinks from "@/components/Home/NavLinks";
+import NavLinks from "@/components/client/NavLinks";
 import Link from "next/link";
 import { Link as ScrollLink } from "react-scroll";
 

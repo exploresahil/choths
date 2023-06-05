@@ -1,6 +1,6 @@
-import category from "./category-schema";
+
 import product from "./product-schema";
 
-const schemas = [product, category];
+const schemas = [product];
 
 export default schemas;

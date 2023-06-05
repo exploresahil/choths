@@ -3,7 +3,7 @@ import { Product } from "@/types/Product";
 import { createClient, groq } from "next-sanity";
 
 const client = createClient({
-  projectId: "w4x3t3rq",
+  projectId: "8oozh43c",
   dataset: "production",
   apiVersion: "2023-05-26",
 });

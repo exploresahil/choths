@@ -97,11 +97,14 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      //flex-direction: column;
       gap: 0.5em;
 
       position: absolute;
       right: 6vw;
       top: 30%;
+
+      //background-color: v.$dark;
 
       p {
         color: v.$light;

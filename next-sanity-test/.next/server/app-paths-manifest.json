@@ -1,0 +1,4 @@
+{
+  "/(client)/page": "app/(client)/page.js",
+  "/(studio)/studio/[[...index]]/page": "app/(studio)/studio/[[...index]]/page.js"
+}

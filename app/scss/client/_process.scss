@@ -1,4 +1,4 @@
-@use "./veriables" as v;
+@use "./variables" as v;
 
 .main-process-section {
   width: 100vw;
@@ -120,6 +120,7 @@
     margin-top: -20%;
     padding: 1px;
     gap: 3px;
+    background-color: v.$bg;
 
     .process-container {
       position: relative;

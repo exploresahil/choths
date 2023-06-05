@@ -58,7 +58,7 @@ export default async function Process() {
                   fill
                   src={process.image.url}
                   style={{ objectFit: "cover" }}
-                  alt="Process Image"
+                  alt={process.imageAlt}
                 />
               )}
               <h1>

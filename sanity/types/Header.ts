@@ -1,11 +1,9 @@
-export type process = {
+export type headerSchema = {
   _id: string;
   _createdAt: Date;
-  number: string;
-  processName: string;
+  headerName: string;
   image: {
     url: string;
   };
   imageAlt: string;
-  description: string;
 };

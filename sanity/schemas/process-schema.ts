@@ -15,16 +15,14 @@ const process = {
     },
     {
       name: "image",
-      title: "First Process Image",
+      title: "Process Image",
       type: "image",
       options: { hotspot: true },
-      fields: [
-        {
-          name: "alt",
-          title: "Alt",
-          type: "string",
-        },
-      ],
+    },
+    {
+      name: "imageAlt",
+      title: "Image Alt",
+      type: "string",
     },
     {
       name: "description",

@@ -5,8 +5,6 @@ import NavLinks from "@/components/client/NavLinks";
 import Link from "next/link";
 import { Link as ScrollLink } from "react-scroll";
 
-import logo from "@/public/assets/logos/header-logo.svg";
-
 import Bag from "@/components/icons/Bag";
 import User from "@/components/icons/User";
 import Arrow from "@/components/icons/Arrow";
@@ -16,8 +14,9 @@ import Insta from "@/components/icons/Insta";
 import Menu from "@/components/icons/Menu";
 import MenuClose from "@/components/icons/MenuClose";
 import { useState, useRef, useEffect, useCallback } from "react";
+import { getHeaders } from "@/sanity/sanity-utils";
 
-const Header = () => {
+const Header = async () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLElement | any>(null);
 
@@ -46,6 +45,8 @@ const Header = () => {
     };
   }, [handleMenuClose]);
 
+  const headersSchema = await getHeaders();
+
   return (
     <header>
       <ScrollLink
@@ -56,7 +57,12 @@ const Header = () => {
         duration={1000}
         spy={true}
       >
-        <Image fill src={logo} style={{ objectFit: "contain" }} alt="logo" />
+        <Image
+          fill
+          src={headersSchema[0]!.image.url}
+          style={{ objectFit: "contain" }}
+          alt="logo"
+        />
       </ScrollLink>
       <div className="user-menu">
         <div className="user-menu-ecommercs">

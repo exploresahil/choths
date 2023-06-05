@@ -121,33 +121,11 @@
     padding: 1px;
     gap: 3px;
 
-    h1 {
-      font-family: v.$fontAR;
-      color: v.$light;
-      font-size: 5.2em;
-      margin-top: -10%;
-    }
-
-    span {
-      font-family: v.$fontRL;
-      font-size: 0.2em;
-      padding: 0 1.2em 0 0;
-      margin: -1em 0 0 -2em;
-    }
-
-    p {
-      font-family: v.$fontRL;
-      text-align: left;
-      color: v.$light;
-      font-size: 0.85em;
-      padding: 0 5em;
-    }
-
     .process-container {
       position: relative;
       display: flex;
       flex-direction: column;
-      padding: 5em 0 4em 0;
+      padding: 2em 0 4em 0;
       align-items: center;
       justify-content: space-between;
       width: auto;
@@ -162,11 +140,26 @@
         position: relative;
         z-index: 2;
         text-transform: uppercase;
+        font-family: v.$fontAR;
+        color: v.$light;
+        font-size: 5.2em;
+
+        span {
+          font-family: v.$fontRL;
+          font-size: 0.2em;
+          margin-right: 1em;
+        }
       }
 
       p {
+        max-width: 70%;
         position: relative;
         z-index: 2;
+
+        font-family: v.$fontRL;
+        text-align: left;
+        color: v.$light;
+        font-size: 0.85em;
       }
     }
   }

@@ -1,6 +1,7 @@
 import { process } from "@/sanity/types/Process";
 import { createClient, groq } from "next-sanity";
-import clientConfig from "./config/client-config";
+import clientConfig from "@/sanity/config/client-config";
+import { headerSchema } from "@/sanity/types/Header";
 
 export async function getProcesses(): Promise<process[]> {
   return createClient(clientConfig).fetch(
@@ -11,9 +12,23 @@ export async function getProcesses(): Promise<process[]> {
       processName,
       "image": {
         "url": image.asset->url,
-        "alt": image.asset->alt,
       },
+      imageAlt,
       description,
+    }`
+  );
+}
+
+export async function getHeaders(): Promise<headerSchema[]> {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "header"]{
+      _id,
+      _createdAt,
+      headerName,
+      "image": {
+        "url": image.asset->url,
+      },
+      imageAlt,
     }`
   );
 }

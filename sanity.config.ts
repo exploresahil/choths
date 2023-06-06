@@ -20,7 +20,6 @@ const config = defineConfig({
   },
   schema: { types: schemas },
   theme: myTheme,
-  useCdn: true,
 });
 
 export default config;

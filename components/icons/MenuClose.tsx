@@ -1,6 +1,6 @@
 const MenuClose = () => {
   return (
-    <svg viewBox="0 0 32.37 32.37">
+    <svg viewBox="0 0 32.37 32.37" className="menuClose">
       <g id="Layer_1-2" data-name="Layer 1">
         <g>
           <rect

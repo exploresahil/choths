@@ -2,14 +2,21 @@
 
 .hero-section {
   width: 100vw;
-  height: calc(330vh - 180px);
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 300px;
+  //gap: 400px;
 
   .arches-container {
     position: absolute;
     width: 100%;
-    height: calc(100vh - 160px);
+    height: calc(100vh - 180px);
     opacity: 0.5;
-
+    opacity: 0;
+    left: 0;
+    top: 180px;
     //overflow: hidden;
 
     svg {
@@ -28,6 +35,7 @@
     align-items: center;
     justify-content: center;
     gap: 0.5em;
+    opacity: 0;
 
     p {
       font-family: v.$fontRL;
@@ -50,8 +58,10 @@
     justify-content: center;
     align-items: center;
     left: 6vw;
-    bottom: 6vh;
+    bottom: 50px;
     fill: v.$textBrown;
+
+    opacity: 0;
 
     svg {
       width: 100px;
@@ -81,121 +91,130 @@
     }
   }
 
+  .category_co-ords_main {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    z-index: 2;
+  }
+
   .category_co-ords_container {
-    position: absolute;
+    position: relative;
+    top: 0;
+
     width: 33.4vw;
     height: 100vh;
-    left: 50%;
-    transform: translateX(-50%);
+
     z-index: 2;
 
     border-radius: 1000px 1000px 0 0;
 
     overflow: hidden;
+    opacity: 0;
 
-    a {
+    img {
+      object-position: center 20%;
+    }
+  }
+
+  .link-container {
+    position: relative;
+    z-index: 3;
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    //background-color: rgba(255, 192, 203, 0.5);
+
+    .coOrdsArrowRef,
+    .accessoriesArrowRef {
+      position: relative;
       display: flex;
-      justify-content: center;
       align-items: center;
-      //flex-direction: column;
       gap: 0.5em;
 
-      position: absolute;
-      right: 6vw;
-      top: 30%;
+      color: v.$light;
+      fill: v.$light;
 
-      //background-color: v.$dark;
+      font-size: 8rem;
 
       p {
-        color: v.$light;
-        font-size: 1.5rem;
         text-decoration: underline;
       }
 
       svg {
-        fill: v.$light;
-        width: 40px;
-      }
-
-      &:hover {
-        p {
-          color: v.$textBrown;
-        }
-
-        svg {
-          fill: v.$textBrown;
-        }
+        width: 80px;
       }
     }
   }
 
+  .category_accessories_main {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    z-index: 3;
+  }
+
   .category_accessories_container {
-    position: absolute;
+    position: relative;
+
     width: 33.4vw;
     height: 100vh;
-    top: 140vh;
-    left: 50%;
-    transform: translateX(-50%);
+
     z-index: 3;
 
     border-radius: 1000px 1000px 0 0;
 
     overflow: hidden;
 
-    a {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 0.5em;
-
-      position: absolute;
-      right: 6vw;
-      top: 50%;
-
-      p {
-        color: v.$light;
-        font-size: 1.5rem;
-        text-decoration: underline;
-      }
-
-      svg {
-        fill: v.$light;
-        width: 40px;
-      }
-
-      &:hover {
-        p {
-          color: v.$textBrown;
-        }
-
-        svg {
-          fill: v.$textBrown;
-        }
-      }
+    img {
+      object-position: center 65%;
     }
   }
 
   h3 {
     position: absolute;
     z-index: 1;
-    top: 200px;
+    top: 220px;
     left: 18vw;
     font-family: v.$fontAMI;
     font-size: 6rem;
     font-weight: 100;
     text-transform: uppercase;
-    width: min-content;
+    display: flex;
+    flex-direction: column;
     line-height: 1;
     color: v.$textTeal;
 
     &:nth-of-type(2) {
       top: 450px;
       left: auto;
-      right: 16vw;
+      right: 14vw;
 
-      span {
+      span:nth-of-type(2) {
         color: v.$textBrown;
       }
     }
+  }
+
+  .one {
+    opacity: 0;
+  }
+
+  .two {
+    opacity: 0;
+  }
+
+  .three {
+    opacity: 0;
+  }
+
+  .four {
+    opacity: 0;
   }
 }

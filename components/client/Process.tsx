@@ -1,12 +1,35 @@
+"use client";
+
 import CircularText from "@/components/icons/CircularText";
 import StitchingImpact from "@/components/icons/StitchingImpact";
 import MissionArrow from "@/components/icons/MissionArrow";
 import Image from "next/image";
 
 import { getProcesses } from "@/sanity/sanity-utils";
+import { useState, useEffect } from "react";
 
-export default async function Process() {
-  const processes = await getProcesses();
+interface Process {
+  _id: string;
+  number: number | string;
+  processName: string;
+  description: string;
+  image: {
+    url: string;
+  };
+  imageAlt: string;
+}
+
+export default function Process() {
+  const [processes, setProcesses] = useState<Process[]>([]);
+
+  useEffect(() => {
+    async function fetchProcesses() {
+      const processes = await getProcesses();
+      setProcesses(processes);
+    }
+
+    fetchProcesses();
+  }, []);
 
   return (
     <>

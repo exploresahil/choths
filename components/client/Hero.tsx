@@ -217,7 +217,7 @@ const Hero = () => {
         borderRadius: "0 0 1000px 1000px",
         scrollTrigger: {
           trigger: "#accessoriesMain",
-          markers: true,
+          //markers: true,
           start: "800px bottom",
           end: "1000px bottom",
           scrub: true,

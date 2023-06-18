@@ -250,7 +250,7 @@ const Hero = () => {
           />
         </div> */}
         <div className="category_co-ords_container" id="coOrds">
-          <video autoPlay loop style={{ objectFit: "cover" }}>
+          <video autoPlay loop muted style={{ objectFit: "cover" }}>
             <source src={dance} />
           </video>
         </div>
@@ -275,7 +275,7 @@ const Hero = () => {
           />
         </div> */}
         <div className="category_accessories_container" id="accessories">
-          <video autoPlay loop style={{ objectFit: "cover" }}>
+          <video autoPlay loop muted style={{ objectFit: "cover" }}>
             <source src={life} />
           </video>
         </div>

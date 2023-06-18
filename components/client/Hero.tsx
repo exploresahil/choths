@@ -198,6 +198,7 @@ const Hero = () => {
       "#accessories",
       {},
       {
+        borderRadius: "0 0 0 0",
         scrollTrigger: {
           trigger: "#accessoriesMain",
           //markers: true,
@@ -217,7 +218,7 @@ const Hero = () => {
         scrollTrigger: {
           trigger: "#accessoriesMain",
           markers: true,
-          start: "752px bottom",
+          start: "800px bottom",
           end: "1000px bottom",
           scrub: true,
         },

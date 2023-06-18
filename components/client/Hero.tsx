@@ -14,21 +14,21 @@ import {
   CategoryArrowRight,
 } from "@/components/icons/Icons";
 
+const dance =
+  "https://assets.mixkit.co/videos/preview/mixkit-young-man-modeling-old-fashion-style-41480-large.mp4";
+
+const life =
+  "https://assets.mixkit.co/videos/preview/mixkit-t-shirts-on-hangers-at-fashion-store-34707-large.mp4";
+
 import Link from "next/link";
 
 const Hero = () => {
   const heroRef = useRef<HTMLElement>(null);
-  const categoryCoOrdsRef = useRef<HTMLDivElement>(null);
-  const categoryAccessoriesRef = useRef<HTMLDivElement>(null);
-  const coOrdsRef = useRef<HTMLImageElement>(null);
-  const accessoriesRef = useRef<HTMLImageElement>(null);
   const watermarkRef = useRef<HTMLDivElement>(null);
   const accessoriesArrowRef = useRef<HTMLAnchorElement>(null);
   const coOrdsArrowRef = useRef<HTMLAnchorElement>(null);
   const archesRef = useRef<HTMLDivElement>(null);
   const scrollPromoRef = useRef<HTMLDivElement>(null);
-  const CoOrdsRefMain = useRef<HTMLDivElement>(null);
-  const AccessoriesRefMain = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -89,7 +89,7 @@ const Hero = () => {
     );
 
     tlHero.fromTo(
-      categoryCoOrdsRef.current,
+      "#coOrds",
       {
         y: 200,
         opacity: 0,
@@ -140,7 +140,7 @@ const Hero = () => {
     const tlScrollOne = gsap.timeline();
 
     tlScrollOne.fromTo(
-      categoryCoOrdsRef.current,
+      "#coOrds",
       {
         width: "33.4vw",
         borderRadius: "1000px 1000px 0 0",
@@ -149,7 +149,7 @@ const Hero = () => {
         width: "100vw",
         borderRadius: "0 0 0 0",
         scrollTrigger: {
-          trigger: CoOrdsRefMain.current,
+          trigger: "#coOrdsMain",
           //markers: true,
           start: "top 180px",
           end: "+=180",
@@ -159,11 +159,11 @@ const Hero = () => {
     );
 
     tlScrollOne.fromTo(
-      categoryCoOrdsRef.current,
+      "#coOrds",
       {},
       {
         scrollTrigger: {
-          trigger: CoOrdsRefMain.current,
+          trigger: "#coOrdsMain",
           //markers: true,
           start: "top top",
           end: "1400px top",
@@ -176,7 +176,7 @@ const Hero = () => {
 
     const tlScrollTwo = gsap.timeline();
     tlScrollTwo.fromTo(
-      categoryAccessoriesRef.current,
+      "#accessories",
       {
         width: "33.4vw",
         borderRadius: "1000px 1000px 0 0",
@@ -185,7 +185,7 @@ const Hero = () => {
         width: "100vw",
         borderRadius: "0 0 0 0",
         scrollTrigger: {
-          trigger: AccessoriesRefMain.current,
+          trigger: "#accessoriesMain",
           //markers: true,
           start: "top 180px",
           end: "+=180",
@@ -195,11 +195,11 @@ const Hero = () => {
     );
 
     tlScrollOne.fromTo(
-      categoryAccessoriesRef.current,
+      "#accessories",
       {},
       {
         scrollTrigger: {
-          trigger: AccessoriesRefMain.current,
+          trigger: "#accessoriesMain",
           //markers: true,
           start: "top top",
           end: "800px top",
@@ -210,13 +210,13 @@ const Hero = () => {
       }
     );
     tlScrollOne.fromTo(
-      categoryAccessoriesRef.current,
+      "#accessories",
       {},
       {
         borderRadius: "0 0 1000px 1000px",
         scrollTrigger: {
-          trigger: AccessoriesRefMain.current,
-          //markers: true,
+          trigger: "#accessoriesMain",
+          markers: true,
           start: "752px bottom",
           end: "1000px bottom",
           scrub: true,
@@ -238,8 +238,8 @@ const Hero = () => {
         <p>scroll</p>
         <ScrollArrow />
       </div>
-      <div className="category_co-ords_main" ref={CoOrdsRefMain}>
-        <div className="category_co-ords_container" ref={categoryCoOrdsRef}>
+      <div className="category_co-ords_main" id="coOrdsMain">
+        {/*  <div className="category_co-ords_container" ref={categoryCoOrdsRef}>
           <Image
             fill
             src={coOrds}
@@ -247,6 +247,11 @@ const Hero = () => {
             alt="footer-logo"
             ref={coOrdsRef}
           />
+        </div> */}
+        <div className="category_co-ords_container" id="coOrds">
+          <video autoPlay loop style={{ objectFit: "cover" }}>
+            <source src={dance} />
+          </video>
         </div>
       </div>
       <div className="link-container">
@@ -255,8 +260,8 @@ const Hero = () => {
           <CategoryArrowRight />
         </Link>
       </div>
-      <div className="category_accessories_main" ref={AccessoriesRefMain}>
-        <div
+      <div className="category_accessories_main" id="accessoriesMain">
+        {/* <div
           className="category_accessories_container"
           ref={categoryAccessoriesRef}
         >
@@ -267,6 +272,11 @@ const Hero = () => {
             alt="footer-logo"
             ref={accessoriesRef}
           />
+        </div> */}
+        <div className="category_accessories_container" id="accessories">
+          <video autoPlay loop style={{ objectFit: "cover" }}>
+            <source src={life} />
+          </video>
         </div>
       </div>
       <div className="link-container">

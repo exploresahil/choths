@@ -39,8 +39,7 @@ const About = () => {
 
     tlAbout.fromTo(
       ".about-section",
-      {
-      },
+      {},
       {
         scrollTrigger: {
           trigger: ".about-section",

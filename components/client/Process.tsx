@@ -1,12 +1,14 @@
 "use client";
 
-import CircularText from "@/components/icons/CircularText";
-import StitchingImpact from "@/components/icons/StitchingImpact";
-import MissionArrow from "@/components/icons/MissionArrow";
 import Image from "next/image";
-
-import { getProcesses } from "@/sanity/sanity-utils";
 import { useState, useEffect } from "react";
+import { getProcesses } from "@/sanity/sanity-utils";
+
+import {
+  CircularText,
+  StitchingImpact,
+  MissionArrow,
+} from "@/components/icons/Icons";
 
 interface Process {
   _id: string;

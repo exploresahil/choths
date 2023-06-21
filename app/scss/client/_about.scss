@@ -5,21 +5,24 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  top: -23vh;
+  margin-top: -24.6vh;
   width: 100vw;
-  height: auto;
+  height: 100vh;
   background-color: v.$bg;
   font-family: v.$fontRB;
   z-index: 2;
 
   .about-bg-container {
     position: relative;
+    top: 0;
     width: 50vw;
     height: 100vh;
     // z-index: 1;
 
     img {
-      width: 10vw;
+      position: relative;
+      top: 24vh;
+      width: 20vw;
       height: auto;
       // z-index: 1;
     }
@@ -163,7 +166,7 @@
     .about-window-text {
       position: relative;
       width: 45vw;
-      top: 5vh;
+      top: 7vh;
       z-index: 6;
       text-align: center;
       font-family: v.$fontRM;
@@ -219,7 +222,7 @@
   width: 100vw;
   height: 100vh;
   background-color: v.$dark;
-  top: -23.2vh;
+  // top: -23.2vh;
   z-index: 6;
 
   .solution-main {
@@ -341,9 +344,9 @@
   align-items: center;
   position: relative;
   width: 100vw;
-  height: 70vh;
+  height: 80vh;
   gap: 3em;
-  // margin-top: 28vh;
+  margin-top: 20vh;
 
   h1 {
     font-family: v.$fontAM;

@@ -1,4 +1,4 @@
-import NewsletterArrow from "@/components/icons/NewsletterArrow";
+import { NewsletterArrow } from "@/components/icons/Icons";
 
 export default function Newsletter() {
   return (

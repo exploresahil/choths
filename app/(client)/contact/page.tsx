@@ -1,11 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
+
+import {
+  ContactInstaColor,
+  ContactArrow,
+  ContactPhone,
+  ContactMail,
+  ContactNewsletterArrow,
+} from "@/components/icons/Icons";
+
 import ContactBg from "@/public/assets/images/contact/ContactBg.png";
-import ContactInstaColor from "@/components/icons/ContactInstaColor";
-import ContactArrow from "@/components/icons/ContactArrow";
-import ContactPhone from "@/components/icons/ContactPhone";
-import ContactMail from "@/components/icons/ContactMail";
-import ContactNewsletterArrow from "@/components/icons/ContactNewsletterArrow";
 
 const Contact = () => {
   return (

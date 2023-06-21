@@ -16,3 +16,18 @@ export { default as ScrollArrow } from "@/components/icons/scrollArrow";
 export { default as StitchingImpact } from "@/components/icons/StitchingImpact";
 export { default as User } from "@/components/icons/User";
 export { default as CategoryArrowRight } from "@/components/icons/CategoryArrowRight";
+export { default as AboutLine } from "@/components/icons/AboutLine";
+export { default as AmodHeader } from "@/components/icons/AmodHeader";
+export { default as ContactArrow } from "@/components/icons/ContactArrow";
+export { default as ContactInstaColor } from "@/components/icons/ContactInstaColor";
+export { default as ContactMail } from "@/components/icons/ContactMail";
+export { default as ContactNewsletterArrow } from "@/components/icons/ContactNewsletterArrow";
+export { default as ContactPhone } from "@/components/icons/ContactPhone";
+export { default as FoundersInsta } from "@/components/icons/FoundersInsta";
+export { default as FoundersLinkedin } from "@/components/icons/FoundersLinkedin";
+export { default as HetalHeader } from "@/components/icons/HetalHeader";
+export { default as SanyuktaHeader } from "@/components/icons/SanyuktaHeader";
+export { default as SolutionImpactLogo } from "@/components/icons/SolutionImpactLogo";
+export { default as SolutionScrollLine } from "@/components/icons/SolutionScrollLine";
+export { default as TkpLogo } from "@/components/icons/TkpLogo";
+

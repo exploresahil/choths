@@ -1,7 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import productImg from "@/public/assets/images/products/product-img.png";
-import Link from "next/link";
 
 const Products = () => {
   return (

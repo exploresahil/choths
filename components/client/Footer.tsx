@@ -3,12 +3,10 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { Mail, Call, Insta } from "@/components/icons/Icons";
+
 import FooterLogo from "@/public/assets/logos/footer-logo.svg";
 import FooterBackground from "@/public/assets/images/FooterBackground.png";
-
-import Mail from "@/components/icons/Mail";
-import Call from "@/components/icons/Call";
-import Insta from "@/components/icons/Insta";
 
 export default function Footer() {
   return (

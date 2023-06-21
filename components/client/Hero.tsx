@@ -1,18 +1,20 @@
 "use client";
 
-import Arches from "@/components/icons/Arches";
-import Image from "next/image";
-import coOrds from "@/public/assets/images/category/category_img_shirt.jpg";
-import accessories from "@/public/assets/images/category/category_img_Accessories.jpg";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
+import Image from "next/image";
+
 import {
+  Arches,
   CategoriesWatermarkCenter,
   CategoriesWatermarkOuter,
   ScrollArrow,
   CategoryArrowRight,
 } from "@/components/icons/Icons";
+
+import coOrds from "@/public/assets/images/category/category_img_shirt.jpg";
+import accessories from "@/public/assets/images/category/category_img_Accessories.jpg";
 
 const dance =
   "https://assets.mixkit.co/videos/preview/mixkit-young-man-modeling-old-fashion-style-41480-large.mp4";

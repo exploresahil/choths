@@ -5,29 +5,30 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import CircularSlider from "@fseehawer/react-circular-slider";
 import { useEffect } from "react";
+import Link from "next/link";
 
 import {
+  AboutLine,
   CategoriesWatermarkCenter,
   CategoriesWatermarkOuter,
   CircularText,
   MissionArrow,
   ScrollArrow,
+  SolutionImpactLogo,
+  SolutionScrollLine,
+  FoundersInsta,
+  FoundersLinkedin,
+  SanyuktaHeader,
+  AmodHeader,
+  HetalHeader,
 } from "@/components/icons/Icons";
+
 import AboutBg from "@/public/assets/images/about/AboutBg.png";
 import AboutWindowShirt from "@/public/assets/images/about/AboutWindowShirt.png";
 import SolutionBg from "@/public/assets/images/about/SolutionBg.png";
-import AboutLine from "@/components/icons/AboutLine";
-import SolutionScrollLine from "@/components/icons/SolutionScrollLine";
-import SolutionImpactLogo from "@/components/icons/SolutionImpactLogo";
 import Amod from "@/public/assets/images/founders/Amod.png";
 import Hetal from "@/public/assets/images/founders/Hetal.png";
 import Sanyukta from "@/public/assets/images/founders/Sanyukta.png";
-import FoundersInsta from "@/components/icons/FoundersInsta";
-import FoundersLinkedin from "@/components/icons/FoundersLinkedin";
-import Link from "next/link";
-import SanyuktaHeader from "@/components/icons/SanyuktaHeader";
-import AmodHeader from "@/components/icons/AmodHeader";
-import HetalHeader from "@/components/icons/HetalHeader";
 
 const About = () => {
   useEffect(() => {
@@ -38,12 +39,13 @@ const About = () => {
 
     tlAbout.fromTo(
       ".about-section",
-      {},
+      {
+      },
       {
         scrollTrigger: {
           trigger: ".about-section",
           start: "top top",
-          end: "1880px top",
+          end: "1650vh top",
           scrub: true,
           // markers: true,
           pin: true,
@@ -168,15 +170,15 @@ const About = () => {
       },
       {
         width: "100vw",
-        height: "100vh",
+        height: "110vh",
         right: "15vw",
         borderRadius: "0 0 0 0",
         top: "15.1vh",
         scrollTrigger: {
-          trigger: ".about-bg-container",
-          // markers: true,
-          start: "1500px 150px",
-          end: "+=350px 150px",
+          trigger: ".about-window-container",
+          markers: true,
+          start: "center+=18vh center",
+          end: "bottom+=20vh center",
           scrub: true,
         },
       }
@@ -246,7 +248,6 @@ const About = () => {
             style={{ objectFit: "cover" }}
             alt="about-bg"
           />
-          d
         </div>
         <div className="about-content">
           <div className="about-content-main">

@@ -4,19 +4,21 @@ import Image from "next/image";
 import NavLinks from "@/components/client/NavLinks";
 import Link from "next/link";
 import { Link as ScrollLink } from "react-scroll";
-
-import Bag from "@/components/icons/Bag";
-import User from "@/components/icons/User";
-import Arrow from "@/components/icons/Arrow";
-import Mail from "@/components/icons/Mail";
-import Call from "@/components/icons/Call";
-import Insta from "@/components/icons/Insta";
-import Menu from "@/components/icons/Menu";
-import MenuClose from "@/components/icons/MenuClose";
-import logo from "@/public/assets/logos/header-logo.svg";
-
 import { useState } from "react";
-import TkpLogo from "../icons/TkpLogo";
+
+import {
+  Bag,
+  User,
+  Arrow,
+  Mail,
+  Call,
+  Insta,
+  Menu,
+  MenuClose,
+  TkpLogo,
+} from "@/components/icons/Icons";
+
+import logo from "@/public/assets/logos/header-logo.svg";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);

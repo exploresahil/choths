@@ -8,6 +8,9 @@
 @use "./products";
 @use "./product";
 @use "./about";
+@use "./refund";
+@use "./shipping";
+
 main {
   margin-top: 180px;
 }

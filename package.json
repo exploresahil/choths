@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fseehawer/react-circular-slider": "^2.6.1",
     "@types/gsap": "^3.0.0",
     "@types/node": "20.2.1",
     "@types/react": "18.2.6",

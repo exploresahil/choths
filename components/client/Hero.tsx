@@ -150,7 +150,7 @@ const Hero = () => {
         borderRadius: "0 0 0 0",
         scrollTrigger: {
           trigger: "#coOrdsMain",
-          //markers: true,
+          // markers: true,
           start: "top 180px",
           end: "+=180",
           scrub: true,
@@ -164,7 +164,7 @@ const Hero = () => {
       {
         scrollTrigger: {
           trigger: "#coOrdsMain",
-          //markers: true,
+          // markers: true,
           start: "top top",
           end: "1400px top",
           scrub: true,

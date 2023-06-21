@@ -33,7 +33,8 @@
 
     h1 {
       font-size: 8rem;
-      font-family: AYERPOSTER-SEMIBOLD;
+      font-family: v.$fontASB;
+      font-weight: 900;
       color: v.$textTeal;
     }
 
@@ -44,9 +45,8 @@
       align-items: flex-start;
       gap: 2.5em;
       padding: 7em 1em 0em 1em;
-      height: 36vh;
-      overflow-y:scroll;
-      // overflow: hidden;
+      height: 37vh;
+      overflow-y: scroll;
 
       svg {
         width: 1em;
@@ -63,21 +63,25 @@
         height: 45vh;
         margin-top: 170px;
 
+        a {
+          font-family: v.$fontRM;
+          text-transform: lowercase;
+          font-weight: 100;
+        }
+
         .contact-phone,
         .contact-mail,
         .contact-insta {
           display: flex;
-          // justify-content: start;
           align-items: center;
           gap: 20px;
-          font-family: Montserrat Light;
           font-size: 0.8em;
         }
 
         .contact-phone {
           display: flex;
           justify-content: space-between;
-          width: 29vw;
+          width: 30vw;
 
           .contact-phone-left {
             display: flex;
@@ -88,31 +92,58 @@
               height: auto;
             }
           }
+
+          .contact-right {
+            svg {
+              height: auto;
+              width: 1em;
+            }
+          }
         }
 
         .contact-mail {
+          display: flex;
+          justify-content: space-between;
+          width: 36em;
+
           .contact-mail-left {
             display: flex;
             gap: 2em;
-            width: 32.4em;
 
             svg {
-              width: 1.9em;
+              width: 2.4em;
               height: auto;
-              margin-left: -2.9px;
+              margin-left: -2px;
+            }
+          }
+
+          .contact-right {
+            svg {
+              height: auto;
+              width: 1em;
             }
           }
         }
 
         .contact-insta {
+          display: flex;
+          justify-content: space-between;
+          width: 36em;
           .contact-insta-left {
             display: flex;
             gap: 2em;
 
             svg {
-              width: 1.8em;
+              width: 2.3em;
               height: auto;
-              margin-left: -3px;
+              margin-left: 0px;
+            }
+          }
+
+          .contact-right {
+            svg {
+              height: auto;
+              width: 1em;
             }
           }
         }
@@ -121,7 +152,7 @@
   }
 
   .contact-newsletter {
-    padding: 1em 0em 2em .5em;
+    padding: 1em 0em 2em 0.5em;
     margin-left: -1em;
 
     .contact-newsletter-form {
@@ -130,7 +161,7 @@
       justify-content: center;
       align-items: center;
       gap: 1em;
-      font-family: RALEWAY-MEDIUM;
+      font-family: v.$fontRM;
 
       .name {
         display: flex;
@@ -169,13 +200,12 @@
         border-width: 2px;
         border-color: v.$bordercolor;
 
-  
         h3 {
-          font-family: RALEWAY-LIGHT;
+          font-family: v.$fontRL;
           font-weight: 500;
           font-size: 1.41em;
         }
-  
+
         svg {
           width: 3.5em;
           height: auto;

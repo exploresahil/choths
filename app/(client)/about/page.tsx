@@ -176,7 +176,7 @@ const About = () => {
         top: "15.1vh",
         scrollTrigger: {
           trigger: ".about-window-container",
-          markers: true,
+          // markers: true,
           start: "center+=18vh center",
           end: "bottom+=20vh center",
           scrub: true,

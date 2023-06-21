@@ -26,31 +26,37 @@ const Contact = () => {
         <h1>Get in touch</h1>
         <div className="contact-options">
           <div className="contact-options-wrapper">
-            <Link href="#" className="contact-phone">
-              <div className="contact-phone-left">
-                <ContactPhone />
-                <h2>+91-7709809311</h2>
-              </div>
-              <div className="contact-right">
-                <ContactArrow />
-              </div>
-            </Link>
-            <Link href="#" className="contact-mail">
-              <div className="contact-mail-left">
-                <ContactMail />
-                <h2>team@thekapdaproject.com</h2>
-              </div>
-              <div className="contact-right">
-                <ContactArrow />
+            <Link href="#">
+              <div className="contact-phone">
+                <div className="contact-phone-left">
+                  <ContactPhone />
+                  <h2>+91-7709809311</h2>
+                </div>
+                <div className="contact-right">
+                  <ContactArrow />
+                </div>
               </div>
             </Link>
-            <Link href="#" className="contact-insta">
-              <div className="contact-insta-left">
-                <ContactInstaColor />
-                <h2>@thekapdaproject</h2>
+            <Link href="#">
+              <div className="contact-mail">
+                <div className="contact-mail-left">
+                  <ContactMail />
+                  <h2>team@thekapdaproject.com</h2>
+                </div>
+                <div className="contact-right">
+                  <ContactArrow />
+                </div>
               </div>
-              <div className="contact-right">
-                <ContactArrow />
+            </Link>
+            <Link href="#">
+              <div className="contact-insta">
+                <div className="contact-insta-left">
+                  <ContactInstaColor />
+                  <h2>@thekapdaproject</h2>
+                </div>
+                <div className="contact-right">
+                  <ContactArrow />
+                </div>
               </div>
             </Link>
           </div>

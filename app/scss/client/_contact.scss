@@ -67,83 +67,83 @@
           font-family: v.$fontRM;
           text-transform: lowercase;
           font-weight: 100;
-        }
 
-        .contact-phone,
-        .contact-mail,
-        .contact-insta {
-          display: flex;
-          align-items: center;
-          gap: 20px;
-          font-size: 0.8em;
-        }
-
-        .contact-phone {
-          display: flex;
-          justify-content: space-between;
-          width: 30vw;
-
-          .contact-phone-left {
+          .contact-phone,
+          .contact-mail,
+          .contact-insta {
             display: flex;
-            gap: 2em;
-
-            svg {
-              width: 1.8em;
-              height: auto;
-            }
+            align-items: center;
+            width: 20em;
+            font-size: 0.8em;
           }
-
-          .contact-right {
-            svg {
-              height: auto;
-              width: 1em;
-            }
-          }
-        }
-
-        .contact-mail {
-          display: flex;
-          justify-content: space-between;
-          width: 36em;
-
-          .contact-mail-left {
+          
+          .contact-phone {
             display: flex;
-            gap: 2em;
+            justify-content: space-between;
+            width: 30vw;
 
-            svg {
-              width: 2.4em;
-              height: auto;
-              margin-left: -2px;
+            .contact-phone-left {
+              display: flex;
+              gap: 2em;
+
+              svg {
+                width: 1.8em;
+                height: auto;
+              }
+            }
+
+            .contact-right {
+              svg {
+                height: auto;
+                width: 1em;
+              }
             }
           }
 
-          .contact-right {
-            svg {
-              height: auto;
-              width: 1em;
-            }
-          }
-        }
-
-        .contact-insta {
-          display: flex;
-          justify-content: space-between;
-          width: 36em;
-          .contact-insta-left {
+          .contact-mail {
             display: flex;
-            gap: 2em;
+            justify-content: space-between;
+            width: 30vw;
 
-            svg {
-              width: 2.3em;
-              height: auto;
-              margin-left: 0px;
+            .contact-mail-left {
+              display: flex;
+              gap: 2em;
+
+              svg {
+                width: 2.4em;
+                height: auto;
+                margin-left: -2px;
+              }
+            }
+
+            .contact-right {
+              svg {
+                height: auto;
+                width: 1em;
+              }
             }
           }
 
-          .contact-right {
-            svg {
-              height: auto;
-              width: 1em;
+          .contact-insta {
+            display: flex;
+            justify-content: space-between;
+            width: 30vw;
+            .contact-insta-left {
+              display: flex;
+              gap: 2em;
+
+              svg {
+                width: 2.3em;
+                height: auto;
+                margin-left: 0px;
+              }
+            }
+
+            .contact-right {
+              svg {
+                height: auto;
+                width: 1em;
+              }
             }
           }
         }

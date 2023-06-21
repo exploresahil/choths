@@ -16,6 +16,7 @@ import MenuClose from "@/components/icons/MenuClose";
 import logo from "@/public/assets/logos/header-logo.svg";
 
 import { useState } from "react";
+import TkpLogo from "../icons/TkpLogo";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -37,7 +38,7 @@ const Header = () => {
         duration={1000}
         spy={true}
       >
-        <Image fill src={logo} style={{ objectFit: "contain" }} alt="logo" />
+        <TkpLogo />
       </ScrollLink>
       <div className="user-menu">
         <div className="user-menu-ecommercs">

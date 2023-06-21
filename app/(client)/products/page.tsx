@@ -1,4 +1,3 @@
-import Filter from "@/components/client/Filter";
 import Image from "next/image";
 
 import productImg from "@/public/assets/images/products/product-img.png";
@@ -7,7 +6,6 @@ import Link from "next/link";
 const Products = () => {
   return (
     <div className="products-main">
-      {/* <Filter /> */}
       <div className="products-container">
         <div className="sidebar">
           <ul>

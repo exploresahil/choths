@@ -13,7 +13,7 @@ const Shipping = () => {
         <CategoriesWatermarkOuter />
       </div>
       <div className="shipping-heading">
-        <h1>SHIPPING POLICY</h1>
+        <h1>Shipping Policy</h1>
         <p>
           Thank you for choosing The Kapda Project for your upcycled fashion
           needs. We are committed to providing you with a smooth and efficient

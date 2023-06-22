@@ -30,4 +30,4 @@ export { default as SanyuktaHeader } from "@/components/icons/SanyuktaHeader";
 export { default as SolutionImpactLogo } from "@/components/icons/SolutionImpactLogo";
 export { default as SolutionScrollLine } from "@/components/icons/SolutionScrollLine";
 export { default as TkpLogo } from "@/components/icons/TkpLogo";
-
+export { default as BlogsArrow } from "@/components/icons/BlogsArrow";

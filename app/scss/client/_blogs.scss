@@ -1,2 +1,254 @@
 @use "./variables" as v;
 
+.blogs-main {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: auto;
+  margin-top: -180px;
+
+  .blogs-watermark-container {
+    position: fixed;
+    z-index: 3;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 3vw;
+    bottom: 5vh;
+    fill: v.$textBrown;
+
+    svg {
+      width: 100px;
+      height: 100px;
+
+      &:nth-of-type(1) {
+        width: 40px;
+        height: 40px;
+      }
+
+      &:nth-of-type(2) {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        animation: rotate 40s linear infinite forwards;
+
+        @keyframes rotate {
+          0% {
+            transform: rotate(0);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+      }
+    }
+  }
+
+  .blogs-featured-section {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+
+    .featured-img-container {
+      width: 50vw;
+      height: 100vh;
+
+      img {
+        width: 50vw;
+        height: 100vh;
+        object-fit: cover;
+      }
+    }
+
+    .featured-content {
+      display: flex;
+      flex-direction: column;
+      width: 50vw;
+      height: 100vh;
+      justify-content: center;
+      gap: 2em;
+      padding: 0 10vw 0 5vw;
+
+      h1 {
+        font-family: v.$fontASB;
+        font-size: 15.5vh;
+        color: v.$textTeal;
+      }
+
+      h2 {
+        font-family: v.$fontRM;
+        font-size: 2.5vh;
+        font-weight: 100;
+      }
+
+      p {
+        font-family: v.$fontRM;
+        font-size: 2.6vh;
+        color: v.$dark;
+      }
+
+      .blogs-read-more-container {
+        width: 12vw;
+
+        .blogs-read-more {
+          display: flex;
+          width: 12vw;
+          height: auto;
+          justify-content: space-between;
+
+          p {
+            font-family: v.$fontRB;
+            color: v.$textTeal;
+            text-decoration: underline;
+            text-decoration-thickness: 1.5px;
+          }
+
+          svg {
+            width: 2.5em;
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+
+  .blogs-filter-section {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100vw;
+    height: 15vh;
+    gap: 2em;
+    padding: 0 4vw;
+
+    .filter-container {
+      button {
+        display: flex;
+        text-align: left;
+        background-color: v.$textTeal;
+        width: fit-content;
+        padding: 10px 20px 10px 20px;
+        gap: 1em;
+        border-radius: 2em;
+        position: relative;
+
+        h3 {
+          font-family: v.$fontRM;
+          font-size: 1em;
+          font-weight: 100;
+          color: white;
+        }
+
+        svg {
+          width: 1.8em;
+          padding-right: 5px;
+        }
+      }
+    }
+  }
+
+  .blogs-articles-section {
+    display: flex;
+    justify-content: flex-start;
+    // align-items: center;
+    padding: 0 5vw 5vh 5vw;
+    height: auto;
+    flex-wrap: wrap;
+    gap: 2.5vw;
+
+    .articles-container {
+      display: flex;
+      flex-direction: column;
+      width: 42.5vw;
+      height: 85vh;
+      gap: 2.5em;
+      padding: 0 5vw;
+
+      .articles-img-container {
+        width: 42.5vw;
+        height: 40vh;
+        z-index: 2;
+
+        img {
+          object-fit: cover;
+          width: 40vw;
+          height: 42.5vh;
+        }
+      }
+
+      .articles-content {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        height: 42.5vh;
+        width: 42.5vw;
+
+        h1 {
+          font-family: v.$fontASB;
+          font-size: 5em;
+          line-height: 1em;
+          color: v.$textTeal;
+        }
+
+        h2 {
+          font-family: v.$fontRM;
+          font-weight: 100;
+          font-size: 1em;
+        }
+
+        p {
+          font-family: v.$fontRM;
+          font-weight: 100;
+          font-size: 1em;
+          color: v.$dark;
+        }
+
+        .articles-read-more-container {
+          width: 10vw;
+
+          .articles-read-more {
+            display: flex;
+            width: 10vw;
+            height: auto;
+            justify-content: space-between;
+
+            p {
+              font-family: v.$fontRB;
+              color: v.$textTeal;
+              text-decoration: underline;
+              text-decoration-thickness: 1.5px;
+            }
+
+            svg {
+              width: 2.5em;
+              height: auto;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .blogs-newsletter-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+
+    h1 {
+      font-family: v.$fontASB;
+      font-size: 6em;
+      color: v.$textTeal;
+      font-weight: 100;
+    }
+
+    .newsletter-container {
+      margin-top: -13vh;
+    }
+  }
+}

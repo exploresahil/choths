@@ -7,6 +7,7 @@ import FAQs from "@/components/client/FAQs";
 import { CategoriesWatermarkCenter, CategoriesWatermarkOuter } from "@/components/icons/Icons";
 
 import ArticleImg from "@/public/assets/images/blogs/article/ArticleImg.png"
+import Newsletter from "@/components/client/NewsLetter";
 
 const Article = () => {
   return (
@@ -71,6 +72,12 @@ const Article = () => {
       </div>
       <div className="article-faqs-section">
         <FAQs />
+      </div>
+      <div className="article-newsletter-section">
+        <h1>STAY UPDATED</h1>
+        <div className="newsletter-container">
+          <Newsletter />
+        </div>
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 @use "./variables" as v;
 
-.blog-main {
+.article-main {
   display: flex;
   flex-direction: column;
   width: 100vw;
@@ -8,7 +8,7 @@
   align-items: center;
   justify-content: center;
 
-  .blog-watermark-container {
+  .article-watermark-container {
     position: fixed;
     z-index: 3;
     width: 100px;
@@ -48,7 +48,7 @@
     }
   }
 
-  .blog-section {
+  .article-section {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -56,17 +56,15 @@
     gap: 3em;
     padding: 0 0 15vh 0;
 
-    .blog-img-container {
-      position: relative;
-      width: 45vw;
-      height: 50vh;
-
+    .article-img-container {
       img {
-        inset: 0;
+        // width: 50vw;
+        height: 50vh;
+        object-fit: contain;
       }
     }
 
-    .blog-content {
+    .article-content {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -74,11 +72,11 @@
       width: 45vw;
       gap: 2em;
 
-      .blog-heading {
+      .article-heading {
         display: flex;
         flex-direction: column;
 
-        .blog-title {
+        h1 {
           font-family: v.$fontASB;
           color: v.$textTeal;
           font-size: 6em;
@@ -91,26 +89,32 @@
         }
       }
 
-      .blog-description {
+      .article-description {
         display: flex;
         flex-direction: column;
-        font-family: v.$fontRB;
-        color: v.$dark;
-        font-size: 1.5em;
+
+        h2 {
+          font-family: v.$fontRB;
+          color: v.$dark;
+          font-size: 1.5em;
+        }
       }
 
-      .blog-text {
+      .article-text {
         display: flex;
         flex-direction: column;
         justify-content: center;
         gap: 1em;
-        font-family: v.$fontRM;
-        color: v.$dark;
+
+        p {
+          font-family: v.$fontRM;
+          color: v.$dark;
+        }
       }
     }
   }
 
-  .blog-newsletter-section {
+  .article-newsletter-section {
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -4,21 +4,14 @@ import schemas from "@/sanity/schemas";
 import Logo from "@/components/studio/Logo";
 import StudioNavbar from "@/components/studio/StudioNavbar";
 import { myTheme } from "@/theme";
-import { visionTool } from "@sanity/vision";
 
 const config = defineConfig({
-  projectId: "loh8nmql",
+  projectId: "8oozh43c",
   dataset: "production",
   title: "The Kapda Project",
   apiVersion: "2023-06-05",
   basePath: "/admin",
-  plugins: [
-    deskTool(),
-    visionTool({
-      defaultApiVersion: "v2021-10-21",
-      defaultDataset: "production",
-    }),
-  ],
+  plugins: [deskTool()],
   studio: {
     components: {
       // logo: Logo,

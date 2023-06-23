@@ -1,8 +1,6 @@
 import process from "./process-schema";
 import headerSchema from "./header-schema";
-import blogsSchema from "./blogs-schema";
-import featuredSchema from "./featured-schema";
 
-const schemas = [process, headerSchema, blogsSchema, featuredSchema];
+const schemas = [process, headerSchema];
 
 export default schemas;

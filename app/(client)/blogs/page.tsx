@@ -2,7 +2,11 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { PortableText } from "@portabletext/react";
+
+import { getBlogs, getFeatured } from "@/sanity/sanity-utils";
 import Newsletter from "@/components/client/NewsLetter";
+import FAQs from "@/components/client/FAQs";
 
 import {
   BlogsArrow,
@@ -11,36 +15,46 @@ import {
 } from "@/components/icons/Icons";
 
 import BlogsFeaturedImg from "@/public/assets/images/blogs/BlogsFeaturedImg.png";
-import ArticlesImgOne from "@/public/assets/images/blogs/ArticlesImgOne.png";
-import ArticlesImgTwo from "@/public/assets/images/blogs/ArticlesImgTwo.png";
-import FAQs from "@/components/client/FAQs";
 
-const Blogs = () => {
+async function Blogs() {
+  const blogs = await getBlogs();
+  const featured = await getFeatured();
+
   return (
     <div className="blogs-main">
       <div className="blogs-watermark-container">
         <CategoriesWatermarkCenter />
         <CategoriesWatermarkOuter />
       </div>
-      <div className="blogs-featured-section">
-        <div className="featured-img-container">
-          <Image src={BlogsFeaturedImg} alt="blogs-featured-img" />
-        </div>
-        <div className="featured-content">
-          <h2>UPCYCLING 101</h2>
-          <h1>Embracing Upcycled Fashion</h1>
-          <p>Discover the beauty of upcycled fashion with the kapda project</p>
-          <div className="blogs-read-more-container">
-            <Link href="">
-              <div className="blogs-read-more">
-                <p>READ MORE</p>
-                <BlogsArrow />
-              </div>
-            </Link>
+      {featured.map((featured) => (
+        <div key={featured._id} className="blogs-featured-section">
+          <div className="blogs-featured-img-container">
+            <Image
+              fill
+              src={featured.image.url}
+              alt={featured.image.alt}
+              style={{ objectFit: "cover" }}
+            />
+          </div>
+          <div className="blogs-featured-content">
+            <h2>{featured.topic}</h2>
+            <div className="blogs-featured-title">
+              <PortableText value={featured.title} />
+            </div>
+            <div className="blogs-featured-description">
+              <PortableText value={featured.description} />
+            </div>
+            <div className="blogs-read-more-container">
+              <Link href="/blogs/featured">
+                <div className="blogs-read-more">
+                  <p>READ MORE</p>
+                  <BlogsArrow />
+                </div>
+              </Link>
+            </div>
           </div>
         </div>
-        d
-      </div>
+      ))}
       <div className="blogs-filter-section">
         <div className="filter-container">
           <button type="button">
@@ -63,26 +77,41 @@ const Blogs = () => {
           </button>
         </div>
       </div>
+
       <div className="blogs-articles-section">
-        <div className="articles-container">
-          <div className="articles-img-container">
-            <Image src={ArticlesImgOne} alt="articles-img-one" />
-          </div>
-          <div className="articles-content">
-            <h2>BEHIND THE SCENES</h2>
-            <h1>A Commitment to Ethical Fashion</h1>
-            <p>Redifining Fashion with Ethics and Elegance</p>
-            <div className="articles-read-more-container">
-              <Link href="">
-                <div className="articles-read-more">
-                  <p>READ MORE</p>
-                  <BlogsArrow />
-                </div>
-              </Link>
+        {blogs.map((blog) => (
+          <div key={blog._id} className="articles-container">
+            <div className="articles-img-container">
+              {blog.image && (
+                <Image
+                  fill
+                  src={blog.image.url}
+                  style={{ objectFit: "cover" }}
+                  alt={blog.image.alt}
+                />
+              )}
+            </div>
+            <div className="articles-content">
+              <div className="articles-topic">{blog.topic}</div>
+              <div className="articles-title">
+                <PortableText value={blog.title} />
+              </div>
+              <div className="articles-description">
+                <PortableText value={blog.description} />
+              </div>
+              <div className="articles-read-more-container">
+                <Link href={`/blogs/${blog.slug}`}>
+                  <div className="articles-read-more">
+                    <p>READ MORE</p>
+                    <BlogsArrow />
+                  </div>
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
+        ))}
       </div>
+
       <div className="blogs-faqs-section">
         <FAQs />
       </div>
@@ -94,6 +123,6 @@ const Blogs = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Blogs;

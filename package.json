@@ -30,6 +30,7 @@
     "react-scroll": "^1.8.9",
     "sanity": "^3.11.3",
     "sass": "^1.62.1",
+    "sharp": "^0.32.1",
     "split-type": "^0.3.3",
     "typescript": "5.0.4"
   }

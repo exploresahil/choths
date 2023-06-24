@@ -11,7 +11,7 @@ import { PortableText } from "@portabletext/react";
 import Image from "next/image";
 
 type Props = {
-  params: { blog: string };
+  params: { blog: any };
 };
 
 export default async function Blog({ params }: Props) {

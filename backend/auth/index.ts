@@ -1,0 +1,49 @@
+import SuperBase from "../supabase";
+
+
+export const LoginWithEmail = (email: string) => {
+    return SuperBase.auth.signInWithOtp({
+        email,
+    })
+}
+export const LoginWithPhone = (phone: string) => {
+    return SuperBase.auth.signInWithOtp({
+        phone
+    })
+}
+export const LoginWithGoogle = () => {
+    return SuperBase.auth.signInWithOAuth({
+        provider: 'google'
+    })
+}
+export const LoginWithPassword = (email: string, password: string) => {
+    return SuperBase.auth.signInWithPassword({
+        email,
+        password
+    })
+}
+
+
+
+
+export const CreateUserWithEmail = (email: string, password: string, phone: string, ExtraData: any) => {
+    return SuperBase.auth.signUp({
+        email,
+        password,
+        phone,
+        options: {
+            data: {
+                ...ExtraData
+            }
+        }
+    })
+}
+
+export const setToken = (token: string) => {
+    localStorage.setItem("token", token)
+}
+
+
+export const GetUser = () => {
+    return SuperBase.auth.getUser(localStorage.getItem("token") || "")
+}

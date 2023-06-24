@@ -102,12 +102,12 @@ async function Blogs() {
                 <PortableText value={blog.description} />
               </div>
               <div className="articles-read-more-container">
-                <Link href={`/blogs/${blog.slug}`}>
+                <a href={`/blogs/${blog.slug}`}>
                   <div className="articles-read-more">
                     <p>READ MORE</p>
                     <BlogsArrow />
                   </div>
-                </Link>
+                </a>
               </div>
             </div>
           </div>

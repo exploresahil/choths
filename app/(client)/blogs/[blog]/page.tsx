@@ -24,32 +24,35 @@ export default async function Blog({ params }: Props) {
         <CategoriesWatermarkCenter />
         <CategoriesWatermarkOuter />
       </div>
-      <div className="blog-section">
-        <div className="blog-img-container">
-          {blog.image && (
-            <Image
-              fill
-              src={blog.image.url}
-              alt={blog.image.alt}
-              style={{ objectFit: "cover" }}
-            />
-          )}
-        </div>
-        <div className="blog-content">
-          <div className="blog-heading">
-            <h2>{blog.topic}</h2>
-            <div className="blog-title">
-              <PortableText value={blog.title} />
+      {blog && (
+        <div className="blog-section">
+          <div className="blog-img-container">
+            {blog.image && (
+              <Image
+                fill
+                src={blog.image.url}
+                alt={blog.image.alt}
+                style={{ objectFit: "cover" }}
+              />
+            )}
+          </div>
+          <div className="blog-content">
+            <div className="blog-heading">
+              <h2>{blog.topic}</h2>
+              <div className="blog-title">
+                <PortableText value={blog.title} />
+              </div>
+            </div>
+            <div className="blog-description">
+              <PortableText value={blog.description} />
+            </div>
+            <div className="blog-text">
+              <PortableText value={blog.content} />
             </div>
           </div>
-          <div className="blog-description">
-            <PortableText value={blog.description} />
-          </div>
-          <div className="blog-text">
-            <PortableText value={blog.content} />
-          </div>
         </div>
-      </div>
+      )}
+
       <div className="blog-faqs-section">
         <FAQs />
       </div>

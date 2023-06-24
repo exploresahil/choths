@@ -7,16 +7,24 @@ import {
   CategoriesWatermarkOuter,
 } from "@/components/icons/Icons";
 import { getBlog } from "@/sanity/sanity-utils";
+import { blogsSchema } from "@/sanity/types/Blogs";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
+import React from "react";
 
 type Props = {
   params: { blog: any };
 };
 
-export default async function Blog({ params }: Props) {
+export default function Blog({ params }: Props) {
+  const [blog, setBlog] = React.useState<blogsSchema>();
   const slug = params.blog;
-  const blog = await getBlog(slug);
+  React.useEffect(() => {
+    console.log("s");
+    getBlog(slug).then((data) => {
+      setBlog(data);
+    });
+  }, [slug]);
 
   return (
     <div className="blog-main">

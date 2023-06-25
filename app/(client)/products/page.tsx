@@ -1,11 +1,13 @@
+import Filter from "@/components/client/Filter";
 import Image from "next/image";
-import Link from "next/link";
 
 import productImg from "@/public/assets/images/products/product-img.png";
+import Link from "next/link";
 
 const Products = () => {
   return (
     <div className="products-main">
+      <Filter />
       <div className="products-container">
         <div className="sidebar">
           <ul>
@@ -17,9 +19,9 @@ const Products = () => {
             <li>view all</li>
           </ul>
         </div>
-        <Link href="#" className="products">
+        <div className="products">
           <div className="products-grid">
-            <div className="product">
+            <Link href="#" className="product">
               <div className="img-container">
                 <Image
                   fill
@@ -32,7 +34,7 @@ const Products = () => {
                 <h3>PRODUCT NAME</h3>
                 <p>RS.1200</p>
               </div>
-            </div>
+            </Link>
             <div className="product">
               <div className="img-container">
                 <Image
@@ -132,7 +134,7 @@ const Products = () => {
               </div>
             </div>
           </div>
-        </Link>
+        </div>
         <div className="blank" />
       </div>
     </div>

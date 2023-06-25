@@ -1,9 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
+import productImg from "@/public/assets/images/products/product-img.png";
 import { AiFillPlusCircle } from "react-icons/ai";
 import { BsArrowRight } from "react-icons/bs";
-
-import productImg from "@/public/assets/images/products/product-img.png";
 
 const Product = () => {
   return (

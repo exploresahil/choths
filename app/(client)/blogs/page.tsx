@@ -4,7 +4,21 @@ import Image from "next/image";
 import Link from "next/link";
 import { PortableText } from "@portabletext/react";
 
-import { getBlogs, getFeatured } from "@/sanity/sanity-utils";
+import {
+  getBlogs,
+  getUpcycleBlogs,
+  getIndustryBlogs,
+  getBtsBlogs,
+  getShopBlogs,
+  getFeatured,
+} from "@/sanity/sanity-utils";
+import {
+  AllBlogs,
+  UpcycleBlogs,
+  BtsBlogs,
+  ShopBlogs,
+  IndustryBlogs,
+} from "@/components/client/BlogsList";
 import Newsletter from "@/components/client/NewsLetter";
 import FAQs from "@/components/client/FAQs";
 
@@ -13,12 +27,25 @@ import {
   CategoriesWatermarkCenter,
   CategoriesWatermarkOuter,
 } from "@/components/icons/Icons";
-
-import BlogsFeaturedImg from "@/public/assets/images/blogs/BlogsFeaturedImg.png";
+import { useState } from "react";
 
 async function Blogs() {
-  const blogs = await getBlogs();
+  const [upcycle, setUpcycle] = useState(false);
+  const [industry, setIndustry] = useState(false);
+  const [bts, setBts] = useState(false);
+  const [shop, setShop] = useState(false);
+
+  const allBlogs = await getBlogs();
+  const upcycleBlogs = await getUpcycleBlogs();
+  const industryBlogs = await getIndustryBlogs();
+  const btsBlogs = await getBtsBlogs();
+  const shopBlogs = await getShopBlogs();
   const featured = await getFeatured();
+
+  console.log(upcycle);
+  console.log(industry);
+  console.log(bts);
+  console.log(shop);
 
   return (
     <div className="blogs-main">
@@ -59,29 +86,70 @@ async function Blogs() {
       ))}
       <div className="blogs-filter-section">
         <div className="filter-container">
-          <button type="button">
+          <button
+            type="button"
+            onClick={() => {
+              setUpcycle(!upcycle);
+              setIndustry(false);
+              setBts(false);
+              setShop(false);
+            }}
+          >
             <h3>UPCYCLING 101</h3>
           </button>
         </div>
         <div className="filter-container">
-          <button type="button">
+          <button
+            type="button"
+            onClick={() => {
+              setUpcycle(false);
+              setIndustry(!industry);
+              setBts(false);
+              setShop(false);
+            }}
+          >
             <h3>INDUSTRY NEWNESS</h3>
           </button>
         </div>
         <div className="filter-container">
-          <button type="button">
+          <button
+            type="button"
+            onClick={() => {
+              setUpcycle(false);
+              setIndustry(false);
+              setBts(!bts);
+              setShop(false);
+            }}
+          >
             <h3>BEHIND THE SCENES</h3>
           </button>
         </div>
         <div className="filter-container">
-          <button type="button">
+          <button
+            type="button"
+            onClick={() => {
+              setUpcycle(false);
+              setIndustry(false);
+              setBts(false);
+              setShop(!shop);
+            }}
+          >
             <h3>SHOP HACKS</h3>
           </button>
         </div>
       </div>
 
-      <div className="blogs-articles-section">
-        {blogs.map((blog) => (
+      {upcycle == false &&
+        industry == false &&
+        bts == false &&
+        shop == false && <AllBlogs />}
+      {upcycle == true && <UpcycleBlogs />}
+      {industry == true && <IndustryBlogs />}
+      {bts == true && <BtsBlogs />}
+      {shop == true && <ShopBlogs />}
+
+      {/* <div className="blogs-articles-section">
+        {allBlogs.map((blog) => (
           <div key={blog._id} className="articles-container">
             <div className="articles-img-container">
               {blog.image && (
@@ -112,7 +180,7 @@ async function Blogs() {
             </div>
           </div>
         ))}
-      </div>
+      </div> */}
 
       <div className="blogs-faqs-section">
         <FAQs />

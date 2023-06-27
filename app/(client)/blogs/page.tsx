@@ -14,8 +14,6 @@ import {
   CategoriesWatermarkOuter,
 } from "@/components/icons/Icons";
 
-import BlogsFeaturedImg from "@/public/assets/images/blogs/BlogsFeaturedImg.png";
-
 async function Blogs() {
   const blogs = await getBlogs();
   const featured = await getFeatured();

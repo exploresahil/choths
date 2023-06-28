@@ -596,3 +596,33 @@
     }
   }
 }
+
+@media screen and (min-width: 360px) and (max-width: 767px) {
+  .about-section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-top: -27vh;
+    width: 100vw;
+    height: 100vh;
+    background-color: v.$bg;
+    font-family: v.$fontRB;
+    z-index: 2;
+
+    .about-bg-container {
+      position: relative;
+      top: 0;
+      width: 50vw;
+      height: 100vh;
+      // z-index: 1;
+
+      img {
+        position: relative;
+        top: 24vh;
+        width: 20vw;
+        height: auto;
+        // z-index: 1;
+      }
+    }
+  }
+}

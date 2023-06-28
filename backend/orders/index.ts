@@ -1,7 +1,6 @@
 import SuperBase from "@/backend/supabase";
 import { Database } from "@/backend/types"
 
-// TODO make all CRUD op for User  Orders data with mapping user
 //those functions use to order
 /**
  * 
@@ -25,10 +24,16 @@ export const makeOrder = async (product_id: string, user: Database['public']['Ta
         cancel: false
     }).select()
 }
-export const CancelOrder = (order_id: string) => { }
-export const UpdateOrder = (order_id: string, updateObject: Database['public']['Tables']['Order']['Update']) => { }
-export const getOrders = () => {
-    return SuperBase.from("Order").select("*")
+export const CancelOrder = async (order_id: string) => {
+    return await SuperBase.from("Order").update({
+        cancel: true,
+    }).eq("id", order_id)
+}
+export const UpdateOrder = async (order_id: string, updateObject: Database['public']['Tables']['Order']['Update']) => {
+    return await SuperBase.from("Order").update(updateObject).eq("id", order_id)
+}
+export const getOrders = (user_id: string) => {
+    return SuperBase.from("Order").select("*").eq("user", user_id)
 }
 export const getOrdersId = (order_id: string) => {
     return SuperBase.from("Order").select("*").eq("id", order_id)
@@ -36,7 +41,11 @@ export const getOrdersId = (order_id: string) => {
 
 //those functions use to cart
 export const AddCartOrder = (product_id: string, user_id: string, how_many: number) => {
-
+    return SuperBase.from("Cart").insert({
+        how_many,
+        product: product_id,
+        user: user_id
+    })
 }
 export const RemoveCartOrder = (
     id: string
@@ -46,7 +55,7 @@ export const RemoveCartOrder = (
 }
 export const UpdateCartOrder = (
     id: string,
-    data: any
+    data: Database['public']['Tables']['Cart']['Update']
 ) => {
 
     return SuperBase.from("Cart").update(data).eq("id", id).select("*")

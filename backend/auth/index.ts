@@ -44,6 +44,7 @@ export const setToken = (token: string) => {
 }
 
 
-export const GetUser = () => {
-    return SuperBase.auth.getUser(localStorage.getItem("token") || "")
+export const GetUser = async () => {
+    const d = await SuperBase.auth.getUser(localStorage.getItem("token") || "")
+    return { "data": d, "additionalData": SuperBase.from("USER").select("*").eq("user", d.data.user?.id) }
 }

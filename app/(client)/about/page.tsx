@@ -32,205 +32,209 @@ import Sanyukta from "@/public/assets/images/founders/Sanyukta.png";
 
 const About = () => {
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
+    let mm = gsap.matchMedia();
 
-    const tlAbout = gsap.timeline();
-    const tlSolution = gsap.timeline();
+    mm.add("(min-width: 821px)", () => {
+      gsap.registerPlugin(ScrollTrigger);
 
-    tlAbout.fromTo(
-      ".about-section",
-      {},
-      {
-        scrollTrigger: {
-          trigger: ".about-section",
-          start: "top top",
-          end: "1650vh top",
-          scrub: true,
-          // markers: true,
-          pin: true,
+      const tlAbout = gsap.timeline();
+      const tlSolution = gsap.timeline();
+
+      tlAbout.fromTo(
+        ".about-section",
+        {},
+        {
+          scrollTrigger: {
+            trigger: ".about-section",
+            start: "top top",
+            end: "1650vh top",
+            scrub: true,
+            // markers: true,
+            pin: true,
+          },
+        }
+      );
+
+      tlAbout.fromTo(
+        ".about-bg-container",
+        {
+          width: "50vw",
         },
-      }
-    );
+        {
+          width: "30vw",
+          scrollTrigger: {
+            trigger: ".about-bg-container",
+            // markers: true,
+            start: "top top",
+            end: "1800px top",
+            scrub: true,
+          },
+        }
+      );
 
-    tlAbout.fromTo(
-      ".about-bg-container",
-      {
-        width: "50vw",
-      },
-      {
-        width: "30vw",
-        scrollTrigger: {
-          trigger: ".about-bg-container",
-          // markers: true,
-          start: "top top",
-          end: "1800px top",
-          scrub: true,
+      tlAbout.fromTo(
+        ".about-content",
+        {
+          width: "50vw",
         },
-      }
-    );
+        {
+          width: "70vw",
+          y: "-1200px",
+          scrollTrigger: {
+            trigger: "#about-bg-container",
+            // markers: true,
+            start: "top top",
+            end: "1600px top",
+            scrub: true,
+          },
+        }
+      );
 
-    tlAbout.fromTo(
-      ".about-content",
-      {
-        width: "50vw",
-      },
-      {
-        width: "70vw",
-        y: "-1200px",
-        scrollTrigger: {
-          trigger: "#about-bg-container",
-          // markers: true,
-          start: "top top",
-          end: "1600px top",
-          scrub: true,
+      tlAbout.fromTo(
+        ".about-content-main",
+        {
+          opacity: 1,
         },
-      }
-    );
+        {
+          opacity: 0,
+          scrollTrigger: {
+            trigger: "#about-bg-container",
+            // markers: true,
+            start: "top top",
+            end: "400px top",
+            scrub: true,
+          },
+        }
+      );
 
-    tlAbout.fromTo(
-      ".about-content-main",
-      {
-        opacity: 1,
-      },
-      {
-        opacity: 0,
-        scrollTrigger: {
-          trigger: "#about-bg-container",
-          // markers: true,
-          start: "top top",
-          end: "400px top",
-          scrub: true,
+      tlAbout.fromTo(
+        ".about-percent-one",
+        {
+          y: 500,
         },
-      }
-    );
+        {
+          y: 0,
+          ease: "none",
+          scrollTrigger: {
+            trigger: "#about-bg-container",
+            // markers: true,
+            start: "top top",
+            end: "300px top",
+            scrub: true,
+          },
+        }
+      );
 
-    tlAbout.fromTo(
-      ".about-percent-one",
-      {
-        y: 500,
-      },
-      {
-        y: 0,
-        ease: "none",
-        scrollTrigger: {
-          trigger: "#about-bg-container",
-          // markers: true,
-          start: "top top",
-          end: "300px top",
-          scrub: true,
+      tlAbout.fromTo(
+        ".about-percent-two",
+        {
+          y: 600,
         },
-      }
-    );
+        {
+          y: 0,
+          ease: "none",
+          scrollTrigger: {
+            trigger: "#about-bg-container",
+            // markers: true,
+            start: "100px top",
+            end: "400px top",
+            scrub: true,
+          },
+        }
+      );
 
-    tlAbout.fromTo(
-      ".about-percent-two",
-      {
-        y: 600,
-      },
-      {
-        y: 0,
-        ease: "none",
-        scrollTrigger: {
-          trigger: "#about-bg-container",
-          // markers: true,
-          start: "100px top",
-          end: "400px top",
-          scrub: true,
+      tlAbout.fromTo(
+        ".about-percent-three",
+        {
+          y: 700,
         },
-      }
-    );
+        {
+          y: 0,
+          ease: "none",
+          scrollTrigger: {
+            trigger: "#about-bg-container",
+            // markers: true,
+            start: "200px top",
+            end: "500px top",
+            scrub: true,
+          },
+        }
+      );
 
-    tlAbout.fromTo(
-      ".about-percent-three",
-      {
-        y: 700,
-      },
-      {
-        y: 0,
-        ease: "none",
-        scrollTrigger: {
-          trigger: "#about-bg-container",
-          // markers: true,
-          start: "200px top",
-          end: "500px top",
-          scrub: true,
+      tlAbout.fromTo(
+        ".about-window-container",
+        {
+          width: "25vw",
+          height: "50vh",
+          right: 0,
+          borderRadius: "1000px 1000px 0 0",
+          top: 0,
         },
-      }
-    );
+        {
+          width: "100vw",
+          height: "110vh",
+          right: "15vw",
+          borderRadius: "0 0 0 0",
+          top: "15.1vh",
+          scrollTrigger: {
+            trigger: ".about-window-container",
+            // markers: true,
+            start: "center+=18vh center",
+            end: "bottom+=20vh center",
+            scrub: true,
+          },
+        }
+      );
 
-    tlAbout.fromTo(
-      ".about-window-container",
-      {
-        width: "25vw",
-        height: "50vh",
-        right: 0,
-        borderRadius: "1000px 1000px 0 0",
-        top: 0,
-      },
-      {
-        width: "100vw",
-        height: "110vh",
-        right: "15vw",
-        borderRadius: "0 0 0 0",
-        top: "15.1vh",
-        scrollTrigger: {
-          trigger: ".about-window-container",
-          // markers: true,
-          start: "center+=18vh center",
-          end: "bottom+=20vh center",
-          scrub: true,
-        },
-      }
-    );
+      tlSolution.fromTo(
+        ".solution-section",
+        {},
+        {
+          scrollTrigger: {
+            trigger: ".solution-section",
+            // markers: true,
+            start: "top top",
+            end: "2200px bottom",
+            scrub: true,
+          },
+        }
+      );
 
-    tlSolution.fromTo(
-      ".solution-section",
-      {},
-      {
-        scrollTrigger: {
-          trigger: ".solution-section",
-          // markers: true,
-          start: "top top",
-          end: "2200px bottom",
-          scrub: true,
+      tlSolution.fromTo(
+        ".solution-main",
+        {
+          x: 0,
         },
-      }
-    );
+        {
+          x: "-166.66vw",
+          scrollTrigger: {
+            trigger: ".solution-section",
+            // markers: true,
+            start: "top top",
+            end: "2800px bottom",
+            scrub: true,
+            pin: true,
+          },
+        }
+      );
 
-    tlSolution.fromTo(
-      ".solution-main",
-      {
-        x: 0,
-      },
-      {
-        x: "-166.66vw",
-        scrollTrigger: {
-          trigger: ".solution-section",
-          // markers: true,
-          start: "top top",
-          end: "2800px bottom",
-          scrub: true,
-          pin: true,
+      tlSolution.fromTo(
+        ".solution-side-scroll-main",
+        {
+          x: "100vw",
         },
-      }
-    );
-
-    tlSolution.fromTo(
-      ".solution-side-scroll-main",
-      {
-        x: "100vw",
-      },
-      {
-        x: "-66.66vw",
-        scrollTrigger: {
-          trigger: ".solution-section",
-          // markers: true,
-          start: "top top",
-          end: "2800px bottom",
-          scrub: true,
-        },
-      }
-    );
+        {
+          x: "-66.66vw",
+          scrollTrigger: {
+            trigger: ".solution-section",
+            // markers: true,
+            start: "top top",
+            end: "2800px bottom",
+            scrub: true,
+          },
+        }
+      );
+    });
   });
 
   return (

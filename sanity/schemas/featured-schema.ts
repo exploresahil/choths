@@ -6,15 +6,8 @@ const featuredSchema = {
     {
       name: "topic",
       title: "Topic",
-      type: "string",
-      options: {
-        list: [
-          { title: "UPCYCLING 101", value: "UPCYCLING 101" },
-          { title: "INDUSTRY NEWNESS", value: "INDUSTRY NEWNESS" },
-          { title: "BEHIND THE SCENES", value: "BEHIND THE SCENES" },
-          { title: "SHOP HACKS", value: "SHOP HACKS" },
-        ],
-      },
+      type: "reference",
+      to: [{ type: "topics" }],
     },
     {
       name: "title",

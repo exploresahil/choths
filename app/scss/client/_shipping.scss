@@ -110,3 +110,233 @@
     }
   }
 }
+
+//*----------> largeMobile
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .shipping-main {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: auto;
+    padding: 0 10vw 5vh 10vw;
+    gap: 2em;
+
+    .shipping-watermark-container {
+      position: fixed;
+      z-index: 1;
+      width: 100px;
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      left: 5vw;
+      bottom: 7vh;
+      fill: v.$textBrown;
+
+      svg {
+        display: none;
+        width: 100px;
+        height: 100px;
+
+        &:nth-of-type(1) {
+          width: 40px;
+          height: 40px;
+        }
+
+        &:nth-of-type(2) {
+          position: absolute;
+          top: 0;
+          left: 0;
+
+          animation: rotate 40s linear infinite forwards;
+
+          @keyframes rotate {
+            0% {
+              transform: rotate(0);
+            }
+            100% {
+              transform: rotate(360deg);
+            }
+          }
+        }
+      }
+    }
+
+    .shipping-heading {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+
+      h1 {
+        font-family: v.$fontASB;
+        color: v.$textTeal;
+        font-size: 3rem;
+      }
+
+      p {
+        font-family: v.$fontRM;
+        font-weight: 100;
+        font-size: 0.85em;
+      }
+    }
+
+    .shipping-content-section {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+
+      .shipping-content {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+
+        h2 {
+          font-family: v.$fontRB;
+          font-size: 1rem;
+        }
+
+        p {
+          font-family: v.$fontRM;
+          font-size: 0.85em;
+        }
+      }
+    }
+
+    .shipping-additional-points {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+
+      p {
+        font-family: v.$fontRM;
+        font-size: 0.85em;
+
+        span {
+          font-family: v.$fontRB;
+        }
+      }
+    }
+
+    .shipping-sign-off {
+      p {
+        font-family: v.$fontRB;
+        font-size: 0.85em;
+      }
+    }
+  }
+}
+
+//*----------> Tablets
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .shipping-main {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: auto;
+    padding: 0 10vw 5vh 10vw;
+    gap: 2em;
+
+    .shipping-watermark-container {
+      position: fixed;
+      z-index: 1;
+      width: 100px;
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      left: 5vw;
+      bottom: 7vh;
+      fill: v.$textBrown;
+
+      svg {
+        display: none;
+        width: 100px;
+        height: 100px;
+
+        &:nth-of-type(1) {
+          width: 40px;
+          height: 40px;
+        }
+
+        &:nth-of-type(2) {
+          position: absolute;
+          top: 0;
+          left: 0;
+
+          animation: rotate 40s linear infinite forwards;
+
+          @keyframes rotate {
+            0% {
+              transform: rotate(0);
+            }
+            100% {
+              transform: rotate(360deg);
+            }
+          }
+        }
+      }
+    }
+
+    .shipping-heading {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+
+      h1 {
+        font-family: v.$fontASB;
+        color: v.$textTeal;
+        font-size: 6rem;
+      }
+
+      p {
+        font-family: v.$fontRM;
+        font-weight: 100;
+        font-size: 0.95rem;
+      }
+    }
+
+    .shipping-content-section {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+
+      .shipping-content {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+
+        h2 {
+          font-family: v.$fontRB;
+          font-size: 1.3rem;
+        }
+
+        p {
+          font-family: v.$fontRM;
+          font-size: 0.95rem;
+        }
+      }
+    }
+
+    .shipping-additional-points {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+
+      p {
+        font-family: v.$fontRM;
+        font-size: 0.95rem;
+
+        span {
+          font-family: v.$fontRB;
+        }
+      }
+    }
+
+    .shipping-sign-off {
+      p {
+        font-family: v.$fontRB;
+        font-size: 0.95rem;
+      }
+    }
+  }
+}

@@ -36,7 +36,7 @@ export default async function Featured() {
           </div>
           <div className="blog-content">
             <div className="blog-heading">
-              <h2>{featured.topic}</h2>
+              <h2>{featured.topic.name}</h2>
               <div className="blog-title">
                 <PortableText value={featured.title} />
               </div>

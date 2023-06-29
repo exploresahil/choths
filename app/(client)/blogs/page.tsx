@@ -3,8 +3,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { PortableText } from "@portabletext/react";
+import { useEffect, useState } from "react";
 
-import { getBlogs, getFeatured } from "@/sanity/sanity-utils";
+import { getBlogs, getFeatured, getTopics } from "@/sanity/sanity-utils";
 import Newsletter from "@/components/client/NewsLetter";
 import FAQs from "@/components/client/FAQs";
 
@@ -13,10 +14,77 @@ import {
   CategoriesWatermarkCenter,
   CategoriesWatermarkOuter,
 } from "@/components/icons/Icons";
+import { PortableTextBlock } from "sanity";
+import Router from "next/router";
 
-async function Blogs() {
-  const blogs = await getBlogs();
-  const featured = await getFeatured();
+interface Blogs {
+  _id: string;
+  _createdAt: Date;
+  topic: {
+    _id: string;
+    _createdAt: Date;
+    name: string;
+    slug: string;
+  };
+  title: PortableTextBlock[];
+  slug: string;
+  image: {
+    url: string;
+    alt: string;
+  };
+  description: PortableTextBlock[];
+}
+
+interface Featured {
+  _id: string;
+  _createdAt: Date;
+  topic: {
+    _id: string;
+    _createdAt: Date;
+    name: string;
+    slug: string;
+  };
+  title: PortableTextBlock[];
+  image: {
+    url: string;
+    alt: string;
+  };
+  description: PortableTextBlock[];
+  content: PortableTextBlock[];
+}
+
+interface Topics {
+  _id: string;
+  _createdAt: Date;
+  name: string;
+  slug: string;
+}
+
+export default function Blogs() {
+  const [filter, setFilter] = useState("ALL");
+  const [blogs, setBlogs] = useState<Blogs[]>([]);
+  const [featured, setFeatured] = useState<Featured[]>([]);
+  const [topics, setTopics] = useState<Topics[]>([]);
+
+  useEffect(() => {
+    async function fetchFeatured() {
+      const featured = await getFeatured();
+      setFeatured(featured);
+    }
+
+    async function fetchTopics() {
+      const topics = await getTopics();
+      setTopics(topics);
+    }
+    async function fetchBlogs() {
+      const blogs = await getBlogs();
+      setBlogs(blogs);
+    }
+
+    fetchFeatured();
+    fetchTopics();
+    fetchBlogs();
+  }, [filter]);
 
   return (
     <div className="blogs-main">
@@ -37,7 +105,7 @@ async function Blogs() {
             )}
           </div>
           <div className="blogs-featured-content">
-            <h2>{featured.topic}</h2>
+            <h2>{featured.topic.name}</h2>
             <div className="blogs-featured-title">
               <PortableText value={featured.title} />
             </div>
@@ -45,71 +113,112 @@ async function Blogs() {
               <PortableText value={featured.description} />
             </div>
             <div className="blogs-read-more-container">
-              <Link href="/blogs/featured">
+              <a href="/blogs/featured">
                 <div className="blogs-read-more">
                   <p>READ MORE</p>
                   <BlogsArrow />
                 </div>
-              </Link>
+              </a>
             </div>
           </div>
         </div>
       ))}
       <div className="blogs-filter-section">
         <div className="filter-container">
-          <button type="button">
-            <h3>UPCYCLING 101</h3>
+          <button
+            type="button"
+            onClick={() => {
+              setFilter("ALL");
+            }}
+          >
+            <h3>ALL</h3>
           </button>
         </div>
-        <div className="filter-container">
-          <button type="button">
-            <h3>INDUSTRY NEWNESS</h3>
-          </button>
-        </div>
-        <div className="filter-container">
-          <button type="button">
-            <h3>BEHIND THE SCENES</h3>
-          </button>
-        </div>
-        <div className="filter-container">
-          <button type="button">
-            <h3>SHOP HACKS</h3>
-          </button>
-        </div>
+        {topics.map((topic) => (
+          <div key={topic._id} className="filter-container">
+            <button
+              type="button"
+              onClick={() => {
+                setFilter(topic.name);
+              }}
+            >
+              <h3>{topic.name}</h3>
+            </button>
+          </div>
+        ))}
       </div>
 
       <div className="blogs-articles-section">
-        {blogs.map((blog) => (
-          <div key={blog._id} className="articles-container">
-            <div className="articles-img-container">
-              {blog.image && (
-                <Image
-                  fill
-                  src={blog.image.url}
-                  style={{ objectFit: "cover" }}
-                  alt={blog.image.alt}
-                />
-              )}
-            </div>
-            <div className="articles-content">
-              <div className="articles-topic">{blog.topic}</div>
-              <div className="articles-title">
-                <PortableText value={blog.title} />
-              </div>
-              <div className="articles-description">
-                <PortableText value={blog.description} />
-              </div>
-              <div className="articles-read-more-container">
-                <a href={`/blogs/${blog.slug}`}>
-                  <div className="articles-read-more">
-                    <p>READ MORE</p>
-                    <BlogsArrow />
+        {blogs.map((blog) => {
+          if (filter == "ALL") {
+            return (
+              <div key={blog._id} className="articles-container">
+                <div className="articles-img-container">
+                  {blog.image && (
+                    <Image
+                      fill
+                      src={blog.image.url}
+                      style={{ objectFit: "cover" }}
+                      alt={blog.image.alt}
+                    />
+                  )}
+                </div>
+                <div className="articles-content">
+                  <div className="articles-topic">{blog.topic.name}</div>
+                  <div className="articles-title">
+                    <PortableText value={blog.title} />
                   </div>
-                </a>
+                  <div className="articles-description">
+                    <PortableText value={blog.description} />
+                  </div>
+                  <div className="articles-read-more-container">
+                    <a href={`/blogs/${blog.slug}`}>
+                      <div className="articles-read-more">
+                        <p>READ MORE</p>
+                        <BlogsArrow />
+                      </div>
+                    </a>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        ))}
+            );
+          } else if (
+            filter == blog.topic.name &&
+            blog.topic.name == blog.topic.name
+          ) {
+            return (
+              <div key={blog.topic.name} className="articles-container">
+                <div className="articles-img-container">
+                  {blog.image && (
+                    <Image
+                      fill
+                      src={blog.image.url}
+                      style={{ objectFit: "cover" }}
+                      alt={blog.image.alt}
+                    />
+                  )}
+                </div>
+                <div className="articles-content">
+                  <div className="articles-topic">{blog.topic.name}</div>
+                  <div className="articles-title">
+                    <PortableText value={blog.title} />
+                  </div>
+                  <div className="articles-description">
+                    <PortableText value={blog.description} />
+                  </div>
+                  <div className="articles-read-more-container">
+                    <a href={`/blogs/${blog.slug}`}>
+                      <div className="articles-read-more">
+                        <p>READ MORE</p>
+                        <BlogsArrow />
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            );
+          }
+        })}
       </div>
 
       <div className="blogs-faqs-section">
@@ -124,5 +233,3 @@ async function Blogs() {
     </div>
   );
 }
-
-export default Blogs;

@@ -82,13 +82,13 @@ footer {
       .footer-logo-container {
         position: relative;
         bottom: 0;
-        width: 60px;
-        height: 80px;
+        width: 17vw;
+        height: 15vh;
       }
 
       .footer-text {
         position: relative;
-        width: 250px;
+        width: 66vw;
         bottom: 0.8rem;
         font-family: v.$fontRL;
         font-weight: 100;
@@ -98,7 +98,7 @@ footer {
       .footer-socials {
         margin-top: 0;
         display: flex;
-        width: 80px;
+        width: 20vw;
         gap: 1rem;
 
         a {
@@ -106,6 +106,14 @@ footer {
             fill: v.$light;
             width: 12px;
             height: 25px;
+          }
+
+          &:nth-of-type(2) {
+            svg {
+              fill: v.$light;
+              width: 15px;
+              height: 25px;
+            }
           }
         }
       }

@@ -1,9 +1,14 @@
-import { PortableTextBlock, Slug } from "sanity";
+import { PortableTextBlock } from "sanity";
 
 export type blogsSchema = {
   _id: string;
   _createdAt: Date;
-  topic: string;
+  topic: {
+    _id: string;
+    _createdAt: Date;
+    name: string;
+    slug: string;
+  };
   name: string;
   title: PortableTextBlock[];
   slug: string;
@@ -13,4 +18,4 @@ export type blogsSchema = {
   };
   description: PortableTextBlock[];
   content: PortableTextBlock[];
-}
+};

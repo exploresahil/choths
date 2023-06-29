@@ -5,6 +5,7 @@ import { headerSchema } from "@/sanity/types/Header";
 import { blogsSchema } from "@/sanity/types/Blogs";
 import { featuredSchema } from "./types/Featured";
 import { topicsSchema } from "./types/Topics";
+import { faqsSchema } from "./types/FAQs";
 
 export async function getProcesses(): Promise<process[]> {
   return createClient(clientConfig).fetch(
@@ -114,6 +115,17 @@ export async function getTopics(): Promise<topicsSchema[]> {
       _createdAt,
       name,
       "slug": slug.current,
+    }`
+  );
+}
+
+export async function getFAQs(): Promise<faqsSchema[]> {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "faqs"] | order(_createdAt asc){
+      _id,
+      _createdAt,
+      question,
+      answer,
     }`
   );
 }

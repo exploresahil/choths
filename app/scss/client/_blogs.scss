@@ -118,10 +118,11 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    width: 100vw;
+    width: auto;
     height: 15vh;
-    gap: 2em;
+    gap: 2rem;
     padding: 0 4vw;
+    overflow-x: scroll;
 
     .filter-container {
       button {
@@ -139,11 +140,7 @@
           font-size: 1em;
           font-weight: 100;
           color: white;
-        }
-
-        svg {
-          width: 1.8em;
-          padding-right: 5px;
+          white-space: nowrap;
         }
       }
     }
@@ -189,7 +186,7 @@
           font-weight: 100;
           font-size: 1em;
         }
-        
+
         .articles-title {
           font-family: v.$fontASB;
           font-size: 4em;

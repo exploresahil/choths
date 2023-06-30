@@ -4,7 +4,7 @@ import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import CircularSlider from "@fseehawer/react-circular-slider";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 
 import {
@@ -29,8 +29,102 @@ import SolutionBg from "@/public/assets/images/about/SolutionBg.png";
 import Amod from "@/public/assets/images/founders/Amod.png";
 import Hetal from "@/public/assets/images/founders/Hetal.png";
 import Sanyukta from "@/public/assets/images/founders/Sanyukta.png";
+import { PortableTextBlock } from "sanity";
+import { getAbout } from "@/sanity/sanity-utils";
+import { PortableText } from "@portabletext/react";
+
+interface About {
+  _id: string;
+  _createdAt: string;
+  title: {
+    teal: string;
+    black: string;
+  };
+  description: PortableTextBlock[];
+  image: {
+    url: string;
+  };
+  circularProgress: {
+    circularProgressOne: {
+      percentage: number;
+      text: PortableTextBlock[];
+    };
+    circularProgressTwo: {
+      percentage: number;
+      text: PortableTextBlock[];
+    };
+    circularProgressThree: {
+      percentage: number;
+      text: PortableTextBlock[];
+    };
+  };
+  expandingWindow: {
+    image: {
+      url: string;
+    };
+    text: PortableTextBlock[];
+  };
+  sideScroll: {
+    headingSmall: string;
+    headingBig: PortableTextBlock[];
+    text: PortableTextBlock[];
+    image: {
+      url: string;
+    };
+    scrollableTabs: {
+      tabOne: {
+        number: number;
+        heading: string;
+        text: PortableTextBlock[];
+      };
+      tabTwo: {
+        number: number;
+        heading: string;
+        text: PortableTextBlock[];
+      };
+      tabThree: {
+        number: number;
+        heading: string;
+        text: PortableTextBlock[];
+      };
+      tabFour: {
+        number: number;
+        heading: string;
+        text: PortableTextBlock[];
+      };
+      tabFive: {
+        number: number;
+        heading: string;
+        text: PortableTextBlock[];
+      };
+    };
+  };
+  team: [
+    {
+      heading: string;
+      image: {
+        url: string;
+      };
+      name: string;
+      job: string;
+      instagram: string;
+      linkedin: string;
+    }
+  ];
+}
 
 const About = () => {
+  const [about, setAbout] = useState<About[]>([]);
+
+  useEffect(() => {
+    async function fetchAbout() {
+      const about = await getAbout();
+      setAbout(about);
+    }
+
+    fetchAbout();
+  }, []);
+
   useEffect(() => {
     let mm = gsap.matchMedia();
 
@@ -238,298 +332,284 @@ const About = () => {
   });
 
   return (
-    <>
-      <div className="about-section">
-        <div className="about-watermark-container">
-          <CategoriesWatermarkCenter />
-          <CategoriesWatermarkOuter />
+    <div>
+      {about.map((about) => (
+        <div key={about._id} className="about-main">
+          <div className="about-section">
+            <div className="about-watermark-container">
+              <CategoriesWatermarkCenter />
+              <CategoriesWatermarkOuter />
+            </div>
+            <div className="about-bg-container">
+              {about && (
+                <Image
+                  fill
+                  src={about.image.url}
+                  style={{ objectFit: "cover" }}
+                  alt="about-bg"
+                />
+              )}
+            </div>
+            <div className="about-content">
+              <div className="about-content-main">
+                <div
+                  className="about-content-heading"
+                  id="about-content-heading"
+                >
+                  <h1>{about.title.teal}</h1>
+                  <h1>
+                    <span>{about.title.black}</span>
+                  </h1>
+                </div>
+                <div className="about-content-text">
+                  <div className="about-content-description">
+                    <PortableText value={about.description} />
+                    <AboutLine />
+                  </div>
+                </div>
+                <div className="about-scroll-arrow">
+                  <ScrollArrow />
+                </div>
+              </div>
+              <div className="about-percent-section">
+                <div className="about-percent-one">
+                  <CircularSlider
+                    label=" "
+                    min={0}
+                    max={100}
+                    appendToValue="%"
+                    labelColor="#194841"
+                    knobDraggable={false}
+                    knobSize={1}
+                    hideKnob={true}
+                    progressColorFrom="#194841"
+                    progressColorTo="#194841"
+                    progressSize={25}
+                    trackColor="#194841"
+                    trackSize={10}
+                    dataIndex={
+                      about.circularProgress.circularProgressOne.percentage
+                    }
+                    valueFontSize="1.4rem"
+                    verticalOffset="8px"
+                  />
+                  <div className="about-percent-one-text">
+                    <PortableText
+                      value={about.circularProgress.circularProgressOne.text}
+                    />
+                  </div>
+                </div>
+                <div className="about-percent-two">
+                  <CircularSlider
+                    label=" "
+                    min={0}
+                    max={100}
+                    appendToValue="%"
+                    labelColor="#194841"
+                    knobDraggable={false}
+                    knobSize={1}
+                    hideKnob={true}
+                    progressColorFrom="#194841"
+                    progressColorTo="#194841"
+                    progressSize={25}
+                    trackColor="#194841"
+                    trackSize={10}
+                    dataIndex={
+                      about.circularProgress.circularProgressTwo.percentage
+                    }
+                    valueFontSize="1.4rem"
+                    verticalOffset="8px"
+                  />
+                  <div className="about-percent-two-text">
+                    <PortableText
+                      value={about.circularProgress.circularProgressTwo.text}
+                    />
+                  </div>
+                </div>
+                <div className="about-percent-three">
+                  <CircularSlider
+                    label=" "
+                    min={0}
+                    max={100}
+                    appendToValue="%"
+                    labelColor="#194841"
+                    knobDraggable={false}
+                    knobSize={1}
+                    hideKnob={true}
+                    progressColorFrom="#194841"
+                    progressColorTo="#194841"
+                    progressSize={25}
+                    trackColor="#194841"
+                    trackSize={10}
+                    dataIndex={
+                      about.circularProgress.circularProgressThree.percentage
+                    }
+                    valueFontSize="1.4rem"
+                    verticalOffset="8px"
+                  />
+                  <div className="about-percent-three-text">
+                    <PortableText
+                      value={about.circularProgress.circularProgressThree.text}
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="about-window-section">
+                <div className="about-window-container">
+                  {about.expandingWindow.image && (
+                    <Image
+                      fill
+                      src={about.expandingWindow.image.url}
+                      alt="about-window-shirt"
+                      style={{ objectFit: "cover" }}
+                    />
+                  )}
+                </div>
+              </div>
+              <div className="about-window-text">
+                <PortableText value={about.expandingWindow.text} />
+              </div>
+            </div>
+          </div>
+          <div className="solution-section">
+            <div className="solution-main">
+              <div className="solution-heading">
+                <h2>{about.sideScroll.headingSmall}</h2>
+                <div className="solution-heading-big">
+                  <PortableText value={about.sideScroll.headingBig} />
+                </div>
+                <div className="solution-text">
+                  <PortableText value={about.sideScroll.text} />
+                </div>
+              </div>
+              <div className="solution-bg-container">
+                {about.sideScroll.image && (
+                  <Image
+                    fill
+                    src={about.sideScroll.image.url}
+                    alt="solution-bg"
+                  />
+                )}
+              </div>
+              <div className="solution-impact-logo">
+                <SolutionImpactLogo />
+              </div>
+            </div>
+            <div className="solution-side-scroll-main">
+              <div className="solution-scroll-one">
+                <h2>{about.sideScroll.scrollableTabs.tabOne.number}</h2>
+                <h1>{about.sideScroll.scrollableTabs.tabOne.heading}</h1>
+                <div className="solution-scroll-one-text">
+                  <PortableText
+                    value={about.sideScroll.scrollableTabs.tabOne.text}
+                  />
+                </div>
+              </div>
+              <SolutionScrollLine />
+              <div className="solution-scroll-two">
+                <h2>{about.sideScroll.scrollableTabs.tabTwo.number}</h2>
+                <h1>{about.sideScroll.scrollableTabs.tabTwo.heading}</h1>
+                <div className="solution-scroll-two-text">
+                  <PortableText
+                    value={about.sideScroll.scrollableTabs.tabTwo.text}
+                  />
+                </div>
+              </div>
+              <SolutionScrollLine />
+              <div className="solution-scroll-three">
+                <h2>{about.sideScroll.scrollableTabs.tabThree.number}</h2>
+                <h1>{about.sideScroll.scrollableTabs.tabThree.heading}</h1>
+                <div className="solution-scroll-three-text">
+                  <PortableText
+                    value={about.sideScroll.scrollableTabs.tabThree.text}
+                  />
+                </div>
+              </div>
+              <SolutionScrollLine />
+              <div className="solution-scroll-four">
+                <h2>{about.sideScroll.scrollableTabs.tabFour.number}</h2>
+                <h1>{about.sideScroll.scrollableTabs.tabFour.heading}</h1>
+                <div className="solution-scroll-four-text">
+                  <PortableText
+                    value={about.sideScroll.scrollableTabs.tabFour.text}
+                  />
+                </div>
+              </div>
+              <SolutionScrollLine />
+              <div className="solution-scroll-five">
+                <h2>{about.sideScroll.scrollableTabs.tabFive.number}</h2>
+                <h1>{about.sideScroll.scrollableTabs.tabFive.heading}</h1>
+                <div className="solution-scroll-five-text">
+                  <PortableText
+                    value={about.sideScroll.scrollableTabs.tabFive.text}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="founders-section">
+            <h1>Meet The Team</h1>
+            <div className="founders-main">
+              {about.team.map((team) => (
+                <div key={team.name} className="founders">
+                  <div className="founders-header">
+                    <h1>{team.heading}</h1>
+                  </div>
+                  <div className="founders-img-container">
+                    <Image
+                      fill
+                      src={team.image.url}
+                      alt="graphic-design-head"
+                    />
+                  </div>
+                  <h2>{team.name}</h2>
+                  <h3>{team.job}</h3>
+                  <div className="founders-socials">
+                    <Link
+                      href={team.instagram}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FoundersInsta />
+                    </Link>
+                    <Link
+                      href={team.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FoundersLinkedin />
+                    </Link>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="sustain-section">
+            <div className="sustain-circular-text-container">
+              <CircularText />
+            </div>
+            <div className="sustain-main">
+              <div className="sustain-heading">
+                <h3>WE AIM TO MAKE</h3>
+                <h2>SUSTAINABILITY</h2>
+                <h1>THE NORM</h1>
+              </div>
+              <div className="sustain-text">
+                <p>
+                  Upcycled slow fashion that inspires everyone to consume
+                  consciously. Explore our newest collection and be a part of
+                  this change.
+                </p>
+              </div>
+              <button type="button">
+                <h3>EXPLORE</h3>
+                <MissionArrow />
+              </button>
+            </div>
+          </div>
         </div>
-        <div className="about-bg-container">
-          <Image
-            fill
-            src={AboutBg}
-            style={{ objectFit: "cover" }}
-            alt="about-bg"
-          />
-        </div>
-        <div className="about-content">
-          <div className="about-content-main">
-            <div className="about-content-heading" id="about-content-heading">
-              <h1>The Kapda Project</h1>
-              <h1>
-                <span>Mission</span>
-              </h1>
-            </div>
-            <div className="about-content-text">
-              <p>
-                We&apos;re on a mission to make the planet a cleaner and greener
-                place to live in. <span>YOU</span> play an important role in
-                this mission and here&apos;s how we can do it
-                <AboutLine />
-              </p>
-            </div>
-            <div className="about-scroll-arrow">
-              <ScrollArrow />
-            </div>
-          </div>
-          <div className="about-percent-section">
-            <div className="about-percent-one">
-              <CircularSlider
-                label=" "
-                min={0}
-                max={100}
-                appendToValue="%"
-                labelColor="#194841"
-                knobDraggable={false}
-                knobSize={1}
-                hideKnob={true}
-                progressColorFrom="#194841"
-                progressColorTo="#194841"
-                progressSize={25}
-                trackColor="#194841"
-                trackSize={10}
-                dataIndex={52}
-                valueFontSize="1.8em"
-                verticalOffset="8px"
-              />
-              <p>LOREM IPSUM SIT DOLOR AMET EPISCUM</p>
-            </div>
-            <div className="about-percent-two">
-              <CircularSlider
-                label=" "
-                min={0}
-                max={100}
-                appendToValue="%"
-                labelColor="#194841"
-                knobDraggable={false}
-                knobSize={1}
-                hideKnob={true}
-                progressColorFrom="#194841"
-                progressColorTo="#194841"
-                progressSize={25}
-                trackColor="#194841"
-                trackSize={10}
-                dataIndex={52}
-                valueFontSize="1.8em"
-                verticalOffset="8px"
-              />
-              <p>LOREM IPSUM SIT DOLOR AMET EPISCUM</p>
-            </div>
-            <div className="about-percent-three">
-              <CircularSlider
-                label=" "
-                min={0}
-                max={100}
-                appendToValue="%"
-                labelColor="#194841"
-                knobDraggable={false}
-                knobSize={1}
-                hideKnob={true}
-                progressColorFrom="#194841"
-                progressColorTo="#194841"
-                progressSize={25}
-                trackColor="#194841"
-                trackSize={10}
-                dataIndex={52}
-                valueFontSize="1.8em"
-                verticalOffset="8px"
-              />
-              <p>LOREM IPSUM SIT DOLOR AMET EPISCUM</p>
-            </div>
-          </div>
-          <div className="about-window-section">
-            <div className="about-window-container">
-              <Image
-                src={AboutWindowShirt}
-                alt="about-window-shirt"
-                style={{ objectFit: "cover" }}
-              />
-            </div>
-          </div>
-          <div className="about-window-text">
-            <p>
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-              nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
-              erat volutpat. Ut wisi enim ad minim veniamelit esse
-            </p>
-          </div>
-        </div>
-      </div>
-      <div className="solution-section">
-        <div className="solution-main">
-          <div className="solution-heading">
-            <h2>OUR SOLUTION</h2>
-            <h1>
-              IMPACT ON VARIOUS <span>LEVELS OF SOCIETY</span>
-            </h1>
-            <p>
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
-              diam.
-            </p>
-          </div>
-          <div className="solution-bg-container">
-            <Image src={SolutionBg} alt="solution-bg" />
-          </div>
-          <div className="solution-impact-logo">
-            <SolutionImpactLogo />
-          </div>
-        </div>
-        <div className="solution-side-scroll-main">
-          <div className="solution-scroll-one">
-            <h2>01</h2>
-            <h1>SOURCING</h1>
-            <p>
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-              nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
-              erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
-              tation ullamcorper
-            </p>
-          </div>
-          <SolutionScrollLine />
-          <div className="solution-scroll-two">
-            <h2>02</h2>
-            <h1>PRODUCTION</h1>
-            <p>
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-              nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
-              erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
-              tation ullamcorper
-            </p>
-          </div>
-          <SolutionScrollLine />
-          <div className="solution-scroll-three">
-            <h2>03</h2>
-            <h1>PACKAGING</h1>
-            <p>
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-              nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
-              erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
-              tation ullamcorper
-            </p>
-          </div>
-          <SolutionScrollLine />
-          <div className="solution-scroll-four">
-            <h2>04</h2>
-            <h1>PACKAGING</h1>
-            <p>
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-              nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
-              erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
-              tation ullamcorper
-            </p>
-          </div>
-          <SolutionScrollLine />
-          <div className="solution-scroll-five">
-            <h2>05</h2>
-            <h1>PACKAGING</h1>
-            <p>
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-              nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
-              erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
-              tation ullamcorper
-            </p>
-          </div>
-        </div>
-      </div>
-      <div className="founders-section">
-        <h1>Meet The Team</h1>
-        <div className="founders-main">
-          <div className="founders-one">
-            <div className="founders-one-header">
-              <SanyuktaHeader />
-            </div>
-            <div className="founders-img-container">
-              <Image src={Sanyukta} alt="graphic-design-head" />
-            </div>
-            <h2>Sanyukta Adhikary</h2>
-            <h3>Graphic Design Head</h3>
-            <div className="founders-socials">
-              <Link
-                href="https://www.instagram.com/sanyukta.jpg/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FoundersInsta />
-              </Link>
-              <Link
-                href="https://www.linkedin.com/in/sanyukta-adhikary/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FoundersLinkedin />
-              </Link>
-            </div>
-          </div>
-          <div className="founders-two">
-            <div className="founders-two-header">
-              <AmodHeader />
-            </div>
-            <div className="founders-img-container">
-              <Image src={Amod} alt="founder" />
-            </div>
-            <h2>Amod Kulkarni</h2>
-            <h3>Founder</h3>
-            <div className="founders-socials">
-              <Link
-                href="https://www.instagram.com/amodeepakulkarni/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FoundersInsta />
-              </Link>
-              <Link
-                href="https://www.linkedin.com/in/amod-kulkarni-66517315a/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FoundersLinkedin />
-              </Link>
-            </div>
-          </div>
-          <div className="founders-three">
-            <div className="founders-three-header">
-              <HetalHeader />
-            </div>
-            <div className="founders-img-container">
-              <Image src={Hetal} alt="fashion-designer" />
-            </div>
-            <h2>Hetal Verma</h2>
-            <h3>Fashion Designer</h3>
-            <div className="founders-socials">
-              <Link href="" target="_blank" rel="noopener noreferrer">
-                <FoundersInsta />
-              </Link>
-              <Link href="" target="_blank" rel="noopener noreferrer">
-                <FoundersLinkedin />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="sustain-section">
-        <div className="sustain-circular-text-container">
-          <CircularText />
-        </div>
-        <div className="sustain-main">
-          <div className="sustain-heading">
-            <h3>WE AIM TO MAKE</h3>
-            <h2>SUSTAINABILITY</h2>
-            <h1>THE NORM</h1>
-          </div>
-          <div className="sustain-text">
-            <p>
-              Upcycled slow fashion that inspires everyone to consume
-              consciously. Explore our newest collection and be a part of this
-              change.
-            </p>
-          </div>
-          <button type="button">
-            <h3>EXPLORE</h3>
-            <MissionArrow />
-          </button>
-        </div>
-      </div>
-    </>
+      ))}
+    </div>
   );
 };
 

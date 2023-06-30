@@ -6,6 +6,7 @@ import { blogsSchema } from "@/sanity/types/Blogs";
 import { featuredSchema } from "./types/Featured";
 import { topicsSchema } from "./types/Topics";
 import { faqsSchema } from "./types/FAQs";
+import { aboutSchema } from "./types/About";
 
 export async function getProcesses(): Promise<process[]> {
   return createClient(clientConfig).fetch(
@@ -126,6 +127,46 @@ export async function getFAQs(): Promise<faqsSchema[]> {
       _createdAt,
       question,
       answer,
+    }`
+  );
+}
+
+export async function getAbout(): Promise<aboutSchema> {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "about"] {
+      _id,
+      _createdAt,
+      title,
+      description,
+      "image": {
+        "url": image.asset->url,
+      },
+      circularProgress,
+      expandingWindow {
+        "image": {
+          "url": image.asset->url,
+        },
+        text,
+      },
+      sideScroll {
+        headingSmall,
+        headingBig,
+        text,
+        "image": {
+          "url": image.asset->url,
+        },
+        scrollableTabs,
+      },
+      team[] {
+        heading,
+        "image": {
+          "url": image.asset->url,
+        },
+        name,
+        job,
+        instagram,
+        linkedin,
+      },
     }`
   );
 }

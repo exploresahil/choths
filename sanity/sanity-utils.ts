@@ -3,10 +3,11 @@ import { createClient, groq } from "next-sanity";
 import clientConfig from "@/sanity/config/client-config";
 import { headerSchema } from "@/sanity/types/Header";
 import { blogsSchema } from "@/sanity/types/Blogs";
-import { featuredSchema } from "./types/Featured";
-import { topicsSchema } from "./types/Topics";
-import { faqsSchema } from "./types/FAQs";
-import { aboutSchema } from "./types/About";
+import { featuredSchema } from "@/sanity/types/Featured";
+import { topicsSchema } from "@/sanity/types/Topics";
+import { faqsSchema } from "@/sanity/types/FAQs";
+import { aboutSchema } from "@/sanity/types/About";
+import { policiesSchema } from "@/sanity/types/Policies";
 
 export async function getProcesses(): Promise<process[]> {
   return createClient(clientConfig).fetch(
@@ -169,4 +170,16 @@ export async function getAbout(): Promise<aboutSchema> {
       },
     }`
   );
+}
+
+export async function getPolicies(): Promise<policiesSchema> {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "policies"] {
+      _id,
+      _createdAt,
+      refund,
+      shipping,
+      privacy,
+    }`
+  )
 }

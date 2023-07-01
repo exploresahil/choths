@@ -6,6 +6,8 @@ import { ScrollTrigger } from "gsap/all";
 import CircularSlider from "@fseehawer/react-circular-slider";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { PortableTextBlock } from "sanity";
+import { PortableText } from "@portabletext/react";
 
 import {
   AboutLine,
@@ -18,20 +20,9 @@ import {
   SolutionScrollLine,
   FoundersInsta,
   FoundersLinkedin,
-  SanyuktaHeader,
-  AmodHeader,
-  HetalHeader,
 } from "@/components/icons/Icons";
 
-import AboutBg from "@/public/assets/images/about/AboutBg.png";
-import AboutWindowShirt from "@/public/assets/images/about/AboutWindowShirt.png";
-import SolutionBg from "@/public/assets/images/about/SolutionBg.png";
-import Amod from "@/public/assets/images/founders/Amod.png";
-import Hetal from "@/public/assets/images/founders/Hetal.png";
-import Sanyukta from "@/public/assets/images/founders/Sanyukta.png";
-import { PortableTextBlock } from "sanity";
 import { getAbout } from "@/sanity/sanity-utils";
-import { PortableText } from "@portabletext/react";
 
 interface About {
   _id: string;
@@ -128,7 +119,7 @@ const About = () => {
   useEffect(() => {
     let mm = gsap.matchMedia();
 
-    mm.add("(min-width: 821px)", () => {
+    mm.add("(min-width: 1024px)", () => {
       gsap.registerPlugin(ScrollTrigger);
 
       const tlAbout = gsap.timeline();
@@ -329,6 +320,133 @@ const About = () => {
         }
       );
     });
+
+    mm.add("(max-width: 1023px)", () => {
+      gsap.registerPlugin(ScrollTrigger);
+
+      const tlAbout = gsap.timeline();
+      const tlSolution = gsap.timeline();
+
+      tlAbout.fromTo(
+        ".about-percent-one",
+        {
+          y: 500,
+        },
+        {
+          y: 0,
+          ease: "none",
+          scrollTrigger: {
+            trigger: "#about-bg-container",
+            // markers: true,
+            start: "top top",
+            end: "200px top",
+            scrub: true,
+          },
+        }
+      );
+
+      tlAbout.fromTo(
+        ".about-percent-two",
+        {
+          y: 600,
+        },
+        {
+          y: 0,
+          ease: "none",
+          scrollTrigger: {
+            trigger: "#about-bg-container",
+            // markers: true,
+            start: "100px top",
+            end: "300px top",
+            scrub: true,
+          },
+        }
+      );
+
+      tlAbout.fromTo(
+        ".about-percent-three",
+        {
+          y: 700,
+        },
+        {
+          y: 0,
+          ease: "none",
+          scrollTrigger: {
+            trigger: "#about-bg-container",
+            // markers: true,
+            start: "200px top",
+            end: "400px top",
+            scrub: true,
+          },
+        }
+      );
+
+      tlAbout.fromTo(
+        ".about-window-section",
+        {
+          y: 500,
+        },
+        {
+          y: 0,
+          scrollTrigger: {
+            trigger: ".about-percent-section",
+            // markers: true,
+            start: "center center",
+            end: "bottom+=120px center",
+            scrub: true,
+          },
+        }
+      );
+
+      tlSolution.fromTo(
+        ".solution-section",
+        {},
+        {
+          scrollTrigger: {
+            trigger: ".solution-section",
+            // markers: true,
+            start: "top top",
+            end: "2200px bottom",
+            scrub: true,
+          },
+        }
+      );
+
+      tlSolution.fromTo(
+        ".solution-main",
+        {
+          x: 0,
+        },
+        {
+          x: "-550vw",
+          scrollTrigger: {
+            trigger: ".solution-section",
+            // markers: true,
+            start: "top top",
+            end: "3200px bottom",
+            scrub: true,
+            pin: true,
+          },
+        }
+      );
+
+      tlSolution.fromTo(
+        ".solution-side-scroll-main",
+        {
+          x: "210vw",
+        },
+        {
+          x: "-350vw",
+          scrollTrigger: {
+            trigger: ".solution-section",
+            // markers: true,
+            start: "top top",
+            end: "3200px bottom",
+            scrub: true,
+          },
+        }
+      );
+    })
   });
 
   return (
@@ -553,7 +671,7 @@ const About = () => {
               {about.team.map((team) => (
                 <div key={team.name} className="founders">
                   <div className="founders-header">
-                    <h1>{team.heading}</h1>
+                    <div className="founders-heading">{team.heading}</div>
                   </div>
                   <div className="founders-img-container">
                     <Image
@@ -588,6 +706,7 @@ const About = () => {
             <div className="sustain-circular-text-container">
               <CircularText />
             </div>
+            <div className="sustain-circular-text-mask" />
             <div className="sustain-main">
               <div className="sustain-heading">
                 <h3>WE AIM TO MAKE</h3>

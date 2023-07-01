@@ -5,7 +5,8 @@ import featuredSchema from "./featured-schema";
 import topics from "./topics-schema";
 import faqsSchema from "./faqs-schema";
 import aboutSchema from "./about-schema";
+import policiesSchema from "./policies-schema";
 
-const schemas = [process, headerSchema, blogsSchema, featuredSchema, topics, faqsSchema, aboutSchema];
+const schemas = [process, headerSchema, blogsSchema, featuredSchema, topics, faqsSchema, aboutSchema, policiesSchema];
 
 export default schemas;

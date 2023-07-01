@@ -121,6 +121,9 @@ export default function Blogs() {
               </a>
             </div>
           </div>
+          <div className="blogs-border-container">
+            <div className="blogs-border" />
+          </div>
         </div>
       ))}
       <div className="blogs-filter-section">
@@ -146,115 +149,7 @@ export default function Blogs() {
             </button>
           </div>
         ))}
-        <div className="filter-container">
-          <button
-            type="button"
-            onClick={() => {
-              setFilter("ALL");
-            }}
-          >
-            <h3>ALL</h3>
-          </button>
-        </div><div className="filter-container">
-          <button
-            type="button"
-            onClick={() => {
-              setFilter("ALL");
-            }}
-          >
-            <h3>ALL</h3>
-          </button>
-        </div><div className="filter-container">
-          <button
-            type="button"
-            onClick={() => {
-              setFilter("ALL");
-            }}
-          >
-            <h3>ALL</h3>
-          </button>
-        </div><div className="filter-container">
-          <button
-            type="button"
-            onClick={() => {
-              setFilter("ALL");
-            }}
-          >
-            <h3>ALL</h3>
-          </button>
-        </div><div className="filter-container">
-          <button
-            type="button"
-            onClick={() => {
-              setFilter("ALL");
-            }}
-          >
-            <h3>ALL</h3>
-          </button>
-        </div>
-        <div className="filter-container">
-          <button
-            type="button"
-            onClick={() => {
-              setFilter("ALL");
-            }}
-          >
-            <h3>ALL</h3>
-          </button>
-        </div>
-        <div className="filter-container">
-          <button
-            type="button"
-            onClick={() => {
-              setFilter("ALL");
-            }}
-          >
-            <h3>ALL</h3>
-          </button>
-        </div>
-        <div className="filter-container">
-          <button
-            type="button"
-            onClick={() => {
-              setFilter("ALL");
-            }}
-          >
-            <h3>ALL</h3>
-          </button>
-        </div>
-        <div className="filter-container">
-          <button
-            type="button"
-            onClick={() => {
-              setFilter("ALL");
-            }}
-          >
-            <h3>ALL</h3>
-          </button>
-        </div>
-        <div className="filter-container">
-          <button
-            type="button"
-            onClick={() => {
-              setFilter("ALL");
-            }}
-          >
-            <h3>ALL</h3>
-          </button>
-        </div>
-        <div className="filter-container">
-          <button
-            type="button"
-            onClick={() => {
-              setFilter("ALL");
-            }}
-          >
-            <h3>ALL</h3>
-          </button>
-        </div>
       </div>
-      
-
       <div className="blogs-articles-section">
         {blogs.map((blog) => {
           if (filter == "ALL") {
@@ -286,6 +181,9 @@ export default function Blogs() {
                       </div>
                     </a>
                   </div>
+                </div>
+                <div className="blogs-border-container">
+                  <div className="blogs-border" />
                 </div>
               </div>
             );

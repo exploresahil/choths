@@ -2,7 +2,7 @@ import { PortableTextBlock } from "sanity";
 
 export type aboutSchema = {
   _id: string;
-  _createdAt: string;
+  _createdAt: Date;
   title: {
     teal: string;
     black: string;
@@ -66,14 +66,16 @@ export type aboutSchema = {
       };
     };
   };
-  team: {
-    heading: string;
-    image: {
-      url: string;
-    };
-    name: string;
-    job: string;
-    instagram: string;
-    linkedin: string;
-  };
+  team: [
+    {
+      heading: string;
+      image: {
+        url: string;
+      };
+      name: string;
+      job: string;
+      instagram: string;
+      linkedin: string;
+    }
+  ];
 };

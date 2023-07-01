@@ -40,6 +40,9 @@ export default async function Featured() {
               <div className="blog-title">
                 <PortableText value={featured.title} />
               </div>
+              <div className="blogs-border-container">
+                <div className="blogs-border" />
+              </div>
             </div>
             <div className="blog-description">
               <PortableText value={featured.description} />

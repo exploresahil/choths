@@ -29,7 +29,7 @@ interface Policies {
   };
 }
 
-const Shipping = () => {
+const Privacy = () => {
   const [policies, setPolicies] = useState<Policies[]>([]);
 
   useEffect(() => {
@@ -40,24 +40,23 @@ const Shipping = () => {
 
     fetchPolicies();
   }, []);
-
   return (
-    <div className="shipping-main">
-      <div className="shipping-watermark-container">
+    <div className="privacy-main">
+      <div className="privacy-watermark-container">
         <CategoriesWatermarkCenter />
         <CategoriesWatermarkOuter />
       </div>
       {policies.map((policy) => (
-        <div key={policy._id} className="shipping-body">
-          <div className="shipping-heading">
-            <h1>{policy.shipping.title}</h1>
-            <div className="shipping-description">
-              <PortableText value={policy.shipping.description} />
+        <div key={policy._id} className="privacy-body">
+          <div className="privacy-heading">
+            <h1>{policy.privacy.title}</h1>
+            <div className="privacy-description">
+              <PortableText value={policy.privacy.description} />
             </div>
           </div>
-          <div className="shipping-content-section">
-            <div className="shipping-content">
-              <PortableText value={policy.shipping.content} />
+          <div className="privacy-content-section">
+            <div className="privacy-content">
+              <PortableText value={policy.privacy.content} />
             </div>
           </div>
         </div>
@@ -66,4 +65,4 @@ const Shipping = () => {
   );
 };
 
-export default Shipping;
+export default Privacy;

@@ -51,6 +51,9 @@ export default function Blog({ params }: Props) {
                 <PortableText value={blog.title} />
               </div>
             </div>
+            <div className="blogs-border-container">
+              <div className="blogs-border" />
+            </div>
             <div className="blog-description">
               <PortableText value={blog.description} />
             </div>

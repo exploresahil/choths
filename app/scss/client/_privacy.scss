@@ -1,6 +1,6 @@
 @use "./variables" as v;
 
-.shipping-main {
+.privacy-main {
   display: flex;
   flex-direction: column;
   width: 100vw;
@@ -8,7 +8,7 @@
   padding: 0 27vw 7vh 27vw;
   gap: 2em;
 
-  .shipping-watermark-container {
+  .privacy-watermark-container {
     position: fixed;
     z-index: 1;
     width: 100px;
@@ -48,12 +48,12 @@
     }
   }
 
-  .shipping-body {
+  .privacy-body {
     display: flex;
     flex-direction: column;
     gap: 1rem;
 
-    .shipping-heading {
+    .privacy-heading {
       display: flex;
       flex-direction: column;
       gap: 1em;
@@ -64,19 +64,19 @@
         font-size: 6em;
       }
 
-      .shipping-description {
+      .privacy-description {
         font-family: v.$fontRM;
         font-weight: 100;
         font-size: 0.95em;
       }
     }
 
-    .shipping-content-section {
+    .privacy-content-section {
       display: flex;
       flex-direction: column;
       gap: 1em;
 
-      .shipping-content {
+      .privacy-content {
         display: flex;
         flex-direction: column;
         gap: 1em;
@@ -93,7 +93,7 @@
 
 //*----------> largeMobile
 @media screen and (min-width: 319px) and (max-width: 799px) {
-  .shipping-main {
+  .privacy-main {
     display: flex;
     flex-direction: column;
     width: 100vw;
@@ -101,7 +101,7 @@
     padding: 0 10vw 5vh 10vw;
     gap: 2em;
 
-    .shipping-watermark-container {
+    .privacy-watermark-container {
       position: fixed;
       z-index: 1;
       width: 100px;
@@ -142,12 +142,12 @@
       }
     }
 
-    .shipping-body {
+    .privacy-body {
       display: flex;
       flex-direction: column;
       gap: 1rem;
 
-      .shipping-heading {
+      .privacy-heading {
         display: flex;
         flex-direction: column;
         gap: 1em;
@@ -158,19 +158,19 @@
           font-size: 4rem;
         }
 
-        .shipping-description {
+        .privacy-description {
           font-family: v.$fontRM;
           font-weight: 100;
           font-size: 0.85em;
         }
       }
 
-      .shipping-content-section {
+      .privacy-content-section {
         display: flex;
         flex-direction: column;
         gap: 1em;
 
-        .shipping-content {
+        .privacy-content {
           display: flex;
           flex-direction: column;
           gap: 1em;
@@ -188,7 +188,7 @@
 
 //*----------> Tablets
 @media screen and (min-width: 800px) and (max-width: 1076px) {
-  .shipping-main {
+  .privacy-main {
     display: flex;
     flex-direction: column;
     width: 100vw;
@@ -196,7 +196,7 @@
     padding: 0 10vw 5vh 10vw;
     gap: 2em;
 
-    .shipping-watermark-container {
+    .privacy-watermark-container {
       position: fixed;
       z-index: 1;
       width: 100px;
@@ -237,12 +237,12 @@
       }
     }
 
-    .shipping-body {
+    .privacy-body {
       display: flex;
       flex-direction: column;
       gap: 1rem;
 
-      .shipping-heading {
+      .privacy-heading {
         display: flex;
         flex-direction: column;
         gap: 1em;
@@ -253,19 +253,19 @@
           font-size: 6rem;
         }
 
-        .shipping-description {
+        .privacy-description {
           font-family: v.$fontRM;
           font-weight: 100;
           font-size: 0.95rem;
         }
       }
 
-      .shipping-content-section {
+      .privacy-content-section {
         display: flex;
         flex-direction: column;
         gap: 1em;
 
-        .shipping-content {
+        .privacy-content {
           display: flex;
           flex-direction: column;
           gap: 1em;

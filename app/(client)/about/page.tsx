@@ -14,12 +14,12 @@ import {
   CategoriesWatermarkCenter,
   CategoriesWatermarkOuter,
   CircularText,
-  MissionArrow,
   ScrollArrow,
   SolutionImpactLogo,
   SolutionScrollLine,
   FoundersInsta,
   FoundersLinkedin,
+  NewsletterArrowNormal,
 } from "@/components/icons/Icons";
 
 import { getAbout } from "@/sanity/sanity-utils";
@@ -102,6 +102,7 @@ interface About {
       linkedin: string;
     }
   ];
+  explore: string;
 }
 
 const About = () => {
@@ -446,7 +447,7 @@ const About = () => {
           },
         }
       );
-    })
+    });
   });
 
   return (
@@ -720,10 +721,12 @@ const About = () => {
                   this change.
                 </p>
               </div>
-              <button type="button">
-                <h3>EXPLORE</h3>
-                <MissionArrow />
-              </button>
+              <Link href={about.explore} >
+                <button type="button">
+                  <h3>EXPLORE</h3>
+                  <NewsletterArrowNormal />
+                </button>
+              </Link>
             </div>
           </div>
         </div>

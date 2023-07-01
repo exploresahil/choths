@@ -30,7 +30,6 @@ interface Blogs {
   slug: string;
   image: {
     url: string;
-    alt: string;
   };
   description: PortableTextBlock[];
 }
@@ -47,7 +46,6 @@ interface Featured {
   title: PortableTextBlock[];
   image: {
     url: string;
-    alt: string;
   };
   description: PortableTextBlock[];
   content: PortableTextBlock[];
@@ -99,7 +97,7 @@ export default function Blogs() {
               <Image
                 fill
                 src={featured.image.url}
-                alt={featured.image.alt}
+                alt={featured._id}
                 style={{ objectFit: "cover" }}
               />
             )}
@@ -128,7 +126,7 @@ export default function Blogs() {
       ))}
       <div className="blogs-filter-section">
         <div className="filter-container">
-          <button
+          <button className="btn nav-btn"
             type="button"
             onClick={() => {
               setFilter("ALL");
@@ -139,7 +137,7 @@ export default function Blogs() {
         </div>
         {topics.map((topic) => (
           <div key={topic._id} className="filter-container">
-            <button
+            <button className="btn nav-btn"
               type="button"
               onClick={() => {
                 setFilter(topic.name);
@@ -161,7 +159,7 @@ export default function Blogs() {
                       fill
                       src={blog.image.url}
                       style={{ objectFit: "cover" }}
-                      alt={blog.image.alt}
+                      alt={blog.slug}
                     />
                   )}
                 </div>
@@ -199,7 +197,7 @@ export default function Blogs() {
                       fill
                       src={blog.image.url}
                       style={{ objectFit: "cover" }}
-                      alt={blog.image.alt}
+                      alt={blog.slug}
                     />
                   )}
                 </div>

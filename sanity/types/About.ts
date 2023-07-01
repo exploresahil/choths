@@ -78,4 +78,5 @@ export type aboutSchema = {
       linkedin: string;
     }
   ];
+  explore: string;
 };

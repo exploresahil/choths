@@ -9,6 +9,8 @@ import {
   ContactPhone,
   ContactMail,
   ContactNewsletterArrow,
+  NewsletterArrowNormal,
+  NewsletterTick,
 } from "@/components/icons/Icons";
 
 import { useEffect, useState } from "react";
@@ -92,7 +94,8 @@ const Contact = () => {
                   />
                   <button type="submit">
                     <h3>JOIN THE MOVEMENT</h3>
-                    <ContactNewsletterArrow />
+                    <NewsletterArrowNormal />
+                    <NewsletterTick />
                   </button>
                 </form>
               </div>

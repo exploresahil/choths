@@ -9,6 +9,7 @@ import {
   StitchingImpact,
   MissionArrow,
 } from "@/components/icons/Icons";
+import Link from "next/link";
 
 interface Process {
   _id: string;
@@ -65,10 +66,12 @@ export default function Process() {
                 and a platform to autistic people to showcase their talent.
               </span>
             </p>
-            <button type="button">
-              <h3>OUR MISSION</h3>
-              <MissionArrow />
-            </button>
+            <Link href="#">
+              <button type="button">
+                <h3>OUR MISSION</h3>
+                <MissionArrow />
+              </button>
+            </Link>
           </div>
           <div className="mission-container">
             <StitchingImpact />

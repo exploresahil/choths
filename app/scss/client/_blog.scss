@@ -195,7 +195,7 @@
       .blog-img-container {
         position: relative;
         width: 100vw;
-        height: 35vh;
+        height: 40vh;
 
         img {
           inset: 0;
@@ -206,7 +206,7 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: center;
+        align-items: left;
         width: 100vw;
         height: auto;
         padding: 7vh 10vw 5vh 10vw;
@@ -220,14 +220,14 @@
             font-family: v.$fontASB;
             color: v.$textTeal;
             font-size: 3.5rem;
-            padding: 0vh 5vw;
+            padding: 0vh 0vw;
           }
 
           h2 {
             font-family: v.$fontRM;
             font-size: 1rem;
             font-weight: 100;
-            padding: 0vh 5vw;
+            padding: 0vh 0vw;
           }
         }
 
@@ -235,6 +235,7 @@
           position: relative;
           display: block;
           top: .5rem;
+          right: 6%;
 
           .blogs-border {
             position: relative;

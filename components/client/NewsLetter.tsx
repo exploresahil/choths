@@ -1,4 +1,4 @@
-import { NewsletterArrow } from "@/components/icons/Icons";
+import { NewsletterArrowNormal, NewsletterTick } from "@/components/icons/Icons";
 
 export default function Newsletter() {
   return (
@@ -12,7 +12,8 @@ export default function Newsletter() {
         <input type="email" name="email" id="email" placeholder="EMAIL" />
         <button type="submit">
           <h3>JOIN THE MOVEMENT</h3>
-          <NewsletterArrow />
+          <NewsletterArrowNormal />
+          <NewsletterTick />
         </button>
       </form>
     </div>

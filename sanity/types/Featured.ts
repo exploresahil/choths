@@ -12,7 +12,6 @@ export type featuredSchema = {
   title: PortableTextBlock[];
   image: {
     url: string;
-    alt: string;
   };
   description: PortableTextBlock[];
   content: PortableTextBlock[];

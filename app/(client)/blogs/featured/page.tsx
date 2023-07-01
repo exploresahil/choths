@@ -29,7 +29,7 @@ export default async function Featured() {
               <Image
                 fill
                 src={featured.image.url}
-                alt={featured.image.alt}
+                alt={featured._id}
                 style={{ objectFit: "cover" }}
               />
             )}

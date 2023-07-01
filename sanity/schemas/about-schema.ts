@@ -31,7 +31,7 @@ const aboutSchema = {
       title: "Left-side Image",
       type: "image",
       options: { hotspot: true },
-      validation: (Rule: { required: () => any; }) => Rule.required()
+      validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
       name: "circularProgress",
@@ -104,7 +104,7 @@ const aboutSchema = {
           title: "Image",
           type: "image",
           options: { hotspot: true },
-          validation: (Rule: { required: () => any; }) => Rule.required()
+          validation: (Rule: { required: () => any }) => Rule.required(),
         },
         {
           name: "text",
@@ -141,7 +141,7 @@ const aboutSchema = {
           title: "Image",
           type: "image",
           options: { hotspot: true },
-          validation: (Rule: { required: () => any; }) => Rule.required()
+          validation: (Rule: { required: () => any }) => Rule.required(),
         },
         {
           name: "scrollableTabs",
@@ -295,7 +295,7 @@ const aboutSchema = {
               title: "Image",
               type: "image",
               options: { hotspot: true },
-              validation: (Rule: { required: () => any; }) => Rule.required()
+              validation: (Rule: { required: () => any }) => Rule.required(),
             },
             {
               name: "name",
@@ -312,18 +312,25 @@ const aboutSchema = {
               title: "Instagram Link",
               type: "string",
               initialValue: "#",
-              validation: (Rule: { required: () => any; }) => Rule.required()
+              validation: (Rule: { required: () => any }) => Rule.required(),
             },
             {
               name: "linkedin",
               title: "LinkedIn Link",
               type: "string",
               initialValue: "#",
-              validation: (Rule: { required: () => any; }) => Rule.required()
+              validation: (Rule: { required: () => any }) => Rule.required(),
             },
           ],
         },
       ],
+    },
+    {
+      name: "explore",
+      title: "Explore Button Redirect Link",
+      type: "string",
+      initialValue: "#",
+      validation: (Rule: { required: () => any }) => Rule.required(),
     },
   ],
 };

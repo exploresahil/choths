@@ -73,20 +73,20 @@
 
       .blogs-featured-title {
         font-family: v.$fontASB;
-        font-size: 15.5vh;
+        font-size: 7rem;
         line-height: 8rem;
         color: v.$textTeal;
       }
 
       h2 {
         font-family: v.$fontRM;
-        font-size: 2.5vh;
+        font-size: 1.3rem;
         font-weight: 100;
       }
 
       .blogs-featured-description {
         font-family: v.$fontRM;
-        font-size: 2.6vh;
+        font-size: 1.1rem;
         color: v.$dark;
       }
 
@@ -303,7 +303,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-        align-items: center;
+      align-items: center;
       width: 100vw;
       height: auto;
 
@@ -323,12 +323,13 @@
         flex-direction: column;
         width: 100vw;
         height: auto;
-        gap: 1rem;
+        gap: 1.2rem;
         padding: 7vh 10vw 5vh 10vw;
 
         .blogs-featured-title {
           font-family: v.$fontASB;
           font-size: 4rem;
+          line-height: 5rem;
           color: v.$textTeal;
         }
 
@@ -407,7 +408,7 @@
             font-family: v.$fontRM;
             font-size: 0.6rem;
             font-weight: 100;
-            color: white;
+            color: v.$bg;
             white-space: nowrap;
           }
         }
@@ -455,12 +456,12 @@
           .articles-topic {
             font-family: v.$fontRM;
             font-weight: 100;
-            font-size: 1rem;
+            font-size: .9rem;
           }
 
           .articles-title {
             font-family: v.$fontASB;
-            font-size: 4rem;
+            font-size: 3.6rem;
             line-height: 1em;
             color: v.$textTeal;
           }

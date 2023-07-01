@@ -55,7 +55,6 @@ export async function getBlogs(): Promise<blogsSchema[]> {
       "slug": slug.current,
       "image": {
         "url": image.asset->url,
-        "alt": image.asset->alt,
       },
       title,
       description,
@@ -79,7 +78,6 @@ export async function getBlog(slug: string): Promise<blogsSchema> {
       "slug": slug.current,
       "image": {
         "url": image.asset->url,
-        "alt": image.asset->alt,
       },
       title,
       description,
@@ -102,7 +100,6 @@ export async function getFeatured(): Promise<featuredSchema[]> {
       },
       "image": {
         "url": image.asset->url,
-        "alt": image.asset->alt,
       },
       title,
       description,
@@ -169,6 +166,7 @@ export async function getAbout(): Promise<aboutSchema[]> {
         instagram,
         linkedin,
       },
+      explore,
     }`
   );
 }

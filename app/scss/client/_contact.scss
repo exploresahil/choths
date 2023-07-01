@@ -191,24 +191,71 @@
 
       button {
         align-items: center;
+        position: relative;
         display: flex;
-        gap: 1.8em;
-        width: 24.5em;
+        gap: 1.4em;
         padding: 0.3em 0.3em 0.3em 2.6em;
-        border-radius: 1.6em;
+        border-radius: 2.5rem;
         border-style: solid;
         border-width: 2px;
         border-color: v.$bordercolor;
+        top: 0.5rem;
+
+        &:hover {
+          color: v.$bg;
+          background-color: v.$textTeal;
+
+          svg {
+            fill: v.$textTeal;
+
+            &:nth-of-type(1) {
+              display: block;
+              fill: v.$textTeal;
+            }
+
+            &:nth-of-type(2) {
+              display: none;
+            }
+          }
+        }
+
+        &:active {
+          color: v.$bg;
+          background-color: v.$textTeal;
+          gap: 1.2rem;
+
+          svg {
+            &:nth-of-type(1) {
+              display: none;
+            }
+
+            &:nth-of-type(2) {
+              display: block;
+              width: 1rem;
+              height: 1rem;
+              margin: 0.75rem;
+            }
+          }
+        }
 
         h3 {
           font-family: v.$fontRL;
           font-weight: 500;
-          font-size: 1.41em;
+          font-size: 1.2rem;
         }
 
         svg {
-          width: 3.5em;
+          width: 2.5rem;
           height: auto;
+          fill: v.$bordercolor;
+
+          &:nth-of-type(1) {
+            display: block;
+          }
+
+          &:nth-of-type(2) {
+            display: none;
+          }
         }
       }
     }
@@ -397,7 +444,7 @@
 
           input {
             width: 40vw;
-            font-size: .8rem;
+            font-size: 0.8rem;
             color: #1a1a1a;
             padding: 1rem 1rem;
             border-width: 2px;
@@ -408,7 +455,7 @@
 
         input {
           width: 86vw;
-          font-size: .8rem;
+          font-size: 0.8rem;
           color: #1a1a1a;
           padding: 1rem 1rem;
           border-width: 2px;
@@ -421,26 +468,83 @@
           align-items: center;
           display: flex;
           justify-content: space-between;
-          gap: 0rem;
-          width: 75vw;
+          gap: 1.2rem;
+          width: auto;
           height: 2.8rem;
-          padding: 0.3rem 0.25rem 0.3rem 13vw;
-          border-radius: 1.1rem;
+          padding: 0.3rem 0.25rem 0.3rem 2.5rem;
+          border-radius: 1.5rem;
           border-style: solid;
           border-width: 2px;
           border-color: v.$bordercolor;
           position: relative;
           top: 1rem;
 
+          // h3 {
+          //   font-family: v.$fontRL;
+          //   font-weight: 500;
+          //   font-size: 0.8rem;
+          // }
+
+          // svg {
+          //   width: 2.2rem;
+          //   height: auto;
+          // }
+
+          &:hover {
+            color: v.$bg;
+            background-color: v.$textTeal;
+
+            svg {
+              fill: v.$textTeal;
+
+              &:nth-of-type(1) {
+                display: block;
+                fill: v.$textTeal;
+              }
+
+              &:nth-of-type(2) {
+                display: none;
+              }
+            }
+          }
+
+          &:active {
+            color: v.$bg;
+            background-color: v.$textTeal;
+            gap: .9rem;
+
+            svg {
+              &:nth-of-type(1) {
+                display: none;
+              }
+
+              &:nth-of-type(2) {
+                display: block;
+                width: 1rem;
+                height: 1rem;
+                margin: 0.75rem;
+              }
+            }
+          }
+
           h3 {
             font-family: v.$fontRL;
             font-weight: 500;
-            font-size: .8rem;
+            font-size: 0.8rem;
           }
 
           svg {
             width: 2.2rem;
             height: auto;
+            fill: v.$bordercolor;
+
+            &:nth-of-type(1) {
+              display: block;
+            }
+
+            &:nth-of-type(2) {
+              display: none;
+            }
           }
         }
       }
@@ -532,7 +636,7 @@
               display: flex;
               align-items: center;
               width: 100vw;
-              font-size: .9rem;
+              font-size: 0.9rem;
             }
 
             .contact-phone {
@@ -660,16 +764,64 @@
           align-items: center;
           display: flex;
           justify-content: space-between;
-          gap: 0rem;
-          width: 70vw;
+          gap: 1.5rem;
+          width: auto;
           height: 5rem;
-          padding: 0.3rem 0.25rem 0.3rem 10vw;
-          border-radius: 1.9rem;
+          padding: 0.3rem 0.25rem 0.3rem 2.7rem;
+          border-radius: 2.5rem;
           border-style: solid;
           border-width: 2px;
           border-color: v.$bordercolor;
           position: relative;
           top: 1rem;
+
+          // h3 {
+          //   font-family: v.$fontRL;
+          //   font-weight: 500;
+          //   font-size: 2rem;
+          // }
+
+          // svg {
+          //   width: 4.2rem;
+          //   height: auto;
+          // }
+
+          &:hover {
+            color: v.$bg;
+            background-color: v.$textTeal;
+
+            svg {
+              fill: v.$textTeal;
+
+              &:nth-of-type(1) {
+                display: block;
+                fill: v.$textTeal;
+              }
+
+              &:nth-of-type(2) {
+                display: none;
+              }
+            }
+          }
+
+          &:active {
+            color: v.$bg;
+            background-color: v.$textTeal;
+            gap: 2.2rem;
+
+            svg {
+              &:nth-of-type(1) {
+                display: none;
+              }
+
+              &:nth-of-type(2) {
+                display: block;
+                width: 2rem;
+                height: 2rem;
+                margin: 0.75rem;
+              }
+            }
+          }
 
           h3 {
             font-family: v.$fontRL;
@@ -680,6 +832,15 @@
           svg {
             width: 4.2rem;
             height: auto;
+            fill: v.$bordercolor;
+
+            &:nth-of-type(1) {
+              display: block;
+            }
+
+            &:nth-of-type(2) {
+              display: none;
+            }
           }
         }
       }

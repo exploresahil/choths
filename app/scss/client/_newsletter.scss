@@ -56,11 +56,48 @@
     button {
       align-items: center;
       display: flex;
-      gap: 1.8em;
-      padding: 0.3em 0.3em 0.3em 2.7em;
-      border-radius: 1.6em;
+      gap: 1.8rem;
+      padding: 0.3rem 0.3rem 0.3rem 2.7rem;
+      border-radius: 2rem;
       border-style: solid;
-      border-width: 1px;
+      border-width: 2px;
+
+      &:hover {
+        color: v.$bg;
+        background-color: v.$textTeal;
+
+        svg {
+          fill: v.$textTeal;
+
+          &:nth-of-type(1) {
+            display: block;
+            fill: v.$textTeal;
+          }
+
+          &:nth-of-type(2) {
+            display: none;
+          }
+        }
+      }
+
+      &:active {
+        color: v.$bg;
+        background-color: v.$textTeal;
+        gap: 1.9rem;
+
+        svg {
+          &:nth-of-type(1) {
+            display: none;
+          }
+
+          &:nth-of-type(2) {
+            display: block;
+            width: 1.4rem;
+            height: 1.5rem;
+            margin: 0.7rem;
+          }
+        }
+      }
 
       h3 {
         font-family: v.$fontRL;
@@ -71,6 +108,15 @@
       svg {
         width: 3.5em;
         height: auto;
+        fill: v.$bordercolor;
+
+        &:nth-of-type(1) {
+          display: block;
+        }
+
+        &:nth-of-type(2) {
+          display: none;
+        }
       }
     }
   }
@@ -132,16 +178,60 @@
         align-items: center;
         display: flex;
         justify-content: space-between;
-        gap: 0rem;
-        width: 60vw;
+        gap: .7rem;
+        width: auto;
         height: 2.8rem;
-        padding: 0.3rem 0.3rem 0.3rem 1rem;
-        border-radius: 1.1rem;
+        padding: 0.3rem 0.2rem 0.3rem 1.5rem;
+        border-radius: 1.5rem;
         border-style: solid;
         border-width: 2px;
         border-color: v.$bordercolor;
         position: relative;
         top: 1rem;
+
+        &:hover {
+          color: v.$bg;
+          background-color: v.$textTeal;
+
+          svg {
+            fill: v.$textTeal;
+
+            &:nth-of-type(1) {
+              display: block;
+              fill: v.$textTeal;
+            }
+
+            &:nth-of-type(2) {
+              display: none;
+            }
+          }
+        }
+
+        &:active {
+          color: v.$bg;
+          background-color: v.$textTeal;
+          gap: .7rem;
+
+          svg {
+
+            h3 {
+              font-family: v.$fontRL;
+              font-weight: 500;
+              font-size: 0.8rem;
+            }
+
+            &:nth-of-type(1) {
+              display: none;
+            }
+
+            &:nth-of-type(2) {
+              display: block;
+              width: 1rem;
+              height: 1.5rem;
+              margin: 0.6rem;
+            }
+          }
+        }
 
         h3 {
           font-family: v.$fontRL;
@@ -150,8 +240,17 @@
         }
 
         svg {
-          width: 2.1rem;
+          width: 3.5em;
           height: auto;
+
+          &:nth-of-type(1) {
+            display: block;
+            width: 2.2rem;
+          }
+
+          &:nth-of-type(2) {
+            display: none;
+          }
         }
       }
     }
@@ -218,12 +317,48 @@
         width: 40vw;
         height: 2.8rem;
         padding: 0.3rem 0.3rem 0.3rem 3rem;
-        border-radius: 1.1rem;
+        border-radius: 1.5rem;
         border-style: solid;
         border-width: 2px;
         border-color: v.$bordercolor;
         position: relative;
         top: 1rem;
+
+        &:hover {
+          color: v.$bg;
+          background-color: v.$textTeal;
+
+          svg {
+            fill: v.$textTeal;
+
+            &:nth-of-type(1) {
+              display: block;
+              fill: v.$textTeal;
+            }
+
+            &:nth-of-type(2) {
+              display: none;
+            }
+          }
+        }
+
+        &:active {
+          color: v.$bg;
+          background-color: v.$textTeal;
+
+          svg {
+            &:nth-of-type(1) {
+              display: none;
+            }
+
+            &:nth-of-type(2) {
+              display: block;
+              width: 1.1rem;
+              height: 1.5rem;
+              margin: 0.7rem;
+            }
+          }
+        }
 
         h3 {
           font-family: v.$fontRL;
@@ -234,6 +369,14 @@
         svg {
           width: 2.1rem;
           height: auto;
+
+          &:nth-of-type(1) {
+            display: block;
+          }
+
+          &:nth-of-type(2) {
+            display: none;
+          }
         }
       }
     }

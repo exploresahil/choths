@@ -39,7 +39,7 @@ export default function Blog({ params }: Props) {
               <Image
                 fill
                 src={blog.image.url}
-                alt={blog.image.alt}
+                alt={blog.slug}
                 style={{ objectFit: "cover" }}
               />
             )}

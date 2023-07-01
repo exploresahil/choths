@@ -14,7 +14,6 @@ export type blogsSchema = {
   slug: string;
   image: {
     url: string;
-    alt: string;
   };
   description: PortableTextBlock[];
   content: PortableTextBlock[];

@@ -518,24 +518,42 @@
       button {
         display: flex;
         text-align: left;
-        background-color: v.$textTeal;
+        justify-content: center;
+        align-items: center;
+        background-color: v.$bg;
         width: fit-content;
-        padding: 10px 10px 10px 30px;
-        gap: 1em;
+        padding: 0.3rem 0.1rem 0.3rem 1.5rem;
+        gap: 0.7rem;
         border-radius: 2em;
+        border-style: solid;
+        border-width: 1px;
         position: relative;
         top: -4em;
 
+        &:hover {
+          background-color: v.$textTeal;
+
+          h3 {
+            color: v.$bg;
+          }
+
+          svg {
+            fill: v.$textTeal;
+          }
+        }
+
         h3 {
-          font-family: RALEWAY-LIGHT;
-          font-size: 1.2em;
-          font-weight: 300;
-          color: white;
+          position: relative;
+          font-family: v.$fontRL;
+          font-size: 1.3rem;
+          font-weight: 600;
+          color: v.$dark;
         }
 
         svg {
-          width: 1.8em;
-          padding-right: 5px;
+          width: 2.7rem;
+          height: 2.3rem;
+          fill: v.$bordercolor;
         }
       }
     }
@@ -1094,24 +1112,50 @@
         button {
           display: flex;
           text-align: left;
-          background-color: v.$textTeal;
-          width: fit-content;
-          padding: 0.6rem 0.6rem 0.6rem 2rem;
-          gap: 1em;
+          justify-content: center;
+          align-items: center;
+          background-color: v.$bg;
+          width: auto;
+          padding: 0.3rem 0 0.3rem 1.5rem;
+          gap: 0.7rem;
           border-radius: 2rem;
+          border-style: solid;
+          border-width: 2px;
           position: relative;
           top: -4em;
 
+          &:hover {
+            color: v.$textTeal;
+            background-color: v.$textTeal;
+            padding: 0.3rem 0 0.3rem 1.5rem;
+            gap: 0.7rem;
+
+            h3 {
+              color: v.$bg;
+              font-family: v.$fontRL;
+              font-size: 1rem;
+              font-weight: 600;
+              margin: 0;
+            }
+
+            svg {
+              width: 2.5rem;
+              margin: 0 0 0 0;
+            }
+          }
+
           h3 {
-            font-family: RALEWAY-LIGHT;
+            position: relative;
+            font-family: v.$fontRL;
             font-size: 1rem;
-            font-weight: 300;
-            color: white;
+            font-weight: 600;
+            color: v.$dark;
           }
 
           svg {
-            width: 1.5rem;
-            padding-right: 5px;
+            width: 2.9rem;
+            // height: 2rem;
+            // padding-right: 5px;
           }
         }
       }
@@ -1672,25 +1716,56 @@
         button {
           display: flex;
           text-align: left;
-          background-color: v.$textTeal;
+          justify-content: center;
+          align-items: center;
+          background-color: v.$bg;
           width: fit-content;
-          padding: 0.6rem 0.6rem 0.6rem 2rem;
-          gap: 1em;
-          border-radius: 2rem;
+          padding: 0.3rem 0.1rem 0.3rem 1.5rem;
+          gap: 0.7rem;
+          border-radius: 2em;
+          border-style: solid;
+          border-width: 1px;
           position: relative;
           top: -4em;
 
+          &:hover {
+            background-color: v.$textTeal;
+  
+            h3 {
+              color: v.$bg;
+            }
+  
+            svg {
+              fill: v.$textTeal;
+            }
+          }
+  
           h3 {
-            font-family: RALEWAY-LIGHT;
-            font-size: 1rem;
-            font-weight: 300;
-            color: white;
+            position: relative;
+            font-family: v.$fontRL;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: v.$dark;
+          }
+  
+          svg {
+            width: 2.7rem;
+            height: 2.3rem;
+            fill: v.$bordercolor;
           }
 
-          svg {
-            width: 1.5rem;
-            padding-right: 5px;
-          }
+          // h3 {
+          //   position: relative;
+          //   font-family: v.$fontRL;
+          //   font-size: 1.3rem;
+          //   font-weight: 600;
+          //   color: v.$dark;
+          // }
+
+          // svg {
+          //   width: 2.7rem;
+          //   height: 2.3rem;
+          // }
         }
       }
     }

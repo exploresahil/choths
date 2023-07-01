@@ -26,7 +26,7 @@ import { getAbout } from "@/sanity/sanity-utils";
 
 interface About {
   _id: string;
-  _createdAt: string;
+  _createdAt: Date;
   title: {
     teal: string;
     black: string;

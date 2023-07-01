@@ -8,6 +8,7 @@ import { topicsSchema } from "@/sanity/types/Topics";
 import { faqsSchema } from "@/sanity/types/FAQs";
 import { aboutSchema } from "@/sanity/types/About";
 import { policiesSchema } from "@/sanity/types/Policies";
+import { contactSchema } from "@/sanity/types/Contact";
 
 export async function getProcesses(): Promise<process[]> {
   return createClient(clientConfig).fetch(
@@ -132,7 +133,7 @@ export async function getFAQs(): Promise<faqsSchema[]> {
   );
 }
 
-export async function getAbout(): Promise<aboutSchema> {
+export async function getAbout(): Promise<aboutSchema[]> {
   return createClient(clientConfig).fetch(
     groq`*[_type == "about"] {
       _id,
@@ -172,7 +173,7 @@ export async function getAbout(): Promise<aboutSchema> {
   );
 }
 
-export async function getPolicies(): Promise<policiesSchema> {
+export async function getPolicies(): Promise<policiesSchema[]> {
   return createClient(clientConfig).fetch(
     groq`*[_type == "policies"] {
       _id,
@@ -180,6 +181,21 @@ export async function getPolicies(): Promise<policiesSchema> {
       refund,
       shipping,
       privacy,
+    }`
+  )
+}
+
+export async function getContact(): Promise<contactSchema[]> {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "contact"] {
+      _id,
+      _createdAt,
+      "image": {
+        "url": image.asset->url,
+      },
+      phone,
+      email,
+      instagram,
     }`
   )
 }

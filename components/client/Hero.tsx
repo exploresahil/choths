@@ -13,9 +13,6 @@ import {
   CategoryArrowRight,
 } from "@/components/icons/Icons";
 
-import coOrds from "@/public/assets/images/category/category_img_shirt.jpg";
-import accessories from "@/public/assets/images/category/category_img_Accessories.jpg";
-
 const dance =
   "https://assets.mixkit.co/videos/preview/mixkit-young-man-modeling-old-fashion-style-41480-large.mp4";
 
@@ -226,6 +223,31 @@ const Hero = () => {
         },
       }
     );
+
+    //*----> Media Queries
+
+    let mm = gsap.matchMedia();
+
+    mm.add("(max-width: 1023px)", () => {
+      tlScrollOne.fromTo(
+        "#coOrds",
+        {
+          width: "100vw",
+          borderRadius: "1000px 1000px 0 0",
+        },
+        {
+          width: "100vw",
+          borderRadius: "0 0 0 0",
+          scrollTrigger: {
+            trigger: "#coOrdsMain",
+            // markers: true,
+            start: "top 180px",
+            end: "+=180",
+            scrub: true,
+          },
+        }
+      );
+    });
   }, []);
 
   return (

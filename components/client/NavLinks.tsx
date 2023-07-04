@@ -6,12 +6,13 @@ type NavLinksProps = {
   title: string;
   pageLink: string;
   classTitle: string;
+  onClick: any;
 };
 
-export default ({ title, pageLink, classTitle }: NavLinksProps) => {
+export default ({ title, pageLink, classTitle, onClick }: NavLinksProps) => {
   return (
     <li>
-      <Link href={pageLink} className={classTitle}>
+      <Link href={pageLink} className={classTitle} onClick={onClick}>
         {title}
       </Link>
     </li>

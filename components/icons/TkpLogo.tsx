@@ -1,6 +1,10 @@
-const TkpLogo = () => {
+interface props {
+  onClick: any;
+}
+
+const TkpLogo = ({ onClick }: props) => {
   return (
-    <svg viewBox="0 0 180.03 137.67">
+    <svg viewBox="0 0 180.03 137.67" onClick={onClick}>
       <g id="Layer_1-2" data-name="Layer 1">
         <g>
           <g>

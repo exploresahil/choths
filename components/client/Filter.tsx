@@ -69,12 +69,14 @@ const Filter = () => {
 
   return (
     <div className="filters-main">
-      <div
-        className="close-container"
-        onClick={() => {
-          setFilterOpen(false);
-        }}
-      />
+      {filterOpen && (
+        <div
+          className="close-container"
+          onClick={() => {
+            setFilterOpen(false);
+          }}
+        />
+      )}
       <div
         className="filters-container"
         onBlur={() => {

@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import NavLinks from "@/components/client/NavLinks";
 import Link from "next/link";
 import { Link as ScrollLink } from "react-scroll";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 import {
   Bag,
@@ -18,8 +18,6 @@ import {
   TkpLogo,
 } from "@/components/icons/Icons";
 
-import logo from "@/public/assets/logos/header-logo.svg";
-
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -29,6 +27,7 @@ const Header = () => {
   const handleMenuCloseClick = () => {
     setIsOpen(false);
   };
+  const router = useRouter();
 
   return (
     <header>
@@ -40,7 +39,7 @@ const Header = () => {
         duration={1000}
         spy={true}
       >
-        <TkpLogo />
+        <TkpLogo onClick={() => router.push("/")} />
       </ScrollLink>
       <div className="user-menu">
         <div className="user-menu-ecommercs">
@@ -63,37 +62,77 @@ const Header = () => {
           <div className={`menu ${isOpen ? "fadeInMenu" : ""}`}>
             <div className="left section">
               <ul>
+                <li className="title">SHOP</li>
                 <NavLinks
                   pageLink="#"
                   title="shirt kurta"
                   classTitle="nav-item"
+                  onClick={handleMenuCloseClick}
                 />
                 <NavLinks
                   pageLink="#"
                   title="crop tops"
                   classTitle="nav-item"
+                  onClick={handleMenuCloseClick}
                 />
-                <NavLinks pageLink="#" title="co-ords" classTitle="nav-item" />
+                <NavLinks
+                  pageLink="#"
+                  title="co-ords"
+                  classTitle="nav-item"
+                  onClick={handleMenuCloseClick}
+                />
                 <NavLinks
                   pageLink="#"
                   title="samosa tote bag"
                   classTitle="nav-item"
+                  onClick={handleMenuCloseClick}
                 />
                 <NavLinks
                   pageLink="#"
                   title="laptop sleeves"
                   classTitle="nav-item"
+                  onClick={handleMenuCloseClick}
                 />
               </ul>
             </div>
             <div className="center section">
               <ul>
-                <NavLinks pageLink="#" title="about" classTitle="nav-item" />
-                <NavLinks pageLink="#" title="contact" classTitle="nav-item" />
+                <li className="title">INFO</li>
                 <NavLinks
-                  pageLink="#"
-                  title="terms & conditions"
+                  pageLink="/about"
+                  title="about"
                   classTitle="nav-item"
+                  onClick={handleMenuCloseClick}
+                />
+                <NavLinks
+                  pageLink="/contact"
+                  title="contact"
+                  classTitle="nav-item"
+                  onClick={handleMenuCloseClick}
+                />
+                <NavLinks
+                  pageLink="/blogs"
+                  title="blog"
+                  classTitle="nav-item"
+                  onClick={handleMenuCloseClick}
+                />
+                <NavLinks
+                  pageLink="/policies/privacy"
+                  title="privacy policy"
+                  classTitle="nav-item"
+                  onClick={handleMenuCloseClick}
+                />
+                <NavLinks
+                  pageLink="/policies/refund"
+                  title="refund policy"
+                  classTitle="nav-item"
+                  onClick={handleMenuCloseClick}
+                />
+                <NavLinks
+                  pageLink="/policies/shipping"
+                  title="shipping policy"
+                  classTitle="nav-item"
+                  onClick={handleMenuCloseClick}
                 />
               </ul>
             </div>
@@ -136,6 +175,128 @@ const Header = () => {
                   <Insta />
                 </Link>
               </div>
+            </div>
+          </div>
+        </nav>
+        <nav className={`nav-mobile ${isOpen ? "navOpen" : ""}`}>
+          <div className={`menu ${isOpen ? "fadeInMenu" : ""}`}>
+            <div className="left section">
+              <ul>
+                <li className="title">SHOP</li>
+                <NavLinks
+                  pageLink="#"
+                  title="shirt kurta"
+                  classTitle="nav-item"
+                  onClick={handleMenuCloseClick}
+                />
+                <NavLinks
+                  pageLink="#"
+                  title="crop tops"
+                  classTitle="nav-item"
+                  onClick={handleMenuCloseClick}
+                />
+                <NavLinks
+                  pageLink="#"
+                  title="co-ords"
+                  classTitle="nav-item"
+                  onClick={handleMenuCloseClick}
+                />
+                <NavLinks
+                  pageLink="#"
+                  title="samosa tote bag"
+                  classTitle="nav-item"
+                  onClick={handleMenuCloseClick}
+                />
+                <NavLinks
+                  pageLink="#"
+                  title="laptop sleeves"
+                  classTitle="nav-item"
+                  onClick={handleMenuCloseClick}
+                />
+              </ul>
+            </div>
+            <div className="menu-second">
+              <div className="center section">
+                <ul>
+                  <li className="title">INFO</li>
+                  <NavLinks
+                    pageLink="#"
+                    title="about"
+                    classTitle="nav-item"
+                    onClick={handleMenuCloseClick}
+                  />
+                  <NavLinks
+                    pageLink="#"
+                    title="contact"
+                    classTitle="nav-item"
+                    onClick={handleMenuCloseClick}
+                  />
+                  <NavLinks
+                    pageLink="#"
+                    title="blog"
+                    classTitle="nav-item"
+                    onClick={handleMenuCloseClick}
+                  />
+                  <NavLinks
+                    pageLink="#"
+                    title="privacy policy"
+                    classTitle="nav-item"
+                    onClick={handleMenuCloseClick}
+                  />
+                  <NavLinks
+                    pageLink="#"
+                    title="refund policy"
+                    classTitle="nav-item"
+                    onClick={handleMenuCloseClick}
+                  />
+                  <NavLinks
+                    pageLink="#"
+                    title="shipping policy"
+                    classTitle="nav-item"
+                    onClick={handleMenuCloseClick}
+                  />
+                </ul>
+              </div>
+              <div className="right section">
+                <div className="text">
+                  <div className="dot" />
+                  <div className="title">
+                    <h2>coming soon!</h2>
+                    <p>
+                      Be the first to know about our latest collections,
+                      upcoming events and special discounts.
+                    </p>
+                  </div>
+                </div>
+                <form action="#">
+                  <h2>sign up for our newsletter</h2>
+                  <div className="name">
+                    <input type="text" placeholder="First Name" />
+                    <input type="text" placeholder="Last Name" />
+                  </div>
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="Email"
+                  />
+                  <button type="submit">
+                    <h3>JOIN THE MOVEMENT</h3>
+                    <Arrow />
+                  </button>
+                </form>
+              </div>
+            </div>
+            <div className="socials">
+              <Link href="#">
+                <Call />
+              </Link>
+              <Link href="#">
+                <Mail />
+              </Link>
+              <Link href="#">
+                <Insta />
+              </Link>
             </div>
           </div>
         </nav>

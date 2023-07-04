@@ -1,4 +1,7 @@
 /* eslint-disable react/display-name */
+
+import Link from "next/link";
+
 /* eslint-disable import/no-anonymous-default-export */
 type NavLinksProps = {
   title: string;
@@ -10,9 +13,9 @@ type NavLinksProps = {
 export default ({ title, pageLink, classTitle, onClick }: NavLinksProps) => {
   return (
     <li>
-      <a href={pageLink} className={classTitle} onClick={onClick}>
+      <Link href={pageLink} className={classTitle} onClick={onClick}>
         {title}
-      </a>
+      </Link>
     </li>
   );
 };

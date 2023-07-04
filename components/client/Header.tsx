@@ -220,37 +220,37 @@ const Header = () => {
                 <ul>
                   <li className="title">INFO</li>
                   <NavLinks
-                    pageLink="#"
+                    pageLink="/about"
                     title="about"
                     classTitle="nav-item"
                     onClick={handleMenuCloseClick}
                   />
                   <NavLinks
-                    pageLink="#"
+                    pageLink="/contact"
                     title="contact"
                     classTitle="nav-item"
                     onClick={handleMenuCloseClick}
                   />
                   <NavLinks
-                    pageLink="#"
+                    pageLink="/blogs"
                     title="blog"
                     classTitle="nav-item"
                     onClick={handleMenuCloseClick}
                   />
                   <NavLinks
-                    pageLink="#"
+                    pageLink="/policies/privacy"
                     title="privacy policy"
                     classTitle="nav-item"
                     onClick={handleMenuCloseClick}
                   />
                   <NavLinks
-                    pageLink="#"
+                    pageLink="/policies/refund"
                     title="refund policy"
                     classTitle="nav-item"
                     onClick={handleMenuCloseClick}
                   />
                   <NavLinks
-                    pageLink="#"
+                    pageLink="/policies/shipping"
                     title="shipping policy"
                     classTitle="nav-item"
                     onClick={handleMenuCloseClick}

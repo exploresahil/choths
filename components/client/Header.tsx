@@ -24,9 +24,16 @@ const Header = () => {
   const handleMenuClick = () => {
     setIsOpen(!isOpen);
   };
+
   const handleMenuCloseClick = () => {
     setIsOpen(false);
   };
+
+  const logoclick = () => {
+    setIsOpen(false);
+    router.push("/");
+  };
+
   const router = useRouter();
 
   return (
@@ -39,7 +46,7 @@ const Header = () => {
         duration={1000}
         spy={true}
       >
-        <TkpLogo onClick={() => router.push("/")} />
+        <TkpLogo onClick={logoclick} />
       </ScrollLink>
       <div className="user-menu">
         <div className="user-menu-ecommercs">

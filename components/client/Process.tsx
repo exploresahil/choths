@@ -49,6 +49,7 @@ export default function Process() {
         <div className="circular-text-container">
           <CircularText />
         </div>
+        <div className="cut-container" />
 
         <div className="mission-section">
           <div className="mission-text">
@@ -94,6 +95,7 @@ export default function Process() {
                 {process.processName}
               </h1>
               <p>{process.description}</p>
+              <div className="line" />
             </div>
           ))}
         </div>

@@ -5,6 +5,7 @@
   height: auto;
   text-align: center;
   color: v.$textTeal;
+  position: relative;
 
   .main-process-heading {
     display: flex;
@@ -36,7 +37,14 @@
     //overflow: hidden;
     z-index: 0;
 
-    animation: rotate 40s linear infinite forwards;
+    svg {
+      width: 118vw;
+      height: auto;
+      padding: 0;
+      margin-left: -9.6%;
+      z-index: 0;
+      animation: rotate 40s linear infinite forwards;
+    }
 
     @keyframes rotate {
       0% {
@@ -46,14 +54,14 @@
         transform: rotate(360deg);
       }
     }
+  }
 
-    svg {
-      width: 118vw;
-      height: auto;
-      padding: 0;
-      margin-left: -9.6%;
-      z-index: 0;
-    }
+  .cut-container {
+    width: 100vw;
+    height: 100vh;
+    background-color: v.$bg;
+    position: absolute;
+    bottom: 0;
   }
 
   .mission-section {
@@ -133,6 +141,10 @@
       height: 90vh;
       z-index: 2;
 
+      .line {
+        display: none;
+      }
+
       img {
         z-index: 1;
       }
@@ -163,5 +175,189 @@
         font-size: 0.85em;
       }
     }
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+  .main-process-section {
+    margin-top: -100px;
+    position: relative;
+
+    .circular-text-container {
+      position: absolute;
+      top: 300px;
+
+      svg {
+        width: 150vw;
+        position: absolute;
+        left: -15%;
+      }
+    }
+
+    .cut-container {
+      width: 100vw;
+      height: 100vh;
+      background-color: v.$bg;
+      position: absolute;
+      top: 25%;
+    }
+
+    .mission-section {
+      margin: 400px 6vw;
+      align-items: center;
+      flex-direction: column-reverse;
+
+      .mission-text {
+        align-items: center;
+
+        p {
+          width: 80%;
+          text-align: center;
+        }
+      }
+
+      .mission-container {
+        width: fit-content;
+      }
+    }
+
+    .process-section {
+      border-top: 1px solid v.$dark;
+      padding-top: 300px;
+      flex-direction: column;
+      align-items: center;
+      gap: 550px;
+      margin-bottom: 350px;
+
+      .process-container {
+        width: 80vw;
+        height: 50vh;
+        padding: 2em 4em 8em 4em;
+        background-color: v.$dark;
+
+        img {
+          opacity: 0.75;
+        }
+
+        h1 {
+          font-size: 8rem;
+          position: absolute;
+          color: v.$textTeal;
+          top: -200px;
+          align-self: flex-start;
+        }
+
+        p {
+          max-width: 80vw;
+          font-size: 1.5rem;
+          position: absolute;
+          bottom: -250px;
+          color: v.$dark;
+        }
+
+        .line {
+          width: 100vw;
+          height: 1px;
+          background-color: v.$dark;
+          position: absolute;
+          bottom: -300px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-device-width: 768px) {
+  .main-process-section {
+    margin-top: -200px;
+    position: relative;
+
+    .circular-text-container {
+      position: absolute;
+      top: 300px;
+
+      svg {
+        width: 150vw;
+        position: absolute;
+        left: -15%;
+      }
+    }
+
+    .cut-container {
+      width: 100vw;
+      height: 100vh;
+      background-color: v.$bg;
+      position: absolute;
+      top: 25%;
+    }
+
+    .mission-section {
+      margin: 400px 6vw;
+      align-items: center;
+      flex-direction: column-reverse;
+
+      .mission-text {
+        align-items: center;
+
+        p {
+          width: 80%;
+          text-align: center;
+        }
+      }
+
+      .mission-container {
+        width: fit-content;
+      }
+    }
+
+    .process-section {
+      border-top: 1px solid v.$dark;
+      padding-top: 300px;
+      flex-direction: column;
+      align-items: center;
+      gap: 550px;
+      margin-bottom: 350px;
+
+      .process-container {
+        width: 80vw;
+        height: 50vh;
+        padding: 2em 4em 8em 4em;
+        background-color: v.$dark;
+
+        img {
+          opacity: 0.75;
+        }
+
+        h1 {
+          font-size: 8rem;
+          position: absolute;
+          color: v.$textTeal;
+          top: -200px;
+          align-self: flex-start;
+        }
+
+        p {
+          max-width: 80vw;
+          font-size: 1.5rem;
+          position: absolute;
+          bottom: -250px;
+          color: v.$dark;
+        }
+
+        .line {
+          width: 100vw;
+          height: 1px;
+          background-color: v.$dark;
+          position: absolute;
+          bottom: -300px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-device-height: 800px) {
+  .main-process-section {
+    margin-top: 400px;
   }
 }

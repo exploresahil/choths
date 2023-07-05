@@ -102,7 +102,6 @@ interface About {
       linkedin: string;
     }
   ];
-  explore: string;
 }
 
 const About = () => {
@@ -609,9 +608,9 @@ const About = () => {
                     alt="solution-bg"
                   />
                 )}
-              </div>
-              <div className="solution-impact-logo">
-                <SolutionImpactLogo />
+                <div className="solution-impact-logo">
+                    <SolutionImpactLogo />
+                </div>
               </div>
             </div>
             <div className="solution-side-scroll-main">
@@ -721,7 +720,7 @@ const About = () => {
                   this change.
                 </p>
               </div>
-              <Link href={about.explore} >
+              <Link href="/">
                 <button type="button">
                   <h3>EXPLORE</h3>
                   <NewsletterArrowNormal />

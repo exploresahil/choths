@@ -63,8 +63,8 @@
     gap: 5em;
 
     .mission-text {
-      font-family: RALEWAY-MEDIUM;
-      color: #414042;
+      font-family: v.$fontRM;
+      color: v.$dark;
       display: flex;
       flex-direction: column;
       text-align: left;
@@ -87,11 +87,25 @@
         gap: 1em;
         border-radius: 2em;
 
+        -webkit-tap-highlight-color: transparent;
+
+        &:hover {
+          background-color: v.$dark;
+
+          h3 {
+            color: v.$bg;
+          }
+
+          svg {
+            fill: v.$dark;
+          }
+        }
+
         h3 {
-          font-family: RALEWAY-LIGHT;
+          font-family: v.$fontRL;
           font-size: 1.2em;
-          font-weight: 300;
-          color: white;
+          font-weight: 600;
+          color: v.$bg;
         }
 
         svg {

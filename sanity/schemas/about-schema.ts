@@ -325,13 +325,6 @@ const aboutSchema = {
         },
       ],
     },
-    {
-      name: "explore",
-      title: "Explore Button Redirect Link",
-      type: "string",
-      initialValue: "#",
-      validation: (Rule: { required: () => any }) => Rule.required(),
-    },
   ],
 };
 

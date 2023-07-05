@@ -5,7 +5,7 @@ const NewsletterArrowNormal = () => {
     <style>{`
     
       .NewsletterArrowNormal-1 {
-        fill: #fff;
+        fill: #e3dcdc;
       }
 
       .NewsletterArrowNormal-2 {
@@ -14,7 +14,7 @@ const NewsletterArrowNormal = () => {
       }
 
       .NewsletterArrowNormal-2 {
-        stroke: #fff;
+        stroke: #e3dcdc;
       }
 
       .NewsletterArrowNormal-3 {

@@ -9,6 +9,8 @@
   width: 100vw;
   z-index: 2;
 
+  -webkit-tap-highlight-color: transparent;
+
   .contact-bg-container {
     position: relative;
     width: 50vw;
@@ -479,17 +481,6 @@
           position: relative;
           top: 1rem;
 
-          // h3 {
-          //   font-family: v.$fontRL;
-          //   font-weight: 500;
-          //   font-size: 0.8rem;
-          // }
-
-          // svg {
-          //   width: 2.2rem;
-          //   height: auto;
-          // }
-
           &:hover {
             color: v.$bg;
             background-color: v.$textTeal;
@@ -774,17 +765,6 @@
           border-color: v.$bordercolor;
           position: relative;
           top: 1rem;
-
-          // h3 {
-          //   font-family: v.$fontRL;
-          //   font-weight: 500;
-          //   font-size: 2rem;
-          // }
-
-          // svg {
-          //   width: 4.2rem;
-          //   height: auto;
-          // }
 
           &:hover {
             color: v.$bg;

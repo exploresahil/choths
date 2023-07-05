@@ -9,12 +9,12 @@ function StitchingArrow() {
       <defs>
         <style>
           {`.StitchingArrow-1 {
-        fill: #fff;
+        fill: #e3dcdc;
       }
 
       .StitchingArrow-2 {
         fill: none;
-        stroke: #fff;
+        stroke: #e3dcdc;
         stroke-miterlimit: 10;
         stroke-width: 2px;
       }`}

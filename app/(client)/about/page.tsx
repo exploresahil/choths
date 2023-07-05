@@ -119,7 +119,7 @@ const About = () => {
   useEffect(() => {
     let mm = gsap.matchMedia();
 
-    mm.add("(min-width: 1024px)", () => {
+    mm.add("(min-width: 1025px)", () => {
       gsap.registerPlugin(ScrollTrigger);
 
       const tlAbout = gsap.timeline();
@@ -321,7 +321,7 @@ const About = () => {
       );
     });
 
-    mm.add("(max-width: 1023px)", () => {
+    mm.add("(max-width: 1024px)", () => {
       gsap.registerPlugin(ScrollTrigger);
 
       const tlAbout = gsap.timeline();

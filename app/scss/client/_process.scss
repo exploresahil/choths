@@ -283,12 +283,24 @@
 
 @media only screen and (max-device-width: 768px) {
   .main-process-section {
-    margin-top: -200px;
+    margin-top: 350px;
     position: relative;
+
+    .main-process-heading {
+      line-height: 1;
+
+      h1 {
+        font-size: 4rem;
+      }
+
+      h2 {
+        font-size: 2.6rem;
+      }
+    }
 
     .circular-text-container {
       position: absolute;
-      top: 300px;
+      top: 200px;
 
       svg {
         width: 150vw;
@@ -302,11 +314,11 @@
       height: 100vh;
       background-color: v.$bg;
       position: absolute;
-      top: 25%;
+      top: 15%;
     }
 
     .mission-section {
-      margin: 400px 6vw;
+      margin: 250px 6vw;
       align-items: center;
       flex-direction: column-reverse;
 
@@ -321,15 +333,19 @@
 
       .mission-container {
         width: fit-content;
+
+        svg {
+          width: 40vw;
+        }
       }
     }
 
     .process-section {
       border-top: 1px solid v.$dark;
-      padding-top: 300px;
+      padding-top: 150px;
       flex-direction: column;
       align-items: center;
-      gap: 550px;
+      gap: 450px;
       margin-bottom: 350px;
 
       .process-container {
@@ -343,22 +359,24 @@
         }
 
         h1 {
-          font-size: 8rem;
+          font-size: 4rem;
           position: absolute;
           color: v.$textTeal;
-          top: -200px;
-          align-self: flex-start;
+          top: -90px;
+          left: 0;
         }
 
         p {
           max-width: 80vw;
-          font-size: 1.5rem;
+          font-size: 1.2rem;
           position: absolute;
-          bottom: -250px;
+          left: 0;
+          top: 480px;
           color: v.$dark;
         }
 
         .line {
+          display: block;
           width: 100vw;
           height: 1px;
           background-color: v.$dark;

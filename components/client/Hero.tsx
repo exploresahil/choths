@@ -304,7 +304,7 @@ const Hero = () => {
 
     tlScrollMobileTwo.fromTo(
       "#accessoriesMobile",
-      {},
+      { borderRadius: "0 0 0 0" },
       {
         borderRadius: "0 0 0 0",
         scrollTrigger: {
@@ -327,8 +327,8 @@ const Hero = () => {
         scrollTrigger: {
           trigger: "#accessoriesMainMobile",
           //markers: true,
-          start: "1400px bottom",
-          end: "1600px bottom",
+          start: "1000px bottom",
+          end: "1200px bottom",
           scrub: true,
         },
       }

@@ -10,17 +10,17 @@ import { getBlog } from "@/sanity/sanity-utils";
 import { blogsSchema } from "@/sanity/types/Blogs";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
-import React from "react";
+import { useEffect, useState } from "react";
 
 type Props = {
   params: { blog: any };
 };
 
 export default function Blog({ params }: Props) {
-  const [blog, setBlog] = React.useState<blogsSchema>();
+  const [blog, setBlog] = useState<blogsSchema>();
   const slug = params.blog;
-  React.useEffect(() => {
-    console.log("s");
+
+  useEffect(() => {
     getBlog(slug).then((data) => {
       setBlog(data);
     });

@@ -9,6 +9,8 @@ import { faqsSchema } from "@/sanity/types/FAQs";
 import { aboutSchema } from "@/sanity/types/About";
 import { policiesSchema } from "@/sanity/types/Policies";
 import { contactSchema } from "@/sanity/types/Contact";
+import { products } from "@/sanity/types/Products";
+import { category } from "@/sanity/types/Category";
 
 export async function getProcesses(): Promise<process[]> {
   return createClient(clientConfig).fetch(
@@ -193,6 +195,68 @@ export async function getContact(): Promise<contactSchema[]> {
       phone,
       email,
       instagram,
+    }`
+  );
+}
+
+export async function getProducts(): Promise<products[]> {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "products"] | order(_createdAt asc) {
+      _id,
+      _createdAt,
+      name,
+      "slug": slug.current,
+      "images": images[] {
+        "_id": asset->_id,
+        "url": asset->url,
+      },
+      price,
+      details,
+      description,
+      size,
+      "category": {
+        "_id": category->_id,
+        "_createdAt": category->_createdAt,
+        "name": category->name,
+        "slug": category->slug,
+      },
+    }`
+  );
+}
+
+export async function getProduct(slug: string): Promise<products> {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "products" && slug.current == $slug][0]{
+      _id,
+      _createdAt,
+      name,
+      "slug": slug.current,
+      "images": images[] {
+        "_id": asset->_id,
+        "url": asset->url,
+      },
+      price,
+      details,
+      description,
+      size,
+      "category": {
+        "_id": category->_id,
+        "_createdAt": category->_createdAt,
+        "name": category->name,
+        "slug": category->slug,
+      },
+    }`,
+    { slug }
+  );
+}
+
+export async function getCategories(): Promise<category[]> {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "category"] | order(_createdAt asc) {
+      _id,
+      _createdAt,
+      name,
+      slug,
     }`
   );
 }

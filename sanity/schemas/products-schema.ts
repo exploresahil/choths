@@ -1,6 +1,6 @@
 const products = {
-  name: "product",
-  title: "Product",
+  name: "products",
+  title: "Products",
   type: "document",
   fields: [
     {
@@ -18,13 +18,10 @@ const products = {
       },
     },
     {
-      name: "image",
-      title: "Image",
+      name: "images",
+      title: "Images",
       type: "array",
-      of: [{ type: "image" }],
-      options: {
-        hotspot: true,
-      },
+      of: [{ type: "image", options: { hotspot: true } }],
     },
     {
       name: "price",
@@ -34,7 +31,14 @@ const products = {
     {
       name: "details",
       title: "Details",
-      type: "string",
+      type: "array",
+      of: [{ type: "block" }],
+    },
+    {
+      name: "description",
+      title: "Description",
+      type: "array",
+      of: [{ type: "block" }],
     },
     {
       name: "size",

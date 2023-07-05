@@ -36,7 +36,7 @@
         margin-bottom: 30px;
       }
 
-      p {
+      .product-details {
         font-size: 1.2rem;
         line-height: 1;
       }
@@ -146,5 +146,7 @@
     width: 100vw;
     height: 100vh;
     background-color: $dark;
+    padding: 5vh 5vw;
+    color: $bg;
   }
 }

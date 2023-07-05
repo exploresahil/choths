@@ -5,7 +5,6 @@ import {
   CategoriesWatermarkOuter,
 } from "@/components/icons/Icons";
 import { getPolicies } from "@/sanity/sanity-utils";
-import { policiesSchema } from "@/sanity/types/Policies";
 import { PortableText } from "@portabletext/react";
 import { useEffect, useState } from "react";
 import { PortableTextBlock } from "sanity";

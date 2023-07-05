@@ -1,7 +1,6 @@
 import { PortableTextBlock } from "sanity";
 
 export type policiesSchema = {
-  map(arg0: () => import("react").JSX.Element): import("react").ReactNode;
   _id: string;
   _createdAt: Date;
   refund: {

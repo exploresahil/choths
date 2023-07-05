@@ -163,9 +163,9 @@ const Hero = () => {
       {
         scrollTrigger: {
           trigger: "#coOrdsMain",
-          // markers: true,
+          //markers: true,
           start: "top top",
-          end: "1400px top",
+          end: "1800px top",
           scrub: true,
           pin: true,
           pinSpacing: false,
@@ -173,7 +173,25 @@ const Hero = () => {
       }
     );
 
+    tlScrollOne.fromTo(
+      "#coOrds",
+      {
+        opacity: 1,
+      },
+      {
+        opacity: 0,
+        scrollTrigger: {
+          trigger: "#coOrdsMain",
+          //markers: true,
+          start: "200px top",
+          end: "500px top",
+          scrub: true,
+        },
+      }
+    );
+
     const tlScrollTwo = gsap.timeline();
+
     tlScrollTwo.fromTo(
       "#accessories",
       {
@@ -209,26 +227,172 @@ const Hero = () => {
         },
       }
     );
-    tlScrollOne.fromTo(
-      "#accessories",
-      {},
+
+    //*------> Mobile Hero
+
+    const tlScrollMobileOne = gsap.timeline();
+
+    tlScrollMobileOne.fromTo(
+      "#coOrdsMobile",
       {
-        borderRadius: "0 0 1000px 1000px",
+        width: "100vw",
+        borderRadius: "1000px 1000px 0 0",
+      },
+      {
+        width: "100vw",
+        borderRadius: "0 0 0 0",
         scrollTrigger: {
-          trigger: "#accessoriesMain",
+          trigger: "#coOrdsMainMobile",
           //markers: true,
-          start: "800px bottom",
-          end: "1000px bottom",
+          start: "top 180px",
+          end: "+=180",
           scrub: true,
         },
       }
     );
 
-    //*----> Media Queries
+    tlScrollMobileOne.fromTo(
+      "#coOrdsMobile",
+      {},
+      {
+        scrollTrigger: {
+          trigger: "#coOrdsMainMobile",
+          //markers: true,
+          start: "top top",
+          end: "1800px top",
+          scrub: true,
+          pin: true,
+          pinSpacing: false,
+        },
+      }
+    );
+
+    const tlScrollMobileTwo = gsap.timeline();
+
+    tlScrollMobileTwo.fromTo(
+      "#accessoriesMobile",
+      {
+        width: "100vw",
+        borderRadius: "1000px 1000px 0 0",
+      },
+      {
+        width: "100vw",
+        borderRadius: "0 0 0 0",
+        scrollTrigger: {
+          trigger: "#accessoriesMainMobile",
+          //markers: true,
+          start: "top 180px",
+          end: "+=180",
+          scrub: true,
+        },
+      }
+    );
+
+    tlScrollMobileTwo.fromTo(
+      "#accessoriesMobile",
+      {},
+      {
+        borderRadius: "0 0 0 0",
+        scrollTrigger: {
+          trigger: "#accessoriesMainMobile",
+          //markers: true,
+          start: "top top",
+          end: "1000px top",
+          scrub: true,
+          pin: true,
+          pinSpacing: false,
+        },
+      }
+    );
+
+    tlScrollMobileTwo.fromTo(
+      "#accessoriesMobile",
+      {},
+      {
+        borderRadius: "0 0 1000px 1000px",
+        scrollTrigger: {
+          trigger: "#accessoriesMainMobile",
+          //markers: true,
+          start: "1400px bottom",
+          end: "1600px bottom",
+          scrub: true,
+        },
+      }
+    );
+
+    //*---------> Media Queries
 
     let mm = gsap.matchMedia();
 
-    mm.add("(max-width: 1023px)", () => {
+    mm.add("(max-width: 767px)", () => {
+      tlScrollMobileTwo.fromTo(
+        "#accessoriesMobile",
+        {},
+        {
+          borderRadius: "0 0 1000px 1000px",
+          scrollTrigger: {
+            trigger: "#accessoriesMainMobile",
+            //markers: true,
+            start: "900px bottom",
+            end: "1100px bottom",
+            scrub: true,
+          },
+        }
+      );
+    });
+
+    mm.add("(max-height: 999px)", () => {
+      tlScrollOne.fromTo(
+        "#accessories",
+        {},
+        {
+          borderRadius: "0 0 1000px 1000px",
+          scrollTrigger: {
+            trigger: "#accessoriesMain",
+            //markers: true,
+            start: "1000px bottom",
+            end: "1400px bottom",
+            scrub: true,
+          },
+        }
+      );
+    });
+
+    mm.add("(min-height: 999px)", () => {
+      tlScrollOne.fromTo(
+        "#accessories",
+        {},
+        {
+          borderRadius: "0 0 1000px 1000px",
+          scrollTrigger: {
+            trigger: "#accessoriesMain",
+            //markers: true,
+            start: "1100px bottom",
+            end: "1600px bottom",
+            scrub: true,
+          },
+        }
+      );
+    });
+
+    mm.add("(max-width: 1280px)", () => {
+      tlScrollOne.fromTo(
+        "#accessories",
+        {},
+        {
+          borderRadius: "0 0 1000px 1000px",
+          scrollTrigger: {
+            trigger: "#accessoriesMain",
+            //markers: true,
+            start: "800px bottom",
+            end: "1000px bottom",
+            scrub: true,
+          },
+        }
+      );
+    });
+
+    mm.add("(max-width: 1025px)", () => {
       tlScrollOne.fromTo(
         "#coOrds",
         {
@@ -243,6 +407,23 @@ const Hero = () => {
             // markers: true,
             start: "top 180px",
             end: "+=180",
+            scrub: true,
+          },
+        }
+      );
+
+      tlScrollOne.fromTo(
+        "#coOrds",
+        {
+          opacity: 1,
+        },
+        {
+          opacity: 1,
+          scrollTrigger: {
+            trigger: "#coOrdsMain",
+            //markers: true,
+            start: "200px top",
+            end: "500px top",
             scrub: true,
           },
         }
@@ -279,6 +460,22 @@ const Hero = () => {
           </video>
         </div>
       </div>
+      <div className="category_co-ords_main_mobile" id="coOrdsMainMobile">
+        {/*  <div className="category_co-ords_container" ref={categoryCoOrdsRef}>
+          <Image
+            fill
+            src={coOrds}
+            style={{ objectFit: "cover" }}
+            alt="footer-logo"
+            ref={coOrdsRef}
+          />
+        </div> */}
+        <div className="category_co-ords_container_mobile" id="coOrdsMobile">
+          <video autoPlay loop muted style={{ objectFit: "cover" }}>
+            <source src={dance} />
+          </video>
+        </div>
+      </div>
       <div className="link-container">
         <Link href="#" ref={coOrdsArrowRef} className="coOrdsArrowRef">
           <p>co-ords</p>
@@ -299,6 +496,31 @@ const Hero = () => {
           />
         </div> */}
         <div className="category_accessories_container" id="accessories">
+          <video autoPlay loop muted style={{ objectFit: "cover" }}>
+            <source src={life} />
+          </video>
+        </div>
+      </div>
+      <div
+        className="category_accessories_main_mobile"
+        id="accessoriesMainMobile"
+      >
+        {/* <div
+          className="category_accessories_container"
+          ref={categoryAccessoriesRef}
+        >
+          <Image
+            fill
+            src={accessories}
+            style={{ objectFit: "cover" }}
+            alt="footer-logo"
+            ref={accessoriesRef}
+          />
+        </div> */}
+        <div
+          className="category_accessories_container_mobile"
+          id="accessoriesMobile"
+        >
           <video autoPlay loop muted style={{ objectFit: "cover" }}>
             <source src={life} />
           </video>

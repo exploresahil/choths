@@ -235,6 +235,20 @@ const Hero = () => {
     tlScrollMobileOne.fromTo(
       "#coOrdsMobile",
       {
+        y: 200,
+        opacity: 0,
+      },
+      {
+        y: 0,
+        opacity: 1,
+        ease: "power2.out",
+        delay: 1,
+      }
+    );
+
+    tlScrollMobileOne.fromTo(
+      "#coOrdsMobile",
+      {
         width: "100vw",
         borderRadius: "1000px 1000px 0 0",
       },

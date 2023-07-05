@@ -62,6 +62,8 @@
       border-style: solid;
       border-width: 2px;
 
+      -webkit-tap-highlight-color: transparent;
+
       &:hover {
         color: v.$bg;
         background-color: v.$textTeal;

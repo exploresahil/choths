@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { PortableText } from "@portabletext/react";
 import { useEffect, useState } from "react";
 
@@ -15,7 +14,6 @@ import {
   CategoriesWatermarkOuter,
 } from "@/components/icons/Icons";
 import { PortableTextBlock } from "sanity";
-import Router from "next/router";
 
 interface Blogs {
   _id: string;
@@ -84,6 +82,10 @@ export default function Blogs() {
     fetchBlogs();
   }, [filter]);
 
+  const handleFilterClick = (filter: any) => {
+    setFilter(filter);
+  };
+
   return (
     <div className="blogs-main">
       <div className="blogs-watermark-container">
@@ -126,10 +128,11 @@ export default function Blogs() {
       ))}
       <div className="blogs-filter-section">
         <div className="filter-container">
-          <button className="btn nav-btn"
+          <button
+            className={`${filter === "ALL" ? "active" : ""}`}
             type="button"
             onClick={() => {
-              setFilter("ALL");
+              handleFilterClick('ALL');
             }}
           >
             <h3>ALL</h3>
@@ -137,10 +140,11 @@ export default function Blogs() {
         </div>
         {topics.map((topic) => (
           <div key={topic._id} className="filter-container">
-            <button className="btn nav-btn"
+            <button
+              className={`${filter === `${topic.name}` ? "active" : ""}`}
               type="button"
               onClick={() => {
-                setFilter(topic.name);
+                handleFilterClick(topic.name);
               }}
             >
               <h3>{topic.name}</h3>

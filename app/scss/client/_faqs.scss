@@ -11,9 +11,12 @@
   padding: 7em 0;
   gap: 3rem;
 
+  -webkit-tap-highlight-color: transparent;
+
   .faq-heading {
     h1 {
-      font-family: v.$fontARI;
+      font-family: v.$fontAR;
+      font-style: italic;
       font-size: 5rem;
       color: v.$bg;
       font-weight: 100;
@@ -125,7 +128,8 @@
     .faq-heading {
       padding: 0 10vw;
       h1 {
-        font-family: v.$fontARI;
+        font-family: v.$fontAR;
+        font-style: italic;
         font-size: 4rem;
         color: v.$bg;
         font-weight: 100;
@@ -240,7 +244,8 @@
     .faq-heading {
       padding: 0 10vw;
       h1 {
-        font-family: v.$fontARI;
+        font-family: v.$fontAR;
+        font-style: italic;
         font-size: 5rem;
         color: v.$bg;
         font-weight: 100;

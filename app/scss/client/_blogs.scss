@@ -136,6 +136,16 @@
         border-radius: 2em;
         position: relative;
 
+        -webkit-tap-highlight-color: transparent;
+
+        &:hover {
+          background-color: v.$dark;
+        }
+
+        &:active {
+          background-color: v.$dark;
+        }
+
         h3 {
           font-family: v.$fontRM;
           font-size: 1em;
@@ -143,6 +153,10 @@
           color: white;
           white-space: nowrap;
         }
+      }
+
+      .active {
+        background-color: v.$dark;
       }
     }
   }
@@ -256,7 +270,7 @@
     flex-direction: column;
     width: 100vw;
     height: auto;
-    margin-top: 0;
+    margin-top: -80px;
 
     .blogs-watermark-container {
       position: fixed;
@@ -324,7 +338,7 @@
         width: 100vw;
         height: auto;
         gap: 1.2rem;
-        padding: 7vh 10vw 5vh 10vw;
+        padding: 5vh 10vw 5vh 10vw;
 
         .blogs-featured-title {
           font-family: v.$fontASB;

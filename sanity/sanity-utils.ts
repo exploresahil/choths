@@ -166,7 +166,6 @@ export async function getAbout(): Promise<aboutSchema[]> {
         instagram,
         linkedin,
       },
-      explore,
     }`
   );
 }
@@ -180,7 +179,7 @@ export async function getPolicies(): Promise<policiesSchema[]> {
       shipping,
       privacy,
     }`
-  )
+  );
 }
 
 export async function getContact(): Promise<contactSchema[]> {
@@ -195,5 +194,5 @@ export async function getContact(): Promise<contactSchema[]> {
       email,
       instagram,
     }`
-  )
+  );
 }

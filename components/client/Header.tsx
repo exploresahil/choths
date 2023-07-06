@@ -137,7 +137,7 @@ const Header = () => {
         <button className="menu-button" onClick={handleMenuClick}>
           {isOpen ? <MenuClose /> : <Menu />}
         </button>
-        <nav className={`${isOpen ? "navOpen" : ""}`}>
+        <nav className={`nav-d ${isOpen ? "navOpen" : ""}`}>
           <div className={`menu ${isOpen ? "fadeInMenu" : ""}`}>
             <div className="left section">
               <ul>
@@ -169,6 +169,12 @@ const Header = () => {
                 <NavLinks
                   pageLink="#"
                   title="laptop sleeves"
+                  classTitle="nav-item"
+                  onClick={handleMenuCloseClick}
+                />
+                <NavLinks
+                  pageLink="/products"
+                  title="View All"
                   classTitle="nav-item"
                   onClick={handleMenuCloseClick}
                 />
@@ -289,6 +295,12 @@ const Header = () => {
                 <NavLinks
                   pageLink="#"
                   title="laptop sleeves"
+                  classTitle="nav-item"
+                  onClick={handleMenuCloseClick}
+                />
+                <NavLinks
+                  pageLink="/products"
+                  title="View All"
                   classTitle="nav-item"
                   onClick={handleMenuCloseClick}
                 />

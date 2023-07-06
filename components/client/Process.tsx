@@ -95,6 +95,27 @@ export default function Process() {
                 {process.processName}
               </h1>
               <p>{process.description}</p>
+            </div>
+          ))}
+        </div>
+        <div className="process-section-mobile">
+          {processes.map((process) => (
+            <div key={process._id} className="process-main-mobile">
+              <h1>
+                <span>{process.number}</span>
+                {process.processName}
+              </h1>
+              <div className="process-container-mobile">
+                {process.image && (
+                  <Image
+                    fill
+                    src={process.image.url}
+                    style={{ objectFit: "cover" }}
+                    alt={process.imageAlt}
+                  />
+                )}
+              </div>
+              <p>{process.description}</p>
               <div className="line" />
             </div>
           ))}

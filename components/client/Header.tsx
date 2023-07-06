@@ -4,7 +4,7 @@ import NavLinks from "@/components/client/NavLinks";
 import Link from "next/link";
 import { Link as ScrollLink } from "react-scroll";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -21,42 +21,47 @@ import {
 } from "@/components/icons/Icons";
 
 const Header = () => {
+  const router = useRouter();
+  const pathname = usePathname();
+
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    const tl = gsap.timeline();
+    if (pathname === "/" && typeof window !== "undefined") {
+      gsap.registerPlugin(ScrollTrigger);
+      const tl = gsap.timeline();
 
-    tl.fromTo(
-      "#tkpLogo",
-      {
-        fill: "black",
-      },
-      {
-        fill: "white",
-        scrollTrigger: {
-          trigger: "#logo-container",
-          //markers: true,
-          start: "top top",
-          end: "180px top",
-          scrub: 0.5,
+      tl.fromTo(
+        "#tkpLogo",
+        {
+          fill: "black",
         },
-      }
-    );
+        {
+          fill: "white",
+          scrollTrigger: {
+            trigger: "#logo-container",
+            //markers: true,
+            start: "top top",
+            end: "180px top",
+            scrub: 0.5,
+          },
+        }
+      );
 
-    tl.fromTo(
-      "#tkpLogo",
-      {},
-      {
-        fill: "black",
-        scrollTrigger: {
-          trigger: "#logo-container",
-          //markers: true,
-          start: "50% top",
-          end: "50% top",
-          scrub: 0.5,
-        },
-      }
-    );
-  }, []);
+      tl.fromTo(
+        "#tkpLogo",
+        {},
+        {
+          fill: "black",
+          scrollTrigger: {
+            trigger: "#logo-container",
+            //markers: true,
+            start: "50% top",
+            end: "50% top",
+            scrub: 0.5,
+          },
+        }
+      );
+    }
+  }, [pathname]);
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -72,8 +77,6 @@ const Header = () => {
     setIsOpen(false);
     router.push("/");
   };
-
-  const router = useRouter();
 
   return (
     <header>

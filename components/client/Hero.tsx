@@ -91,7 +91,7 @@ const Hero = () => {
     tlHero.fromTo(
       "#coOrds",
       {
-        y: 200,
+        y: 500,
         opacity: 0,
       },
       {
@@ -104,7 +104,7 @@ const Hero = () => {
     tlHero.fromTo(
       "#coOrdsMobile",
       {
-        y: 200,
+        y: 500,
         opacity: 0,
       },
       {
@@ -242,7 +242,7 @@ const Hero = () => {
 
       gsap.fromTo(
         "#accessories",
-        { borderRadius: "0 0 0 0" },
+        {},
         {
           borderRadius: "0 0 1000px 1000px",
           scrollTrigger: {
@@ -328,7 +328,7 @@ const Hero = () => {
 
       gsap.fromTo(
         "#accessoriesMobile",
-        { borderRadius: "0 0 0 0" },
+        {},
         {
           borderRadius: "0 0 1000px 1000px",
           scrollTrigger: {
@@ -347,7 +347,7 @@ const Hero = () => {
     mm.add("(max-width: 767px)", () => {
       gsap.fromTo(
         "#accessoriesMobile",
-        { borderRadius: "0 0 0 0" },
+        {},
         {
           borderRadius: "0 0 1000px 1000px",
           scrollTrigger: {

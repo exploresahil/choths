@@ -18,3 +18,9 @@
 main {
   margin-top: 180px;
 }
+
+@media screen and (max-width: 767px) {
+  main {
+    margin-top: 250px;
+  }
+}

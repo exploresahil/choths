@@ -381,13 +381,13 @@
       font-style: normal;
       flex-direction: row;
       gap: 0.2em;
-      top: 150px;
+      top: 200px;
       left: 50%;
       transform: translateX(-50%);
       font-size: 3rem;
 
       &:nth-of-type(2) {
-        top: 200px;
+        top: 250px;
         left: auto;
         right: 50%;
         transform: translateX(50%);

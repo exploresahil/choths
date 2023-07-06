@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { FiSearch } from "react-icons/fi";
 
 import {
   Bag,
@@ -23,6 +24,22 @@ import {
 const Header = () => {
   const router = useRouter();
   const pathname = usePathname();
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    let prevScrollPos = window.scrollY || document.documentElement.scrollTop;
+    const handleScroll = () => {
+      const currentScrollPos =
+        window.scrollY || document.documentElement.scrollTop;
+      setIsScrolled(currentScrollPos > 0 && currentScrollPos > prevScrollPos);
+      prevScrollPos = currentScrollPos;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   useEffect(() => {
     if (pathname === "/" && typeof window !== "undefined") {
@@ -90,6 +107,19 @@ const Header = () => {
       >
         <TkpLogo onClick={logoclick} id="tkpLogo" />
       </ScrollLink>
+      <div className={`search-container ${isScrolled ? "searchDown" : ""}`}>
+        <form
+          action="#"
+          onSubmit={(e) => {
+            e.preventDefault();
+          }}
+        >
+          <input type="text" placeholder="Search" />
+          <button type="submit">
+            <FiSearch size={14} />
+          </button>
+        </form>
+      </div>
       <div className="user-menu">
         <div className="user-menu-ecommercs">
           <button>

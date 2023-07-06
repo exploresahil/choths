@@ -214,29 +214,26 @@
         gap: 1.2em;
 
         .active {
-          position: relative;
-          left: -20px;
           color: v.$textTeal;
-          font-weight: 600;
 
           svg {
-            display: inline-block;
-            width: 30px;
-            margin-left: 20px;
+            display: none;
           }
         }
 
         li {
-          position: relative;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 80%;
           text-transform: uppercase;
           text-decoration: underline;
           cursor: pointer;
           font-size: 1.5rem;
 
           svg {
-            display: none;
+            display: inline-block;
             width: 30px;
-            margin-left: 15px;
           }
         }
 

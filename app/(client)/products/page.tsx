@@ -3,8 +3,7 @@
 import Filter from "@/components/client/Filter";
 import Image from "next/image";
 
-import BlogsArrow from "@/components/icons/BlogsArrow";
-import productImg from "@/public/assets/images/products/product-img.png";
+import ContactArrow from "@/components/icons/ContactArrow";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { PortableTextBlock } from "sanity";
@@ -36,23 +35,12 @@ const Products = () => {
     setSelectedCategory(selectedCategory);
   };
 
-  console.log(selectedCategory);
-
   return (
     <div className="products-main">
       <Filter />
       <div className="products-container">
         <div className="sidebar">
           <ul className="category-container">
-            <li
-              className={`${selectedCategory === "view all" ? "active" : ""}`}
-              onClick={() => {
-                handleCategoryClick("view all");
-              }}
-            >
-              view all
-              <BlogsArrow />
-            </li>
             {categories.map((category) => (
               <li
                 className={`${
@@ -64,15 +52,25 @@ const Products = () => {
                 }}
               >
                 {category.name}
-                <BlogsArrow />
+                <ContactArrow />
               </li>
             ))}
+            <li
+              className={`${selectedCategory === "view all" ? "active" : ""}`}
+              onClick={() => {
+                handleCategoryClick("view all");
+              }}
+            >
+              view all
+              <ContactArrow />
+            </li>
           </ul>
         </div>
         <div className="products">
           <div className="products-grid">
             {products.map((product) => {
               if (selectedCategory == "view all") {
+                console.log(product.size);
                 return (
                   <Link
                     key={product._id}
@@ -122,10 +120,38 @@ const Products = () => {
                   </Link>
                 );
               }
+              // else if (
+              //   selectedCategory == product.category.name &&
+              //   product.size.some(size => selectedSizes.includes(`${size.title}`)) &&
+              //   product.category.name == product.category.name
+              // ) {
+              //   return (
+              //     <Link
+              //       key={product._id}
+              //       href={`/products/${product.slug}`}
+              //       className="product"
+              //     >
+              //       <div className="img-container">
+              //         {product.images && (
+              //           <Image
+              //             fill
+              //             src={product.images[0].url}
+              //             style={{ objectFit: "cover" }}
+              //             alt={product.slug}
+              //           />
+              //         )}
+              //       </div>
+              //       <div className="product-info">
+              //         <h3>{product.name}</h3>
+              //         <p>RS.{product.price}</p>
+              //       </div>
+              //     </Link>
+              //   );
+              // }
             })}
           </div>
         </div>
-        <div className="blank" />
+        <div className="blank" />F
       </div>
     </div>
   );

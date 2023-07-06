@@ -150,6 +150,23 @@ const Hero = () => {
       }
     );
 
+    tlHero.fromTo(
+      ".category-watermark-container svg",
+      {
+        opacity: 1,
+      },
+      {
+        opacity: 0,
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: "bottom bottom",
+          end: "bottom bottom",
+          //markers: true,
+          scrub: true,
+        },
+      }
+    );
+
     let mm = gsap.matchMedia();
 
     //*----> Large Device Screen
@@ -337,8 +354,8 @@ const Hero = () => {
             trigger: "#accessoriesMainMobile",
             scrub: 0.1,
             //markers: true,
-            start: "900px bottom",
-            end: "1200px bottom",
+            start: "1000px bottom",
+            end: "1400px bottom",
           },
         }
       );

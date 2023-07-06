@@ -3,8 +3,10 @@
 import NavLinks from "@/components/client/NavLinks";
 import Link from "next/link";
 import { Link as ScrollLink } from "react-scroll";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import {
   Bag,
@@ -19,6 +21,43 @@ import {
 } from "@/components/icons/Icons";
 
 const Header = () => {
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    const tl = gsap.timeline();
+
+    tl.fromTo(
+      "#tkpLogo",
+      {
+        fill: "black",
+      },
+      {
+        fill: "white",
+        scrollTrigger: {
+          trigger: "#logo-container",
+          //markers: true,
+          start: "top top",
+          end: "180px top",
+          scrub: 0.5,
+        },
+      }
+    );
+
+    tl.fromTo(
+      "#tkpLogo",
+      {},
+      {
+        fill: "black",
+        scrollTrigger: {
+          trigger: "#logo-container",
+          //markers: true,
+          start: "50% top",
+          end: "50% top",
+          scrub: 0.5,
+        },
+      }
+    );
+  }, []);
+
   const [isOpen, setIsOpen] = useState(false);
 
   const handleMenuClick = () => {
@@ -46,7 +85,7 @@ const Header = () => {
         duration={1000}
         spy={true}
       >
-        <TkpLogo onClick={logoclick} />
+        <TkpLogo onClick={logoclick} id="tkpLogo" />
       </ScrollLink>
       <div className="user-menu">
         <div className="user-menu-ecommercs">

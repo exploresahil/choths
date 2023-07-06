@@ -132,7 +132,7 @@ export default function Blogs() {
             className={`${filter === "ALL" ? "active" : ""}`}
             type="button"
             onClick={() => {
-              handleFilterClick('ALL');
+              handleFilterClick("ALL");
             }}
           >
             <h3>ALL</h3>

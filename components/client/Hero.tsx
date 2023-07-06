@@ -20,6 +20,7 @@ const life =
   "https://assets.mixkit.co/videos/preview/mixkit-t-shirts-on-hangers-at-fashion-store-34707-large.mp4";
 
 import Link from "next/link";
+import { GrSpa } from "react-icons/gr";
 
 const Hero = () => {
   const heroRef = useRef<HTMLElement>(null);
@@ -101,6 +102,19 @@ const Hero = () => {
     );
 
     tlHero.fromTo(
+      "#coOrdsMobile",
+      {
+        y: 200,
+        opacity: 0,
+      },
+      {
+        y: 0,
+        opacity: 1,
+        ease: "power2.out",
+      }
+    );
+
+    tlHero.fromTo(
       archesRef.current,
       {
         clipPath: "circle(0% at 50% 50%)",
@@ -136,279 +150,100 @@ const Hero = () => {
       }
     );
 
-    const tlScrollOne = gsap.timeline();
-
-    tlScrollOne.fromTo(
-      "#coOrds",
-      {
-        width: "33.4vw",
-        borderRadius: "1000px 1000px 0 0",
-      },
-      {
-        width: "100vw",
-        borderRadius: "0 0 0 0",
-        scrollTrigger: {
-          trigger: "#coOrdsMain",
-          // markers: true,
-          start: "top 180px",
-          end: "+=180",
-          scrub: true,
-        },
-      }
-    );
-
-    tlScrollOne.fromTo(
-      "#coOrds",
-      {},
-      {
-        scrollTrigger: {
-          trigger: "#coOrdsMain",
-          //markers: true,
-          start: "top top",
-          end: "1800px top",
-          scrub: true,
-          pin: true,
-          pinSpacing: false,
-        },
-      }
-    );
-
-    tlScrollOne.fromTo(
-      "#coOrds",
-      {
-        opacity: 1,
-      },
-      {
-        opacity: 0,
-        scrollTrigger: {
-          trigger: "#coOrdsMain",
-          //markers: true,
-          start: "200px top",
-          end: "500px top",
-          scrub: true,
-        },
-      }
-    );
-
-    const tlScrollTwo = gsap.timeline();
-
-    tlScrollTwo.fromTo(
-      "#accessories",
-      {
-        width: "33.4vw",
-        borderRadius: "1000px 1000px 0 0",
-      },
-      {
-        width: "100vw",
-        borderRadius: "0 0 0 0",
-        scrollTrigger: {
-          trigger: "#accessoriesMain",
-          //markers: true,
-          start: "top 180px",
-          end: "+=180",
-          scrub: true,
-        },
-      }
-    );
-
-    tlScrollOne.fromTo(
-      "#accessories",
-      {},
-      {
-        borderRadius: "0 0 0 0",
-        scrollTrigger: {
-          trigger: "#accessoriesMain",
-          //markers: true,
-          start: "top top",
-          end: "800px top",
-          scrub: true,
-          pin: true,
-          pinSpacing: false,
-        },
-      }
-    );
-
-    //*------> Mobile Hero
-
-    const tlScrollMobileOne = gsap.timeline();
-
-    tlScrollMobileOne.fromTo(
-      "#coOrdsMobile",
-      {
-        y: 200,
-        opacity: 0,
-      },
-      {
-        y: 0,
-        opacity: 1,
-        ease: "power2.out",
-        delay: 1,
-      }
-    );
-
-    tlScrollMobileOne.fromTo(
-      "#coOrdsMobile",
-      {
-        width: "100vw",
-        borderRadius: "1000px 1000px 0 0",
-      },
-      {
-        width: "100vw",
-        borderRadius: "0 0 0 0",
-        scrollTrigger: {
-          trigger: "#coOrdsMainMobile",
-          //markers: true,
-          start: "top 180px",
-          end: "+=180",
-          scrub: true,
-        },
-      }
-    );
-
-    tlScrollMobileOne.fromTo(
-      "#coOrdsMobile",
-      {},
-      {
-        scrollTrigger: {
-          trigger: "#coOrdsMainMobile",
-          //markers: true,
-          start: "top top",
-          end: "1800px top",
-          scrub: true,
-          pin: true,
-          pinSpacing: false,
-        },
-      }
-    );
-
-    const tlScrollMobileTwo = gsap.timeline();
-
-    tlScrollMobileTwo.fromTo(
-      "#accessoriesMobile",
-      {
-        width: "100vw",
-        borderRadius: "1000px 1000px 0 0",
-      },
-      {
-        width: "100vw",
-        borderRadius: "0 0 0 0",
-        scrollTrigger: {
-          trigger: "#accessoriesMainMobile",
-          //markers: true,
-          start: "top 180px",
-          end: "+=180",
-          scrub: true,
-        },
-      }
-    );
-
-    tlScrollMobileTwo.fromTo(
-      "#accessoriesMobile",
-      { borderRadius: "0 0 0 0" },
-      {
-        borderRadius: "0 0 0 0",
-        scrollTrigger: {
-          trigger: "#accessoriesMainMobile",
-          //markers: true,
-          start: "top top",
-          end: "1000px top",
-          scrub: true,
-          pin: true,
-          pinSpacing: false,
-        },
-      }
-    );
-
-    tlScrollMobileTwo.fromTo(
-      "#accessoriesMobile",
-      {},
-      {
-        borderRadius: "0 0 1000px 1000px",
-        scrollTrigger: {
-          trigger: "#accessoriesMainMobile",
-          //markers: true,
-          start: "1000px bottom",
-          end: "1200px bottom",
-          scrub: true,
-        },
-      }
-    );
-
-    //*---------> Media Queries
-
     let mm = gsap.matchMedia();
 
-    mm.add("(max-width: 767px)", () => {
-      tlScrollMobileTwo.fromTo(
-        "#accessoriesMobile",
-        {},
+    //*----> Large Device Screen
+
+    mm.add("(min-width: 1024px)", () => {
+      gsap.fromTo(
+        "#coOrds",
         {
-          borderRadius: "0 0 1000px 1000px",
+          width: "33.4vw",
+          borderRadius: "1000px 1000px 0 0",
+        },
+        {
+          width: "100vw",
+          borderRadius: "0 0 0 0",
           scrollTrigger: {
-            trigger: "#accessoriesMainMobile",
+            trigger: "#coOrdsMain",
+            scrub: 0.1,
             //markers: true,
-            start: "900px bottom",
-            end: "1100px bottom",
-            scrub: true,
+            start: "top 180px",
+            end: "180px 180px",
           },
         }
       );
-    });
 
-    mm.add("(max-height: 999px)", () => {
-      tlScrollOne.fromTo(
+      gsap.fromTo(
+        "#coOrds",
+        {},
+        {
+          scrollTrigger: {
+            trigger: "#coOrdsMain",
+            scrub: 0.1,
+            //markers: true,
+            start: "180px 180px",
+            end: "2200px 180px",
+            pin: true,
+          },
+        }
+      );
+
+      gsap.fromTo(
+        "#accessories",
+        {
+          width: "33.4vw",
+          borderRadius: "1000px 1000px 0 0",
+        },
+        {
+          width: "100vw",
+          borderRadius: "0 0 0 0",
+          scrollTrigger: {
+            trigger: "#accessoriesMain",
+            scrub: 0.1,
+            //markers: true,
+            start: "top 180px",
+            end: "180px 180px",
+          },
+        }
+      );
+
+      gsap.fromTo(
         "#accessories",
         {},
+        {
+          scrollTrigger: {
+            trigger: "#accessoriesMain",
+            scrub: 0.1,
+            //markers: true,
+            start: "180px 180px",
+            end: "1200px 180px",
+            pin: true,
+          },
+        }
+      );
+
+      gsap.fromTo(
+        "#accessories",
+        { borderRadius: "0 0 0 0" },
         {
           borderRadius: "0 0 1000px 1000px",
           scrollTrigger: {
             trigger: "#accessoriesMain",
-            //markers: true,
-            start: "1000px bottom",
-            end: "1400px bottom",
-            scrub: true,
-          },
-        }
-      );
-    });
-
-    mm.add("(min-height: 999px)", () => {
-      tlScrollOne.fromTo(
-        "#accessories",
-        {},
-        {
-          borderRadius: "0 0 1000px 1000px",
-          scrollTrigger: {
-            trigger: "#accessoriesMain",
+            scrub: 0.1,
             //markers: true,
             start: "1100px bottom",
-            end: "1600px bottom",
-            scrub: true,
+            end: "1800px bottom",
           },
         }
       );
     });
 
-    mm.add("(max-width: 1280px)", () => {
-      tlScrollOne.fromTo(
-        "#accessories",
-        {},
-        {
-          borderRadius: "0 0 1000px 1000px",
-          scrollTrigger: {
-            trigger: "#accessoriesMain",
-            //markers: true,
-            start: "800px bottom",
-            end: "1000px bottom",
-            scrub: true,
-          },
-        }
-      );
-    });
+    //*----> Med Device Screen
 
-    mm.add("(max-width: 1025px)", () => {
-      tlScrollOne.fromTo(
-        "#coOrds",
+    mm.add("(max-width: 1024px)", () => {
+      gsap.fromTo(
+        "#coOrdsMobile",
         {
           width: "100vw",
           borderRadius: "1000px 1000px 0 0",
@@ -417,28 +252,93 @@ const Hero = () => {
           width: "100vw",
           borderRadius: "0 0 0 0",
           scrollTrigger: {
-            trigger: "#coOrdsMain",
-            // markers: true,
+            trigger: "#coOrdsMainMobile",
+            scrub: 0.1,
+            //markers: true,
             start: "top 180px",
-            end: "+=180",
-            scrub: true,
+            end: "180px 180px",
           },
         }
       );
 
-      tlScrollOne.fromTo(
-        "#coOrds",
+      gsap.fromTo(
+        "#coOrdsMobile",
+        {},
         {
-          opacity: 1,
+          scrollTrigger: {
+            trigger: "#coOrdsMainMobile",
+            scrub: 0.1,
+            //markers: true,
+            start: "180px 180px",
+            end: "2200px 180px",
+            pin: true,
+          },
+        }
+      );
+      gsap.fromTo(
+        "#accessoriesMobile",
+        {
+          width: "100vw",
+          borderRadius: "1000px 1000px 0 0",
         },
         {
-          opacity: 1,
+          width: "100vw",
+          borderRadius: "0 0 0 0",
           scrollTrigger: {
-            trigger: "#coOrdsMain",
+            trigger: "#accessoriesMainMobile",
+            scrub: 0.1,
             //markers: true,
-            start: "200px top",
-            end: "500px top",
-            scrub: true,
+            start: "top 180px",
+            end: "180px 180px",
+          },
+        }
+      );
+
+      gsap.fromTo(
+        "#accessoriesMobile",
+        {},
+        {
+          scrollTrigger: {
+            trigger: "#accessoriesMainMobile",
+            scrub: 0.1,
+            //markers: true,
+            start: "180px 180px",
+            end: "1200px 180px",
+            pin: true,
+          },
+        }
+      );
+
+      gsap.fromTo(
+        "#accessoriesMobile",
+        { borderRadius: "0 0 0 0" },
+        {
+          borderRadius: "0 0 1000px 1000px",
+          scrollTrigger: {
+            trigger: "#accessoriesMainMobile",
+            scrub: 0.1,
+            //markers: true,
+            start: "1400px bottom",
+            end: "2200px bottom",
+          },
+        }
+      );
+    });
+
+    //*----> Mobile Device Screen
+
+    mm.add("(max-width: 767px)", () => {
+      gsap.fromTo(
+        "#accessoriesMobile",
+        { borderRadius: "0 0 0 0" },
+        {
+          borderRadius: "0 0 1000px 1000px",
+          scrollTrigger: {
+            trigger: "#accessoriesMainMobile",
+            scrub: 0.1,
+            //markers: true,
+            start: "900px bottom",
+            end: "1200px bottom",
           },
         }
       );

@@ -14,6 +14,8 @@
 @use "./blog";
 @use "./faqs";
 @use "./privacy";
+@use "./cart";
+@use "./login";
 
 main {
   margin-top: 180px;

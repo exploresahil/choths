@@ -53,17 +53,17 @@ export default function Footer() {
               <ul>
                 <li className="title">Policy</li>
                 <NavLinks
-                  pageLink="#"
+                  pageLink="/policies/privacy"
                   title="Privacy Policy"
                   classTitle="nav-item"
                 />
                 <NavLinks
-                  pageLink="#"
+                  pageLink="/policies/refund"
                   title="Refund Policy"
                   classTitle="nav-item"
                 />
                 <NavLinks
-                  pageLink="#"
+                  pageLink="/policies/shipping"
                   title="Shipping Policy"
                   classTitle="nav-item"
                 />

@@ -20,11 +20,21 @@ import {
   MenuClose,
   TkpLogo,
 } from "@/components/icons/Icons";
+import Cart from "./Cart";
 
 const Header = () => {
   const router = useRouter();
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
+  const handleCartClickOpen = () => {
+    setIsCartOpen(true);
+  };
+
+  const handleCartClickClose = () => {
+    setIsCartOpen(false);
+  };
 
   useEffect(() => {
     let prevScrollPos = window.scrollY || document.documentElement.scrollTop;
@@ -122,11 +132,15 @@ const Header = () => {
       </div>
       <div className="user-menu">
         <div className="user-menu-ecommercs">
-          <button>
+          <button onClick={handleCartClickOpen}>
             <Bag />
           </button>
           <div className="line" />
-          <button>
+          <button
+            onClick={() => {
+              router.push("/login");
+            }}
+          >
             <User />
           </button>
         </div>
@@ -392,6 +406,7 @@ const Header = () => {
           </div>
         </nav>
       </div>
+      {isCartOpen && <Cart onCartCloseClick={handleCartClickClose} />}
     </header>
   );
 };

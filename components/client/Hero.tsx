@@ -248,7 +248,7 @@ const Hero = () => {
           scrollTrigger: {
             trigger: "#accessoriesMain",
             scrub: 0.1,
-            markers: true,
+            // markers: true,
             start: "10px top",
             end: "bottom top",
           },

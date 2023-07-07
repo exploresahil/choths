@@ -377,6 +377,10 @@
 
 @media screen and (max-width: 767px) {
   .hero-section {
+    .category-watermark-container {
+      display: none;
+    }
+
     h3 {
       font-style: normal;
       flex-direction: row;

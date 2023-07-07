@@ -248,15 +248,32 @@ const Hero = () => {
           scrollTrigger: {
             trigger: "#accessoriesMain",
             scrub: 0.1,
-            //markers: true,
-            start: "1100px bottom",
-            end: "1800px bottom",
+            markers: true,
+            start: "10px top",
+            end: "bottom top",
           },
         }
       );
     });
 
     //*----> Med Device Screen
+
+    /* mm.add("(max-height: 1024px)", () => {
+      gsap.fromTo(
+        "#accessories",
+        {},
+        {
+          borderRadius: "0 0 1000px 1000px",
+          scrollTrigger: {
+            trigger: "#accessoriesMain",
+            scrub: 0.1,
+            markers: true,
+            start: "1500px bottom",
+            end: "2000px bottom",
+          },
+        }
+      );
+    }); */
 
     mm.add("(max-width: 1024px)", () => {
       gsap.fromTo(

@@ -168,7 +168,9 @@ const Filter = () => {
               >
                 S
               </div>
-              <div className="selected">+</div>
+              <div className="selected">
+                {selectedSizes.includes("S") ? "-" : "+"}
+              </div>
             </div>
             <div
               className="size-container"
@@ -181,7 +183,9 @@ const Filter = () => {
               >
                 M
               </div>
-              <div className="selected">+</div>
+              <div className="selected">
+                {selectedSizes.includes("M") ? "-" : "+"}
+              </div>
             </div>
             <div
               className="size-container"
@@ -194,7 +198,9 @@ const Filter = () => {
               >
                 L
               </div>
-              <div className="selected">+</div>
+              <div className="selected">
+                {selectedSizes.includes("L") ? "-" : "+"}
+              </div>
             </div>
           </div>
         </div>

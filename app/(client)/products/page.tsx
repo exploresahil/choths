@@ -10,6 +10,7 @@ import { PortableTextBlock } from "sanity";
 import { getCategories, getProducts } from "@/sanity/sanity-utils";
 import { products } from "@/sanity/types/Products";
 import { category } from "@/sanity/types/Category";
+import { AiOutlinePlus } from "react-icons/ai";
 
 const Products = () => {
   const [products, setProducts] = useState<products[]>([]);
@@ -86,6 +87,9 @@ const Products = () => {
                           alt={product.slug}
                         />
                       )}
+                      <button type="button">
+                        <AiOutlinePlus />
+                      </button>
                     </div>
                     <div className="product-info">
                       <h3>{product.name}</h3>
@@ -151,7 +155,7 @@ const Products = () => {
             })}
           </div>
         </div>
-        <div className="blank" />F
+        <div className="blank" />
       </div>
     </div>
   );

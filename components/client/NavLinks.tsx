@@ -1,10 +1,8 @@
-import Link from "next/link";
-
 type NavLinksProps = {
   title: string;
   pageLink: string;
   classTitle: string;
-  onClick?: any;
+  onClick?: (selectedCategory: string) => void;
 };
 
 export default function NavLinks({
@@ -13,9 +11,15 @@ export default function NavLinks({
   classTitle,
   onClick,
 }: NavLinksProps) {
+  const handleClick = () => {
+    if (onClick) {
+      onClick(title); // Pass the selected category (title) to the onClick event handler
+    }
+  };
+
   return (
     <li>
-      <a href={pageLink} className={classTitle} onClick={onClick}>
+      <a href={pageLink} className={classTitle} onClick={handleClick}>
         {title}
       </a>
     </li>

@@ -6,13 +6,14 @@ import Image from "next/image";
 import ContactArrow from "@/components/icons/ContactArrow";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { PortableTextBlock } from "sanity";
 import { getCategories, getProducts } from "@/sanity/sanity-utils";
 import { products } from "@/sanity/types/Products";
 import { category } from "@/sanity/types/Category";
 import { AiOutlinePlus } from "react-icons/ai";
+import { useSearchParams } from "next/navigation";
 
 const Products = () => {
+  const searchParams = useSearchParams();
   const [products, setProducts] = useState<products[]>([]);
   const [categories, setCategories] = useState<category[]>([]);
   const [selectedCategory, setSelectedCategory] = useState("view all");
@@ -31,6 +32,11 @@ const Products = () => {
     fetchProducts();
     fetchCategories();
   }, [selectedCategory]);
+
+  useEffect(() => {
+    const categoryParam = searchParams.get("category");
+    setSelectedCategory(categoryParam || "view all");
+  }, [searchParams]);
 
   const handleCategoryClick = (selectedCategory: any) => {
     setSelectedCategory(selectedCategory);
@@ -124,34 +130,6 @@ const Products = () => {
                   </Link>
                 );
               }
-              // else if (
-              //   selectedCategory == product.category.name &&
-              //   product.size.some(size => selectedSizes.includes(`${size.title}`)) &&
-              //   product.category.name == product.category.name
-              // ) {
-              //   return (
-              //     <Link
-              //       key={product._id}
-              //       href={`/products/${product.slug}`}
-              //       className="product"
-              //     >
-              //       <div className="img-container">
-              //         {product.images && (
-              //           <Image
-              //             fill
-              //             src={product.images[0].url}
-              //             style={{ objectFit: "cover" }}
-              //             alt={product.slug}
-              //           />
-              //         )}
-              //       </div>
-              //       <div className="product-info">
-              //         <h3>{product.name}</h3>
-              //         <p>RS.{product.price}</p>
-              //       </div>
-              //     </Link>
-              //   );
-              // }
             })}
           </div>
         </div>

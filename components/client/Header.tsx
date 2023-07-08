@@ -27,6 +27,7 @@ const Header = () => {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const handleCartClickOpen = () => {
     setIsCartOpen(true);
@@ -105,6 +106,17 @@ const Header = () => {
     router.push("/");
   };
 
+  const handleProductsClick = (selectedCategory: any) => {
+    router.push(`/products?category=${selectedCategory}`);
+    setIsOpen(false);
+  };
+
+  const handleSearch = (e: any) => {
+    e.preventDefault();
+    router.push(`/products?search=${searchQuery}`);
+    setSearchQuery("");
+  };
+
   return (
     <header>
       <ScrollLink
@@ -118,13 +130,13 @@ const Header = () => {
         <TkpLogo onClick={logoclick} id="tkpLogo" />
       </ScrollLink>
       <div className={`search-container ${isScrolled ? "searchDown" : ""}`}>
-        <form
-          action="#"
-          onSubmit={(e) => {
-            e.preventDefault();
-          }}
-        >
-          <input type="text" placeholder="Search" />
+        <form action="#" onSubmit={handleSearch}>
+          <input
+            type="text"
+            placeholder="Search"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
           <button type="submit">
             <FiSearch size={14} />
           </button>
@@ -156,41 +168,56 @@ const Header = () => {
             <div className="left section">
               <ul>
                 <li className="title">SHOP</li>
+                <li>
+                  <a
+                    href="#"
+                    className="nav-item"
+                    onClick={() => handleProductsClick("Shirt Kurta")}
+                  >
+                    shirt kurta
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="nav-item"
+                    onClick={() => handleProductsClick("Crop Tops")}
+                  >
+                    crop tops
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="nav-item"
+                    onClick={() => handleProductsClick("Co-Ords")}
+                  >
+                    co-ords
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="nav-item"
+                    onClick={() => handleProductsClick("Samosa Tote Bag")}
+                  >
+                    samosa tote bag
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="nav-item"
+                    onClick={() => handleProductsClick("Laptop Sleeves")}
+                  >
+                    laptop sleeves
+                  </a>
+                </li>
                 <NavLinks
                   pageLink="#"
-                  title="shirt kurta"
-                  classTitle="nav-item"
-                  onClick={handleMenuCloseClick}
-                />
-                <NavLinks
-                  pageLink="#"
-                  title="crop tops"
-                  classTitle="nav-item"
-                  onClick={handleMenuCloseClick}
-                />
-                <NavLinks
-                  pageLink="#"
-                  title="co-ords"
-                  classTitle="nav-item"
-                  onClick={handleMenuCloseClick}
-                />
-                <NavLinks
-                  pageLink="#"
-                  title="samosa tote bag"
-                  classTitle="nav-item"
-                  onClick={handleMenuCloseClick}
-                />
-                <NavLinks
-                  pageLink="#"
-                  title="laptop sleeves"
-                  classTitle="nav-item"
-                  onClick={handleMenuCloseClick}
-                />
-                <NavLinks
-                  pageLink="/products"
                   title="View All"
                   classTitle="nav-item"
-                  onClick={handleMenuCloseClick}
+                  onClick={() => handleProductsClick("view all")}
                 />
               </ul>
             </div>
@@ -282,41 +309,56 @@ const Header = () => {
             <div className="left section">
               <ul>
                 <li className="title">SHOP</li>
+                <li>
+                  <a
+                    href="#"
+                    className="nav-item"
+                    onClick={() => handleProductsClick("Shirt Kurta")}
+                  >
+                    shirt kurta
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="nav-item"
+                    onClick={() => handleProductsClick("Crop Tops")}
+                  >
+                    crop tops
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="nav-item"
+                    onClick={() => handleProductsClick("Co-Ords")}
+                  >
+                    co-ords
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="nav-item"
+                    onClick={() => handleProductsClick("Samosa Tote Bag")}
+                  >
+                    samosa tote bag
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="nav-item"
+                    onClick={() => handleProductsClick("Laptop Sleeves")}
+                  >
+                    laptop sleeves
+                  </a>
+                </li>
                 <NavLinks
                   pageLink="#"
-                  title="shirt kurta"
-                  classTitle="nav-item"
-                  onClick={handleMenuCloseClick}
-                />
-                <NavLinks
-                  pageLink="#"
-                  title="crop tops"
-                  classTitle="nav-item"
-                  onClick={handleMenuCloseClick}
-                />
-                <NavLinks
-                  pageLink="#"
-                  title="co-ords"
-                  classTitle="nav-item"
-                  onClick={handleMenuCloseClick}
-                />
-                <NavLinks
-                  pageLink="#"
-                  title="samosa tote bag"
-                  classTitle="nav-item"
-                  onClick={handleMenuCloseClick}
-                />
-                <NavLinks
-                  pageLink="#"
-                  title="laptop sleeves"
-                  classTitle="nav-item"
-                  onClick={handleMenuCloseClick}
-                />
-                <NavLinks
-                  pageLink="/products"
                   title="View All"
                   classTitle="nav-item"
-                  onClick={handleMenuCloseClick}
+                  onClick={() => handleProductsClick("view all")}
                 />
               </ul>
             </div>

@@ -403,7 +403,14 @@ const Hero = () => {
           />
         </div> */}
         <div className="category_co-ords_container" id="coOrds">
-          <video autoPlay loop muted playsInline style={{ objectFit: "cover" }}>
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            style={{ objectFit: "cover" }}
+          >
             <source src={dance} type="video/mp4" />
           </video>
         </div>
@@ -419,7 +426,14 @@ const Hero = () => {
           />
         </div> */}
         <div className="category_co-ords_container_mobile" id="coOrdsMobile">
-          <video autoPlay loop muted style={{ objectFit: "cover" }}>
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            style={{ objectFit: "cover" }}
+          >
             <source src={dance} />
           </video>
         </div>

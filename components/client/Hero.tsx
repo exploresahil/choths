@@ -397,7 +397,6 @@ const Hero = () => {
       document.removeEventListener("click", playVideo);
     };
   }, []);
-
   useEffect(() => {
     const playVideoTwo = () => {
       if (videoRefTwo.current) {
@@ -494,13 +493,7 @@ const Hero = () => {
           />
         </div> */}
         <div className="category_accessories_container" id="accessories">
-          <video
-            ref={videoRefTwo}
-            autoPlay
-            loop
-            muted
-            style={{ objectFit: "cover" }}
-          >
+          <video autoPlay loop muted style={{ objectFit: "cover" }}>
             <source src={life} />
           </video>
         </div>
@@ -525,7 +518,15 @@ const Hero = () => {
           className="category_accessories_container_mobile"
           id="accessoriesMobile"
         >
-          <video autoPlay loop muted style={{ objectFit: "cover" }}>
+          <video
+            ref={videoRefTwo}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            style={{ objectFit: "cover" }}
+          >
             <source src={life} />
           </video>
         </div>

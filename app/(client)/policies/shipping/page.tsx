@@ -5,32 +5,12 @@ import {
   CategoriesWatermarkOuter,
 } from "@/components/icons/Icons";
 import { getPolicies } from "@/sanity/sanity-utils";
+import { policiesSchema } from "@/sanity/types/Policies";
 import { PortableText } from "@portabletext/react";
 import { useEffect, useState } from "react";
-import { PortableTextBlock } from "sanity";
-
-interface Policies {
-  _id: string;
-  _createdAt: Date;
-  refund: {
-    title: string;
-    description: PortableTextBlock[];
-    content: PortableTextBlock[];
-  };
-  shipping: {
-    title: string;
-    description: PortableTextBlock[];
-    content: PortableTextBlock[];
-  };
-  privacy: {
-    title: string;
-    description: PortableTextBlock[];
-    content: PortableTextBlock[];
-  };
-}
 
 const Shipping = () => {
-  const [policies, setPolicies] = useState<Policies[]>([]);
+  const [policies, setPolicies] = useState<policiesSchema[]>([]);
 
   useEffect(() => {
     async function fetchPolicies() {

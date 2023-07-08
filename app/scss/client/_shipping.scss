@@ -8,6 +8,17 @@
   padding: 0 27vw 7vh 27vw;
   gap: 2em;
 
+  p {
+    font-family: v.$fontRM;
+    font-size: 1em;
+  }
+
+  .shipping-content {
+    h3 {
+      font-family: v.$fontRM;
+    }
+  }
+
   .shipping-watermark-container {
     position: fixed;
     z-index: 1;
@@ -63,12 +74,6 @@
         color: v.$textTeal;
         font-size: 6em;
       }
-
-      .shipping-description {
-        font-family: v.$fontRM;
-        font-weight: 100;
-        font-size: 0.95em;
-      }
     }
 
     .shipping-content-section {
@@ -80,12 +85,6 @@
         display: flex;
         flex-direction: column;
         gap: 1em;
-        font-family: v.$fontRB;
-
-        p {
-          font-family: v.$fontRM;
-          font-size: 0.95em;
-        }
       }
     }
   }
@@ -103,7 +102,7 @@
 
     .shipping-watermark-container {
       display: none;
-      
+
       svg {
         display: none;
       }
@@ -126,9 +125,7 @@
         }
 
         .shipping-description {
-          font-family: v.$fontRM;
           font-weight: 100;
-          font-size: 0.95rem;
         }
       }
 
@@ -141,13 +138,6 @@
           display: flex;
           flex-direction: column;
           gap: 1em;
-          font-family: v.$fontRB;
-          font-size: 1.3rem;
-
-          p {
-            font-family: v.$fontRM;
-            font-size: 1rem;
-          }
         }
       }
     }
@@ -167,7 +157,7 @@
 
     .shipping-watermark-container {
       display: none;
-      
+
       svg {
         display: none;
       }
@@ -190,9 +180,7 @@
         }
 
         .shipping-description {
-          font-family: v.$fontRM;
           font-weight: 100;
-          font-size: 0.85em;
         }
       }
 
@@ -205,12 +193,6 @@
           display: flex;
           flex-direction: column;
           gap: 1em;
-          font-family: v.$fontRB;
-
-          p {
-            font-family: v.$fontRM;
-            font-size: 0.85em;
-          }
         }
       }
     }
@@ -230,7 +212,7 @@
 
     .shipping-watermark-container {
       display: none;
-      
+
       svg {
         display: none;
       }
@@ -253,9 +235,7 @@
         }
 
         .shipping-description {
-          font-family: v.$fontRM;
           font-weight: 100;
-          font-size: 0.8rem;
         }
       }
 
@@ -268,13 +248,6 @@
           display: flex;
           flex-direction: column;
           gap: 1rem;
-          font-family: v.$fontRB;
-          font-size: 1rem;
-
-          p {
-            font-family: v.$fontRM;
-            font-size: 0.8rem;
-          }
         }
       }
     }

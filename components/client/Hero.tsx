@@ -379,12 +379,16 @@ const Hero = () => {
     });
   }, []);
 
-  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const videoRefOne = useRef<HTMLVideoElement | null>(null);
+  const videoRefTwo = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {
     const playVideo = () => {
-      if (videoRef.current) {
-        videoRef.current.play();
+      if (videoRefOne.current) {
+        videoRefOne.current.play();
+      }
+      if (videoRefTwo.current) {
+        videoRefTwo.current.play();
       }
     };
 
@@ -477,7 +481,13 @@ const Hero = () => {
           />
         </div> */}
         <div className="category_accessories_container" id="accessories">
-          <video autoPlay loop muted style={{ objectFit: "cover" }}>
+          <video
+            ref={videoRefTwo}
+            autoPlay
+            loop
+            muted
+            style={{ objectFit: "cover" }}
+          >
             <source src={life} />
           </video>
         </div>

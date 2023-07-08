@@ -379,6 +379,24 @@ const Hero = () => {
     });
   }, []);
 
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  useEffect(() => {
+    const playVideo = () => {
+      if (videoRef.current) {
+        videoRef.current.play();
+      }
+    };
+
+    // Add event listener for user interaction (e.g., button click)
+    document.addEventListener("click", playVideo);
+
+    return () => {
+      // Clean up event listener when component is unmounted
+      document.removeEventListener("click", playVideo);
+    };
+  }, []);
+
   return (
     <section className="hero-section" ref={heroRef}>
       <div className="arches-container" ref={archesRef}>
@@ -427,6 +445,7 @@ const Hero = () => {
         </div> */}
         <div className="category_co-ords_container_mobile" id="coOrdsMobile">
           <video
+            ref={videoRef}
             autoPlay
             loop
             muted

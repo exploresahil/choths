@@ -79,7 +79,7 @@ const Products = () => {
               if (selectedCategory == "view all") {
                 console.log(product.size);
                 return (
-                  <Link
+                  <a
                     key={product._id}
                     href={`/products/${product.slug}`}
                     className="product"
@@ -101,7 +101,7 @@ const Products = () => {
                       <h3>{product.name}</h3>
                       <p>RS.{product.price}</p>
                     </div>
-                  </Link>
+                  </a>
                 );
               } else if (
                 selectedCategory == product.category.name &&

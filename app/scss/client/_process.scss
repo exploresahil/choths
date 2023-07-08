@@ -1,7 +1,7 @@
 @use "./variables" as v;
 
 .main-process-section {
-  margin-top: 450px;
+  margin-top: 600px;
   width: 100vw;
   height: auto;
   text-align: center;
@@ -300,7 +300,7 @@
 
 @media only screen and (max-device-width: 768px) {
   .main-process-section {
-    margin-top: 350px;
+    margin-top: 500px;
     position: relative;
 
     .main-process-heading {

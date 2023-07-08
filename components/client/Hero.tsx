@@ -387,9 +387,6 @@ const Hero = () => {
       if (videoRefOne.current) {
         videoRefOne.current.play();
       }
-      if (videoRefTwo.current) {
-        videoRefTwo.current.play();
-      }
     };
 
     // Add event listener for user interaction (e.g., button click)
@@ -398,6 +395,22 @@ const Hero = () => {
     return () => {
       // Clean up event listener when component is unmounted
       document.removeEventListener("click", playVideo);
+    };
+  }, []);
+
+  useEffect(() => {
+    const playVideoTwo = () => {
+      if (videoRefTwo.current) {
+        videoRefTwo.current.play();
+      }
+    };
+
+    // Add event listener for user interaction (e.g., button click)
+    document.addEventListener("click", playVideoTwo);
+
+    return () => {
+      // Clean up event listener when component is unmounted
+      document.removeEventListener("click", playVideoTwo);
     };
   }, []);
 

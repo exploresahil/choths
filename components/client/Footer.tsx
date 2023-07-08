@@ -9,6 +9,11 @@ import { useRouter } from "next/navigation";
 
 export default function Footer() {
   const router = useRouter();
+
+  const handleProductsClickFooter = (selectedCategory: any) => {
+    router.push(`/products?category=${selectedCategory}`);
+  };
+
   return (
     <footer>
       <div className="footer-bg-container">
@@ -28,23 +33,37 @@ export default function Footer() {
                 pageLink="#"
                 title="shirt kurta"
                 classTitle="nav-item"
+                onClick={() => handleProductsClickFooter("Shirt Kurta")}
               />
-              <NavLinks pageLink="#" title="crop tops" classTitle="nav-item" />
-              <NavLinks pageLink="#" title="co-ords" classTitle="nav-item" />
+              <NavLinks
+                pageLink="#"
+                title="crop tops"
+                classTitle="nav-item"
+                onClick={() => handleProductsClickFooter("Crop Tops")}
+              />
+              <NavLinks
+                pageLink="#"
+                title="co-ords"
+                classTitle="nav-item"
+                onClick={() => handleProductsClickFooter("Co-Ords")}
+              />
               <NavLinks
                 pageLink="#"
                 title="samosa tote bag"
                 classTitle="nav-item"
+                onClick={() => handleProductsClickFooter("Samosa Tote Bag")}
               />
               <NavLinks
                 pageLink="#"
                 title="laptop sleeves"
                 classTitle="nav-item"
+                onClick={() => handleProductsClickFooter("Laptop Sleeves")}
               />
               <NavLinks
-                pageLink="/products"
+                pageLink="#"
                 title="view all"
                 classTitle="nav-item"
+                onClick={() => handleProductsClickFooter("view all")}
               />
             </ul>
           </div>

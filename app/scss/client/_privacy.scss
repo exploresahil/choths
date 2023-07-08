@@ -48,6 +48,17 @@
     }
   }
 
+  p {
+    font-family: v.$fontRM;
+    font-size: 1em;
+  }
+
+  .privacy-content {
+    h3 {
+      font-family: v.$fontRM;
+    }
+  }
+
   .privacy-body {
     display: flex;
     flex-direction: column;
@@ -63,12 +74,6 @@
         color: v.$textTeal;
         font-size: 6em;
       }
-
-      .privacy-description {
-        font-family: v.$fontRM;
-        font-weight: 100;
-        font-size: 0.95em;
-      }
     }
 
     .privacy-content-section {
@@ -81,11 +86,6 @@
         flex-direction: column;
         gap: 1em;
         font-family: v.$fontRB;
-
-        p {
-          font-family: v.$fontRM;
-          font-size: 0.95em;
-        }
       }
     }
   }
@@ -124,12 +124,6 @@
           color: v.$textTeal;
           font-size: 6rem;
         }
-
-        .privacy-description {
-          font-family: v.$fontRM;
-          font-weight: 100;
-          font-size: 0.95rem;
-        }
       }
 
       .privacy-content-section {
@@ -141,13 +135,6 @@
           display: flex;
           flex-direction: column;
           gap: 1em;
-          font-family: v.$fontRB;
-          font-size: 1.3rem;
-
-          p {
-            font-family: v.$fontRM;
-            font-size: 1rem;
-          }
         }
       }
     }
@@ -167,7 +154,7 @@
 
     .privacy-watermark-container {
       display: none;
-      
+
       svg {
         display: none;
       }
@@ -188,12 +175,6 @@
           color: v.$textTeal;
           font-size: 4rem;
         }
-
-        .privacy-description {
-          font-family: v.$fontRM;
-          font-weight: 100;
-          font-size: 0.85em;
-        }
       }
 
       .privacy-content-section {
@@ -206,11 +187,6 @@
           flex-direction: column;
           gap: 1em;
           font-family: v.$fontRB;
-
-          p {
-            font-family: v.$fontRM;
-            font-size: 0.85em;
-          }
         }
       }
     }
@@ -218,7 +194,7 @@
 }
 
 //*---------> smallMobile
-@media screen and (max-width: 320px){
+@media screen and (max-width: 320px) {
   .privacy-main {
     display: flex;
     flex-direction: column;
@@ -230,7 +206,7 @@
 
     .privacy-watermark-container {
       display: none;
-      
+
       svg {
         display: none;
       }
@@ -251,12 +227,6 @@
           color: v.$textTeal;
           font-size: 3.5rem;
         }
-
-        .privacy-description {
-          font-family: v.$fontRM;
-          font-weight: 100;
-          font-size: 0.8rem;
-        }
       }
 
       .privacy-content-section {
@@ -270,11 +240,6 @@
           gap: 1rem;
           font-family: v.$fontRB;
           font-size: 1rem;
-
-          p {
-            font-family: v.$fontRM;
-            font-size: 0.8em;
-          }
         }
       }
     }

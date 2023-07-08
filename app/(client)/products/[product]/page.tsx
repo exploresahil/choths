@@ -65,7 +65,7 @@ export default function Product({ params }: Props) {
   };
 
   return (
-    <div>
+    <>
       {product && (
         <div className="product-slug-main">
           <div className="product-container">
@@ -129,10 +129,15 @@ export default function Product({ params }: Props) {
             </div>
           </div>
           <div className="description-container">
+            <h2>Description</h2>
             <PortableText value={product.description} />
+          </div>
+
+          <div className="related-products-main">
+            <h2>Related Products</h2>
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 }

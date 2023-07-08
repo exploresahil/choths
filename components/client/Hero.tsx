@@ -380,7 +380,9 @@ const Hero = () => {
   }, []);
 
   const videoRefOne = useRef<HTMLVideoElement | null>(null);
+  const videoRefOneDesktop = useRef<HTMLVideoElement | null>(null);
   const videoRefTwo = useRef<HTMLVideoElement | null>(null);
+  const videoRefTwoDesktop = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {
     const playVideo = () => {
@@ -397,6 +399,23 @@ const Hero = () => {
       document.removeEventListener("click", playVideo);
     };
   }, []);
+
+  useEffect(() => {
+    const playVideoDesktop = () => {
+      if (videoRefOneDesktop.current) {
+        videoRefOneDesktop.current.play();
+      }
+    };
+
+    // Add event listener for user interaction (e.g., button click)
+    document.addEventListener("click", playVideoDesktop);
+
+    return () => {
+      // Clean up event listener when component is unmounted
+      document.removeEventListener("click", playVideoDesktop);
+    };
+  }, []);
+
   useEffect(() => {
     const playVideoTwo = () => {
       if (videoRefTwo.current) {
@@ -410,6 +429,22 @@ const Hero = () => {
     return () => {
       // Clean up event listener when component is unmounted
       document.removeEventListener("click", playVideoTwo);
+    };
+  }, []);
+
+  useEffect(() => {
+    const playVideoTwoDesktop = () => {
+      if (videoRefTwoDesktop.current) {
+        videoRefTwoDesktop.current.play();
+      }
+    };
+
+    // Add event listener for user interaction (e.g., button click)
+    document.addEventListener("click", playVideoTwoDesktop);
+
+    return () => {
+      // Clean up event listener when component is unmounted
+      document.removeEventListener("click", playVideoTwoDesktop);
     };
   }, []);
 
@@ -438,6 +473,7 @@ const Hero = () => {
         </div> */}
         <div className="category_co-ords_container" id="coOrds">
           <video
+            ref={videoRefOneDesktop}
             autoPlay
             loop
             muted
@@ -493,7 +529,13 @@ const Hero = () => {
           />
         </div> */}
         <div className="category_accessories_container" id="accessories">
-          <video autoPlay loop muted style={{ objectFit: "cover" }}>
+          <video
+            ref={videoRefTwoDesktop}
+            autoPlay
+            loop
+            muted
+            style={{ objectFit: "cover" }}
+          >
             <source src={life} />
           </video>
         </div>

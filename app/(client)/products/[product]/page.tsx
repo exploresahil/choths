@@ -2,13 +2,16 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import productImg from "@/public/assets/images/products/product-img.png";
+
 import { AiFillPlusCircle } from "react-icons/ai";
 import { BsArrowRight } from "react-icons/bs";
+import { PiRulerLight } from "react-icons/pi";
+import { HiArrowLongRight } from "react-icons/hi2";
 import { useEffect, useState } from "react";
 import { products } from "@/sanity/types/Products";
 import { getProduct } from "@/sanity/sanity-utils";
 import { PortableText } from "@portabletext/react";
+import { ScrollArrow } from "@/components/icons/Icons";
 
 type Props = {
   params: { product: any };
@@ -16,6 +19,7 @@ type Props = {
 
 export default function Product({ params }: Props) {
   const [product, setProduct] = useState<products>();
+  const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
   const slug = params.product;
 
   useEffect(() => {
@@ -23,6 +27,42 @@ export default function Product({ params }: Props) {
       setProduct(data);
     });
   }, [slug]);
+
+  const handleNextImage = () => {
+    setCurrentImageIndex(
+      (prevIndex) => (prevIndex + 1) % (product?.images?.length ?? 0)
+    );
+  };
+
+  let firstImageSrc = "";
+  if (product && product.images.length >= 2) {
+    firstImageSrc = product.images[currentImageIndex].url;
+  }
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const container = e.currentTarget as HTMLElement;
+    const image = container.querySelector(".zoomed-image") as HTMLImageElement;
+
+    if (image) {
+      const { left, top, width, height } = container.getBoundingClientRect();
+      const x = e.clientX - left;
+      const y = e.clientY - top;
+
+      const scaleX = width / image.offsetWidth;
+      const scaleY = height / image.offsetHeight;
+
+      image.style.transformOrigin = `${x}px ${y}px`;
+      image.style.transform = `scale(${scaleX}, ${scaleY})`;
+    }
+  };
+
+  const handleMouseLeave = () => {
+    const image = document.querySelector(".zoomed-image") as HTMLElement;
+
+    if (image) {
+      image.style.transform = "scale(1)";
+    }
+  };
 
   return (
     <div>
@@ -40,19 +80,45 @@ export default function Product({ params }: Props) {
                 <button>M</button>
                 <button>L</button>
               </div>
-              <Link href="#">Size Guide</Link>
+              <Link href="#">
+                <PiRulerLight /> Size Guide
+              </Link>
+              <div className="scroller">
+                <ScrollArrow />
+                <p>Product Info</p>
+              </div>
             </div>
             <div className="product-images">
-              {product.images.slice(0, 2).map((image) => (
-                <div key={image._id} className="img-container">
+              <div key={product._id} className="img-container">
+                <div
+                  className="image-zoom-container"
+                  onMouseMove={(e) => handleMouseMove(e)}
+                  onMouseLeave={() => handleMouseLeave()}
+                >
                   <Image
                     fill
-                    src={image.url}
+                    src={firstImageSrc}
                     style={{ objectFit: "cover" }}
                     alt="logo"
+                    className="zoomed-image"
                   />
                 </div>
-              ))}
+              </div>
+              <div key={product._id} className="img-container">
+                <Image
+                  fill
+                  src={
+                    product.images[
+                      (currentImageIndex + 1) % product.images.length
+                    ].url
+                  }
+                  style={{ objectFit: "cover" }}
+                  alt="logo"
+                />
+              </div>
+              <button type="button" className="next" onClick={handleNextImage}>
+                <HiArrowLongRight />
+              </button>
             </div>
             <div className="buy-now-container">
               <AiFillPlusCircle />

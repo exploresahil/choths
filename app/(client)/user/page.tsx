@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { useState } from "react";
 import productImage from "@/public/assets/images/products/product-img.png";
+import ContactArrow from "@/components/icons/ContactArrow";
+import Link from "next/link";
 
 const User = () => {
   const [activeTab, setActiveTab] = useState("order");
@@ -101,10 +103,47 @@ const User = () => {
         </div>
       )}
       {activeTab === "account" && (
-        <div className="account-container menu-section">Account</div>
+        <div className="account-container menu-section">
+          <h2>SANYUKTA ADHIKARY</h2>
+          <ul>
+            <li>
+              <Link href="#">
+                Addresses <ContactArrow />
+              </Link>
+            </li>
+            <li>
+              <Link href="#">
+                Email <ContactArrow />
+              </Link>
+              <p>email@email.com</p>
+            </li>
+            <li>
+              <Link href="#">
+                Phone No <ContactArrow />
+              </Link>
+              <p>+91-79741-39701</p>
+            </li>
+          </ul>
+          <button type="button">Sign Out</button>
+        </div>
       )}
       {activeTab === "settings" && (
-        <div className="settings-container menu-section">Settings</div>
+        <div className="settings-container menu-section">
+          <h2>SANYUKTA ADHIKARY</h2>
+          <ul>
+            <li>
+              <Link href="#">
+                Newsletter <ContactArrow />
+              </Link>
+              <p>Select your preferences for receiving updates via mail</p>
+            </li>
+            <li>
+              <Link href="#">
+                Cookie Settings <ContactArrow />
+              </Link>
+            </li>
+          </ul>
+        </div>
       )}
     </div>
   );

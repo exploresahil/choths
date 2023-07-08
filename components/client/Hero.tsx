@@ -449,7 +449,7 @@ const Hero = () => {
         </div> */}
         <div className="category_co-ords_container_mobile" id="coOrdsMobile">
           <video
-            ref={videoRef}
+            ref={videoRefOne}
             autoPlay
             loop
             muted

@@ -65,6 +65,7 @@
       &:hover {
         color: v.$bg;
         background-color: v.$textTeal;
+        border-color: v.$textTeal;
 
         svg {
           fill: v.$textTeal;
@@ -83,6 +84,7 @@
       &:active {
         color: v.$bg;
         background-color: v.$textTeal;
+        border-color: v.$textTeal;
         gap: 1.9rem;
 
         svg {
@@ -93,7 +95,7 @@
           &:nth-of-type(2) {
             display: block;
             width: 1.4rem;
-            height: 1.5rem;
+            height: 1.52rem;
             margin: 0.7rem;
           }
         }

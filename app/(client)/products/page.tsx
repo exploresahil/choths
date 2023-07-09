@@ -43,24 +43,22 @@ const Products = () => {
 
     if (search) {
       setProducts((pro) => {
-        return pro
-          .filter((v) => {
-            console.log("--|>", v.name.indexOf(search));
+        return pro.filter((product) => {
+          if (product.name && product.type && product.category) {
+            const nameMatch = product.name
+              .toLowerCase()
+              .includes(search.toLowerCase());
+            const categoryMatch = product.category.name
+              .toLowerCase()
+              .includes(search.toLowerCase());
+            const typeMatch =
+              product.type.some((type) =>
+                type.toLowerCase().includes(search.toLowerCase())
+              ) || false;
 
-            if (v.name && v.type) {
-              if (
-                v.name.indexOf(search) !== -1 ||
-                v.type.some((t: any) => t.indexOf(search) >= 0)
-              ) {
-                console.log(v);
-              }
-              return (
-                v.name.indexOf(search) !== -1 ||
-                v.type.some((t: any) => t.indexOf(search) >= 0)
-              );
-            }
-          })
-          .filter(Boolean);
+            return nameMatch || categoryMatch || typeMatch;
+          }
+        });
       });
     }
     // set_Products(products);

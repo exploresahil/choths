@@ -110,7 +110,9 @@ const Header = () => {
     router.push(`/products?category=${selectedCategory}`);
     setIsOpen(false);
   };
-
+  // useEffect(() => {
+  //   router.push(`/products?search=${searchQuery}`);
+  // }, [searchQuery]);
   const handleSearch = (e: any) => {
     e.preventDefault();
     router.push(`/products?search=${searchQuery}`);

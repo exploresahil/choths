@@ -38,6 +38,32 @@ const Products = () => {
   useEffect(() => {
     const categoryParam = searchParams.get("category");
     setSelectedCategory(categoryParam || "view all");
+    const search = searchParams.get("search");
+    console.log(search);
+
+    if (search) {
+      setProducts((pro) => {
+        return pro
+          .filter((v) => {
+            console.log("--|>", v.name.indexOf(search));
+
+            if (v.name && v.type) {
+              if (
+                v.name.indexOf(search) !== -1 ||
+                v.type.some((t: any) => t.indexOf(search) >= 0)
+              ) {
+                console.log(v);
+              }
+              return (
+                v.name.indexOf(search) !== -1 ||
+                v.type.some((t: any) => t.indexOf(search) >= 0)
+              );
+            }
+          })
+          .filter(Boolean);
+      });
+    }
+    // set_Products(products);
   }, [searchParams]);
 
   const handleCategoryClick = (selectedCategory: any) => {
@@ -68,7 +94,7 @@ const Products = () => {
     });
 
     // return () => {};
-  }, [selectedFilters, selectedSizes]);
+  }, [selectedFilters, selectedSizes, products]);
   console.log("log ->>", _products, products);
   return (
     <div className="products-main">

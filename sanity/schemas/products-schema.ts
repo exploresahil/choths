@@ -55,6 +55,20 @@ const products = {
       },
     },
     {
+      name: "type",
+      title: "Type",
+      type: "array",
+      of: [{ type: "string" }],
+      options: {
+        layout: "checkbox",
+        list: [
+          { title: "SOLID", value: "Solid" },
+          { title: "STRIPES", value: "Stripes" },
+          { title: "PRINTED", value: "Printed" },
+        ],
+      },
+    },
+    {
       name: "category",
       title: "Category",
       type: "reference",

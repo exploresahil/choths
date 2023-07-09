@@ -214,6 +214,7 @@ export async function getProducts(): Promise<products[]> {
       details,
       description,
       size,
+      type,
       "category": {
         "_id": category->_id,
         "_createdAt": category->_createdAt,

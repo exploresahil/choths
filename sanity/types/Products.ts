@@ -14,14 +14,14 @@ export type products = {
   price: string;
   details: PortableTextBlock[];
   description: PortableTextBlock[];
-  size: [
-    {
-      title: string;
-      value: string;
-    }
+  size: string[
+
   ];
   category: {
     name: string;
     slug: string;
   };
+  type: string[
+
+  ]
 };

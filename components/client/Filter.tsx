@@ -3,10 +3,20 @@
 import { useState, useEffect, useRef } from "react";
 import { GrFormClose } from "react-icons/gr";
 
-const Filter = () => {
+const Filter = ({
+  selectedFilters,
+  selectedSizes,
+  setSelectedFilters,
+  setSelectedSizes,
+}: {
+  selectedFilters: any[];
+  selectedSizes: any[];
+  setSelectedFilters: Function;
+  setSelectedSizes: Function;
+}) => {
   const [filterOpen, setFilterOpen] = useState<boolean>(false);
-  const [selectedFilters, setSelectedFilters] = useState<any[]>([]);
-  const [selectedSizes, setSelectedSizes] = useState<any[]>([]);
+  // const [selectedFilters, setSelectedFilters] = useState<any[]>([]);
+  // const [selectedSizes, setSelectedSizes] = useState<any[]>([]);
 
   const filterButtonRef = useRef<any>(null);
   const filterDropdownRef = useRef<any>(null);

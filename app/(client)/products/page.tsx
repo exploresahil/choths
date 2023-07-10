@@ -35,6 +35,8 @@ const Products = () => {
     fetchCategories();
   }, [selectedCategory]);
 
+  console.log("Products==>", products);
+
   useEffect(() => {
     const categoryParam = searchParams.get("category");
     setSelectedCategory(categoryParam || "view all");
@@ -48,15 +50,11 @@ const Products = () => {
             const nameMatch = product.name
               .toLowerCase()
               .includes(search.toLowerCase());
-            const categoryMatch = product.category.name
+            const categoryMatch = product.category
               .toLowerCase()
               .includes(search.toLowerCase());
-            const typeMatch =
-              product.type.some((type) =>
-                type.toLowerCase().includes(search.toLowerCase())
-              ) || false;
 
-            return nameMatch || categoryMatch || typeMatch;
+            return nameMatch || categoryMatch;
           }
         });
       });
@@ -93,7 +91,7 @@ const Products = () => {
 
     // return () => {};
   }, [selectedFilters, selectedSizes, products]);
-  console.log("log ->>", _products, products);
+
   return (
     <div className="products-main">
       <Filter
@@ -220,8 +218,8 @@ const Products = () => {
                       </a>
                     );
                   } else if (
-                    selectedCategory == product.category.name &&
-                    product.category.name == product.category.name
+                    selectedCategory == product.category &&
+                    product.category == product.category
                   ) {
                     return (
                       <Link

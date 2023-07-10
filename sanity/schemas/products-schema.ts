@@ -54,25 +54,66 @@ const products = {
         ],
       },
     },
+
     {
       name: "type",
       title: "Type",
-      type: "array",
-      of: [{ type: "string" }],
+      type: "string",
+      initialValue: "",
       options: {
-        layout: "checkbox",
         list: [
-          { title: "SOLID", value: "Solid" },
-          { title: "STRIPES", value: "Stripes" },
-          { title: "PRINTED", value: "Printed" },
+          { title: "Solid", value: "Solid" },
+          { title: "Stripes", value: "Stripes" },
+          { title: "Printed", value: "Printed" },
         ],
       },
+      validation: (Rule: any) =>
+        Rule.required().custom((value: any) => {
+          if (!["Solid", "Stripes", "Printed"].includes(value)) {
+            return "Please select a valid type option.";
+          }
+          return true;
+        }),
     },
     {
       name: "category",
       title: "Category",
-      type: "reference",
-      to: [{ type: "category" }],
+      type: "string",
+      options: {
+        list: [
+          { title: "Shirt Kurta", value: "Shirt Kurta" },
+          { title: "Crop Tops", value: "Crop Tops" },
+          { title: "Co-Ords", value: "Co-Ords" },
+          { title: "Samosa Tote Bag", value: "Samosa Tote Bag" },
+          { title: "Laptop Sleeves", value: "Laptop Sleeves" },
+        ],
+      },
+      validation: (Rule: any) =>
+        Rule.required().custom((value: any) => {
+          if (
+            ![
+              "Shirt Kurta",
+              "Crop Tops",
+              "Co-Ords",
+              "Samosa Tote Bag",
+              "Laptop Sleeves",
+            ].includes(value)
+          ) {
+            return "Please select a valid category option.";
+          }
+          return true;
+        }),
+    },
+    {
+      name: "searchTags",
+      title: "Search Tags",
+      type: "slug",
+      options: {
+        source: (document: any) =>
+          `${document.name}, ${document.type}, ${document.category}`,
+        slugify: (input: any) => input.toLowerCase().replace(/\s+/g, " "),
+      },
+      validation: (Rule: any) => Rule.required(),
     },
   ],
 };

@@ -14,14 +14,8 @@ export type products = {
   price: string;
   details: PortableTextBlock[];
   description: PortableTextBlock[];
-  size: string[
-
-  ];
-  category: {
-    name: string;
-    slug: string;
-  };
-  type: string[
-
-  ]
+  size: string[];
+  category: string;
+  type: string;
+  searchTags: string;
 };

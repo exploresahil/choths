@@ -14,6 +14,7 @@ import { useSearchParams } from "next/navigation";
 
 const Products = () => {
   const searchParams = useSearchParams();
+  const searchQuery = searchParams.get("search") || "";
   const [products, setProducts] = useState<products[]>([]);
   const [_products, set_Products] = useState<products[] | any[]>([]);
   const [categories, setCategories] = useState<category[]>([]);
@@ -38,32 +39,24 @@ const Products = () => {
   console.log("Products==>", products);
 
   useEffect(() => {
-    const categoryParam = searchParams.get("category");
-    setSelectedCategory(categoryParam || "view all");
-    const search = searchParams.get("search");
-    console.log(search);
-
-    if (search) {
-      setProducts((pro) => {
-        return pro.filter((product) => {
-          if (product.name && product.type && product.category) {
-            const nameMatch = product.name
-              .toLowerCase()
-              .includes(search.toLowerCase());
-            const categoryMatch = product.category
-              .toLowerCase()
-              .includes(search.toLowerCase());
-
-            return nameMatch || categoryMatch;
-          }
-        });
-      });
-    }
-    // set_Products(products);
-  }, [searchParams]);
+    set_Products((_products) => {
+      if (searchQuery) {
+        const filteredProducts = products.filter((product) =>
+          product.searchTags.current
+            .toLowerCase()
+            .includes(searchQuery.toLowerCase())
+        );
+        return filteredProducts;
+      } else {
+        return products;
+      }
+    });
+  }, [searchQuery, products]);
 
   const handleCategoryClick = (selectedCategory: any) => {
     setSelectedCategory(selectedCategory);
+    setSelectedFilters([]);
+    setSelectedSizes([]);
   };
   //====
   const [selectedFilters, setSelectedFilters] = useState<any[]>([]);
@@ -100,6 +93,7 @@ const Products = () => {
           setSelectedSizes,
           selectedFilters,
           setSelectedFilters,
+          setSelectedCategory,
         }}
       />
       <div className="products-container">

@@ -17,5 +17,5 @@ export type products = {
   size: string[];
   category: string;
   type: string;
-  searchTags: string;
+  searchTags: { current: string };
 };
